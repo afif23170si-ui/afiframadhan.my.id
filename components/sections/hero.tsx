@@ -60,14 +60,14 @@ export function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.15] tracking-tight text-foreground"
+            className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.15] tracking-tight text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             Crafting <span className="gradient-text">digital experiences</span>
-            <br />
-            with precision
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>with precision
           </motion.h1>
 
           {/* Subtitle */}
