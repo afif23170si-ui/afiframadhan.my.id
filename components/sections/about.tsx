@@ -56,9 +56,6 @@ export function About() {
               <span className="relative text-sm font-medium text-foreground">Hi, I am Afif Ramadhan</span>
             </div>
           </div>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            A passionate developer with a creative soul.
-          </p>
         </motion.div>
 
         {/* Bio with Typing Animation */}

@@ -83,7 +83,7 @@ export function Testimonials() {
 
           {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading">
-            Feedback that speaks for itself
+            Feedback that speaks<br />for itself
           </h2>
         </motion.div>
 

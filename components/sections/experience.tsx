@@ -56,9 +56,9 @@ export function Experience() {
               <span className="relative text-sm font-medium text-foreground">Work Experience</span>
             </div>
           </div>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and key accomplishments
-          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading">
+            My professional journey<br />and key accomplishments
+          </h2>
         </motion.div>
 
         {/* Experience Timeline */}
