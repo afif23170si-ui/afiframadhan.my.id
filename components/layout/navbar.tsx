@@ -174,6 +174,7 @@ export function Navbar() {
                     size="icon"
                     onClick={() => setIsOpen(!isOpen)}
                     className="relative h-10 w-10"
+                    aria-label={isOpen ? "Close menu" : "Open menu"}
                   >
                     {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                   </Button>

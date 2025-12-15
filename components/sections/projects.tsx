@@ -25,6 +25,9 @@ export function Projects() {
   return (
     <SectionWrapper id="projects" className="py-16 md:py-24">
       <div className="space-y-12">
+        {/* Section heading for accessibility - visually hidden */}
+        <h2 className="sr-only">Featured Projects</h2>
+        
         {/* Projects Grid - 2 Column Layout */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
