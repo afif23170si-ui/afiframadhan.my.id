@@ -34,7 +34,7 @@ export function About() {
   return (
     <SectionWrapper id="about" className="relative">
       {/* Ultra-Smooth Gradient Transition from Hero Section */}
-      <div className="absolute top-0 left-0 right-0 h-[40vh] md:h-[70vh] -mt-20 md:-mt-56 pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 h-[20vh] md:h-[30vh] -mt-10 md:-mt-20 pointer-events-none -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-background/10 via-20% via-background/25 via-35% via-background/45 via-50% via-background/65 via-65% via-background/85 via-80% to-background to-100%" />
       </div>
       

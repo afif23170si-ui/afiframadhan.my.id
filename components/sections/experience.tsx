@@ -37,7 +37,7 @@ const item = {
 
 export function Experience() {
   return (
-    <SectionWrapper id="experience">
+    <SectionWrapper id="experience" className="pt-20 md:pt-28 lg:pt-36">
       <div className="space-y-12">
         {/* Section Header */}
         <motion.div
