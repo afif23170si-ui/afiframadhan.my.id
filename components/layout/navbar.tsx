@@ -75,7 +75,7 @@ export function Navbar() {
         {!scrolled ? (
           <motion.nav
             key="top-navbar"
-            className="absolute top-0 left-0 right-0 z-50 border-b border-black/[0.01] dark:border-white/[0.01] bg-transparent py-2"
+            className="absolute top-0 left-0 right-0 z-50 md:border-b md:border-black/[0.01] md:dark:border-white/[0.01] bg-transparent py-4"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -158,8 +158,8 @@ export function Navbar() {
                   <ThemeToggle />
                   
                   <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-5 shadow-lg shadow-blue-500/25 transition-all duration-300"
+                    size="lg" 
+                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-6 h-12 shadow-lg shadow-blue-500/25 transition-all duration-300"
                     onClick={() => scrollToSection("#contact")}
                   >
                     Get In Touch
@@ -205,32 +205,15 @@ export function Navbar() {
                           {item.name}
                         </motion.a>
                       ))}
-                      <div className="h-px bg-border/50 my-2" />
-                      <div className="flex items-center justify-between px-4 py-2">
-                        <span className="text-sm font-medium text-muted-foreground">Follow me</span>
-                        <a 
-                          href="https://github.com" 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="text-foreground/70 hover:text-foreground transition-colors"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                            <path d="M9 18c-4.51 2-5-2-7-2" />
-                          </svg>
-                        </a>
-                      </div>
-                      <Button className="w-full mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full">Get In Touch</Button>
+                      <Button 
+                        className="w-full mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full"
+                        onClick={() => {
+                          scrollToSection("#contact")
+                          setIsOpen(false)
+                        }}
+                      >
+                        Get In Touch
+                      </Button>
                     </div>
                   </motion.div>
                 )}
