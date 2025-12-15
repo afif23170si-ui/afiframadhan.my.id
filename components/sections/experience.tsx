@@ -56,7 +56,7 @@ export function Experience() {
               <span className="relative text-sm font-medium text-foreground">Work Experience</span>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold font-heading">
             My professional journey<br />and key accomplishments
           </h2>
         </motion.div>

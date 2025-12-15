@@ -72,7 +72,7 @@ export function Testimonials() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold font-heading">
             Feedback that speaks<br />for itself
           </h2>
         </motion.div>
