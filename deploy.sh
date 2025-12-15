@@ -25,11 +25,24 @@ echo ""
 # Git (optional)
 read -p "📦 Push to GitHub? (y/n): " push_git
 if [ "$push_git" = "y" ] || [ "$push_git" = "Y" ]; then
-    read -p "Commit message: " commit_msg
-    git add .
-    git commit -m "$commit_msg"
+    # Check if there are changes to commit
+    if [ -n "$(git status --porcelain)" ]; then
+        read -p "Commit message: " commit_msg
+        git add .
+        git commit -m "$commit_msg"
+        echo "✅ Changes committed!"
+    else
+        echo "📌 No new changes to commit."
+    fi
+    
+    # Always try to push (there might be unpushed commits)
+    echo "📤 Pushing to GitHub..."
     git push
-    echo "✅ Pushed to GitHub!"
+    if [ $? -eq 0 ]; then
+        echo "✅ Pushed to GitHub!"
+    else
+        echo "⚠️ Push failed - check your authentication"
+    fi
 fi
 
 echo ""
