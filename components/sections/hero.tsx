@@ -62,7 +62,7 @@ export function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.15] tracking-tight text-foreground"
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-heading leading-[1.15] tracking-tight text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
