@@ -92,7 +92,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-lg md:rounded-full px-6 md:px-8 shadow-lg h-12"
+              className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-full px-6 md:px-8 shadow-lg h-12"
               onClick={scrollToProjects}
             >
               View Projects
@@ -100,7 +100,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="group border-border hover:bg-muted transition-all duration-300 rounded-lg md:rounded-full px-6 md:px-8 h-12"
+              className="group border-border hover:bg-muted transition-all duration-300 rounded-full px-6 md:px-8 h-12"
             >
               Download CV
             </Button>
