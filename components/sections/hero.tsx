@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Download, Code, Database, Cpu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
@@ -28,7 +27,7 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
-          className="flex flex-col items-start md:items-center text-left md:text-center space-y-5 md:space-y-6 max-w-3xl md:mx-auto"
+          className="flex flex-col items-center text-center space-y-5 md:space-y-6 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -38,7 +37,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="flex flex-col items-start md:items-center gap-3"
+            className="flex flex-col items-center gap-3"
           >
             {/* Profile Photo - Desktop only */}
             <div className="hidden md:block w-16 h-16 rounded-full overflow-hidden ring-2 ring-border/40 shadow-lg">
@@ -58,6 +57,9 @@ export function Hero() {
             </div>
           </motion.div>
 
+
+
+
           {/* Main Heading */}
           <motion.h1
             className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.15] tracking-tight text-foreground"
@@ -65,9 +67,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Crafting <span className="gradient-text">digital experiences</span>
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>with precision
+            Crafting <br className="block sm:hidden" />
+            <span className="gradient-text">digital experiences</span>
+            <br className="block" />
+            with precision
           </motion.h1>
 
           {/* Subtitle */}
