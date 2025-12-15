@@ -23,6 +23,36 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Scroll Spy - Detect which section is currently in view
+  useEffect(() => {
+    const sectionIds = ["hero", "projects", "about", "experience"]
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px", // Trigger when section is in the middle of viewport
+      threshold: 0
+    }
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActivePath(`#${entry.target.id}`)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {
