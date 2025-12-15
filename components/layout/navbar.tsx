@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 
 
@@ -55,7 +56,7 @@ export function Navbar() {
                 {/* Left: Logo */}
                 <motion.a
                   href="#hero"
-                  className="text-lg sm:text-xl md:text-2xl font-bold font-heading flex-shrink-0 w-[140px]"
+                  className="flex-shrink-0 w-[140px] flex items-center"
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection("#hero")
@@ -63,7 +64,13 @@ export function Navbar() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span>Afif</span>
+                  <Image
+                    src="/logo-a.png"
+                    alt="Afif Logo"
+                    width={28}
+                    height={28}
+                    className="object-contain"
+                  />
                 </motion.a>
 
                 {/* Center: Navigation */}
