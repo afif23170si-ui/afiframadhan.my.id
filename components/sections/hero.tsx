@@ -68,7 +68,7 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             Crafting <br className="block sm:hidden" />
-            <span className="gradient-text">digital experiences</span>
+            digital experiences
             <br className="block" />
             with precision
           </motion.h1>
