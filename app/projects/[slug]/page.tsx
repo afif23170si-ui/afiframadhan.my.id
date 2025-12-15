@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* Back Navigation */}
       <div className="fixed top-6 left-6 z-50">
         <Link href="/#projects">
-          <Button variant="outline" size="sm" className="gap-2 backdrop-blur-sm bg-background/80">
+          <Button variant="outline" size="sm" className="gap-2 backdrop-blur-sm bg-background/80 rounded-full">
             <ArrowLeft className="w-4 h-4" />
             Back
           </Button>
@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {/* Action Buttons */}
             <div className="flex justify-center gap-4 pt-4">
               {project.liveUrl && (
-                <Button asChild className="gap-2 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:shadow-xl hover:shadow-blue-500/25">
+                <Button asChild className="gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 hover:shadow-xl hover:shadow-blue-500/25 rounded-full">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4" />
                     View Live
@@ -67,7 +67,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </Button>
               )}
               {project.githubUrl && (
-                <Button variant="outline" asChild className="gap-2">
+                <Button variant="outline" asChild className="gap-2 rounded-full">
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     View Code

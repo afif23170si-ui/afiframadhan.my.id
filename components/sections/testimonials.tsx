@@ -61,23 +61,13 @@ export function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Avatar Group + Badge */}
-          <div className="flex justify-center items-center gap-3">
-            <div className="flex -space-x-2">
-              {testimonials.slice(0, 3).map((t, i) => (
-                <img
-                  key={i}
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-8 h-8 rounded-full border-2 border-background"
-                />
-              ))}
-            </div>
+          {/* Badge */}
+          <div className="flex justify-center">
             <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
                 <div className="w-full h-full rounded-full bg-background" />
               </div>
-              <span className="relative text-sm font-medium text-foreground">Trusted by leaders</span>
+              <span className="relative text-sm font-medium text-foreground">Testimonial</span>
             </div>
           </div>
 

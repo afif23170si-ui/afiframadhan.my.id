@@ -159,10 +159,10 @@ export function Navbar() {
                   
                   <Button 
                     size="sm" 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-5 shadow-lg shadow-blue-500/25 transition-all duration-300"
                     onClick={() => scrollToSection("#contact")}
                   >
-                    Contact
+                    Get In Touch
                   </Button>
                 </div>
 
@@ -230,7 +230,7 @@ export function Navbar() {
                           </svg>
                         </a>
                       </div>
-                      <Button className="w-full mt-2">Contact Me</Button>
+                      <Button className="w-full mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full">Get In Touch</Button>
                     </div>
                   </motion.div>
                 )}
