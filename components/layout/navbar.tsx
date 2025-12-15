@@ -95,7 +95,7 @@ export function Navbar() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Image
-                    src="/logo-a.png"
+                    src="/logo-a.webp"
                     alt="Afif Logo"
                     width={28}
                     height={28}

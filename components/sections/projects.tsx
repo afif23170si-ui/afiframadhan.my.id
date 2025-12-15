@@ -33,7 +33,7 @@ export function Projects() {
           whileInView="show"
           viewport={{ once: true }}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               variants={item}
@@ -51,7 +51,8 @@ export function Projects() {
                           src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover"
-                          loading="lazy"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          {...(index === 0 && { fetchPriority: "high" })}
                         />
                       </div>
                     </div>
