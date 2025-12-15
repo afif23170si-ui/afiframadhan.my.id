@@ -100,7 +100,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="group border-border hover:bg-muted transition-all duration-300 rounded-full px-6 md:px-8 h-12"
+              className="group border-white/20 dark:border-white/10 bg-white/10 dark:bg-white/5 backdrop-blur-md hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 rounded-full px-6 md:px-8 h-12 shadow-lg"
             >
               Download CV
             </Button>

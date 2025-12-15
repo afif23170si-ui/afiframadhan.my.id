@@ -75,7 +75,7 @@ export function Navbar() {
         {!scrolled ? (
           <motion.nav
             key="top-navbar"
-            className="absolute top-0 left-0 right-0 z-50 border-b border-white/[0.02] bg-transparent py-2"
+            className="absolute top-0 left-0 right-0 z-50 border-b border-black/[0.01] dark:border-white/[0.01] bg-transparent py-2"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
