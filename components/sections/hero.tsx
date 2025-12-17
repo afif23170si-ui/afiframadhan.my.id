@@ -12,7 +12,7 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative min-h-[auto] md:min-h-[100dvh] flex items-center justify-center overflow-hidden py-20 pb-8 md:py-0 pt-32 md:pt-0">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-32 pb-16 md:pt-48 md:pb-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
@@ -29,7 +29,7 @@ export function Hero() {
             className="flex flex-col items-center gap-4"
           >
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm shadow-sm hover:bg-background/80 transition-colors duration-300">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
               <div className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -71,7 +71,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-full px-6 md:px-8 shadow-lg h-12"
+              className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-full px-6 md:px-8 h-12"
               onClick={scrollToProjects}
             >
               View Projects
@@ -79,7 +79,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="group border-white/20 dark:border-white/10 bg-white/10 dark:bg-white/5 backdrop-blur-md hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 rounded-full px-6 md:px-8 h-12 shadow-lg"
+              className="group border-white/20 dark:border-white/10 bg-white/10 dark:bg-white/5 backdrop-blur-md hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white transition-all duration-300 rounded-full px-6 md:px-8 h-12"
             >
               Download CV
             </Button>
