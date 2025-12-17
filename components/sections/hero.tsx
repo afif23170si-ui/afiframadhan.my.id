@@ -48,8 +48,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            I design & build digital products people actually
-            <span className="text-muted-foreground/80 font-normal italic ml-3">enjoy using.</span>
+            Designing Digital Products
+            <span className="text-muted-foreground/80 font-normal italic ml-3">That Matter</span>
           </motion.h1>
 
           {/* Subtitle */}
