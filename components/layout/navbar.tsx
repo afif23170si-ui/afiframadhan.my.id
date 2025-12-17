@@ -75,7 +75,7 @@ export function Navbar() {
         {!scrolled ? (
           <motion.nav
             key="top-navbar"
-            className="absolute top-0 left-0 right-0 z-50 md:border-b md:border-black/[0.01] md:dark:border-white/[0.01] bg-transparent py-4"
+            className="absolute top-0 left-0 right-0 z-50 bg-transparent py-4"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -105,7 +105,7 @@ export function Navbar() {
 
                 {/* Center: Navigation */}
                 <div className="hidden md:flex items-center justify-center flex-1">
-                  <div className="flex items-center gap-2 lg:gap-4 p-1.5">
+                  <div className="flex items-center gap-2 lg:gap-4 p-1.5 border border-black/5 dark:border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
                     {centerNavItems.map((item) => {
                       const isActive = activePath === item.href
                       return (
@@ -154,7 +154,7 @@ export function Navbar() {
                 </div>
 
                 {/* Right: Actions */}
-                <div className="hidden md:flex items-center justify-end gap-4 w-[140px]">
+                <div className="hidden md:flex items-center justify-end gap-4 min-w-fit">
                   <ThemeToggle />
                   
                   <Button 
@@ -167,13 +167,13 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="flex md:hidden items-center gap-2">
+                <div className="flex md:hidden items-center gap-2 relative z-50">
                   <ThemeToggle />
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => setIsOpen(!isOpen)}
-                    className="relative h-10 w-10"
+                    className="relative h-10 w-10 border border-black/5 dark:border-white/10 rounded-full bg-white/5 backdrop-blur-sm"
                     aria-label={isOpen ? "Close menu" : "Open menu"}
                   >
                     {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -181,44 +181,59 @@ export function Navbar() {
                 </div>
               </div>
               
-              {/* Mobile Navigation */}
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    className="md:hidden glass-strong mt-2 rounded-2xl p-4 shadow-2xl border-none"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex flex-col gap-2">
-                      {centerNavItems.map((item) => (
-                        <motion.a
-                          key={item.name}
-                          href={item.href}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            scrollToSection(item.href)
-                          }}
-                          className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-4 rounded-lg hover:bg-muted/50 min-h-[48px] flex items-center"
-                          whileHover={{ x: 10 }}
+                {/* Mobile Navigation Overlay */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      className="fixed inset-0 z-40 md:hidden bg-background/60 backdrop-blur-xl flex flex-col items-center justify-center"
+                      initial={{ opacity: 0, y: "100%" }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: "100%" }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      <div className="flex flex-col items-center gap-8 relative z-50">
+                        {centerNavItems.map((item, index) => (
+                          <motion.a
+                            key={item.name}
+                            href={item.href}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              scrollToSection(item.href)
+                            }}
+                            className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors tracking-wide"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 + index * 0.1, duration: 0.3 }}
+                          >
+                            {item.name}
+                          </motion.a>
+                        ))}
+                        
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5, duration: 0.4 }}
+                          className="mt-8"
                         >
-                          {item.name}
-                        </motion.a>
-                      ))}
-                      <Button 
-                        className="w-full mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full"
-                        onClick={() => {
-                          scrollToSection("#contact")
-                          setIsOpen(false)
-                        }}
-                      >
-                        Get In Touch
-                      </Button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                          <Button 
+                            className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-8 h-12 text-base shadow-lg shadow-blue-500/25"
+                            onClick={() => {
+                              scrollToSection("#contact")
+                            }}
+                          >
+                            Get In Touch
+                          </Button>
+                        </motion.div>
+                      </div>
+
+                      {/* Decorative Background Elements */}
+                      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+                        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
+                        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-500/20 rounded-full blur-[100px]" />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
             </div>
           </motion.nav>
         ) : (

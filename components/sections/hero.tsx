@@ -12,18 +12,7 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative min-h-[auto] flex items-start md:items-center justify-center overflow-hidden py-20 pb-8 md:py-24 pt-24 md:pt-32">
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_15%,transparent_90%)]"></div>
-      </div>
-      
-      {/* Top White Fade */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
-
-      {/* Bottom White Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
-
+    <section id="hero" className="relative min-h-[auto] md:min-h-[100dvh] flex items-center justify-center overflow-hidden py-20 pb-8 md:py-0 pt-32 md:pt-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
@@ -32,28 +21,20 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          {/* Profile Photo + Badge - Stacked Vertically */}
+          {/* Badge - Stacked Vertically */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-4"
           >
-            {/* Profile Photo - Desktop only */}
-            <div className="hidden md:block w-16 h-16 rounded-full overflow-hidden ring-2 ring-border/40 shadow-lg">
-              <img
-                src="/images/profile2.jpg"
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            </div>
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-muted/30 backdrop-blur-sm">
-              <div className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm shadow-sm hover:bg-background/80 transition-colors duration-300">
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </div>
-              <span className="text-sm font-medium text-foreground">Available for new projects</span>
+              <span className="text-sm font-medium text-muted-foreground/90">Available for new projects</span>
             </div>
           </motion.div>
 
@@ -62,15 +43,13 @@ export function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-heading leading-[1.15] tracking-tight text-foreground"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading tracking-tighter leading-[1.1] text-foreground max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            Crafting <br className="block sm:hidden" />
-            digital experiences
-            <br className="block" />
-            with precision
+            I design & build digital products people actually
+            <span className="text-muted-foreground/80 font-normal italic ml-3">enjoy using.</span>
           </motion.h1>
 
           {/* Subtitle */}
