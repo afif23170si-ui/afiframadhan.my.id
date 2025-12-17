@@ -239,7 +239,7 @@ export function Navbar() {
         ) : (
           <motion.nav
             key="sticky-pill"
-            className="fixed top-4 left-0 right-0 mx-auto z-50 w-fit rounded-full bg-[var(--sticky-nav-bg)] backdrop-blur-md shadow-lg border border-[var(--sticky-nav-border)] px-1 py-1"
+            className="fixed top-4 left-0 right-0 mx-auto z-50 w-fit rounded-full bg-[var(--sticky-nav-bg)] backdrop-blur-md border border-[var(--sticky-nav-border)] px-1 py-1"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
