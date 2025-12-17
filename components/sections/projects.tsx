@@ -23,7 +23,7 @@ const item = {
 
 export function Projects() {
   return (
-    <SectionWrapper id="projects" className="py-16 md:py-24">
+    <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-24">
       <div className="space-y-12">
         {/* Section heading for accessibility - visually hidden */}
         <h2 className="sr-only">Featured Projects</h2>

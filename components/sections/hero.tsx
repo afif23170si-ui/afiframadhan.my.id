@@ -12,11 +12,11 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-32 pb-16 md:pt-48 md:pb-32">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-4 md:pt-40 md:pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
-          className="flex flex-col items-center text-center space-y-5 md:space-y-6 max-w-3xl mx-auto"
+          className="flex flex-col items-center text-center space-y-4 md:space-y-5 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -54,7 +54,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -87,7 +87,7 @@ export function Hero() {
 
           {/* Tech Stack Slider */}
           <motion.div
-            className="w-full pt-8 md:pt-12"
+            className="w-full pt-4 md:pt-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
