@@ -81,7 +81,7 @@ export function Navbar() {
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="container-custom">
+            <div className="container-custom relative">
               <div className="flex items-center justify-between gap-4">
                 {/* Left: Logo */}
                 <motion.a
@@ -104,7 +104,7 @@ export function Navbar() {
                 </motion.a>
 
                 {/* Center: Navigation */}
-                <div className="hidden md:flex items-center justify-center flex-1">
+                <div className="hidden md:flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                   <div className="flex items-center gap-2 lg:gap-4 p-1.5 border border-black/5 dark:border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
                     {centerNavItems.map((item) => {
                       const isActive = activePath === item.href
