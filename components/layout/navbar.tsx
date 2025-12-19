@@ -95,13 +95,12 @@ export function Navbar() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Image
-                    src="/logo.png"
+                    src="/logo-a.png"
                     alt="Afif Logo"
                     width={28}
                     height={28}
                     className="object-contain"
                   />
-                  <span className="ml-2 text-lg font-bold tracking-tight text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>Afif</span>
                 </motion.a>
 
                 {/* Center: Navigation */}
