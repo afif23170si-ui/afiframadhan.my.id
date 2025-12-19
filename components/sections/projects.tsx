@@ -65,7 +65,7 @@ export function Projects() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
                   
                   {/* Left Column: Info */}
-                  <div className="lg:col-span-4 flex flex-col justify-between p-5 md:p-6 lg:py-8 lg:px-8 space-y-6 order-2 lg:order-1 project-card-bg rounded-[24px] transition-colors duration-300 lg:h-[500px] overflow-hidden">
+                  <div className="lg:col-span-4 flex flex-col justify-between p-5 md:p-6 lg:py-8 lg:px-8 space-y-6 order-2 lg:order-1 project-card-bg rounded-[16px] md:rounded-[24px] transition-colors duration-300 lg:h-[500px] overflow-hidden">
                     <div className="space-y-6">
                       {/* Project Icon/Logo Placeholder */}
                       <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-white" style={{ boxShadow: '4px 6px 12px rgba(0, 0, 0, 0.1)' }}>
@@ -108,7 +108,7 @@ export function Projects() {
                   </div>
 
                   {/* Right Column: Image */}
-                  <div className="lg:col-span-8 order-1 lg:order-2 h-[250px] md:h-[350px] lg:h-[500px] relative rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5">
+                  <div className="lg:col-span-8 order-1 lg:order-2 h-[250px] md:h-[350px] lg:h-[500px] relative rounded-[16px] md:rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5">
                     <img
                       src={project.image}
                       alt={project.title}

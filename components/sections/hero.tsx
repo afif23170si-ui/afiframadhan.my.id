@@ -144,7 +144,7 @@ export function Hero() {
             >
               
               {/* Card Container */}
-              <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[520px] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black">
+              <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[520px] rounded-[20px] md:rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black">
                   <video 
                     src="/videos/mockup-album.webm" 
                     autoPlay
