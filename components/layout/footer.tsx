@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const socialLinks = [
   { icon: Github, href: "https://github.com/afif23170si-ui", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/afifrmdhn/", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:afifr5092@gmail.com.com", label: "Email" },
+  { icon: Mail, href: "mailto:afifr5092@gmail.com", label: "Email" },
 ]
 
 export function Footer() {

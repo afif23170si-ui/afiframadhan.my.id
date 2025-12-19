@@ -2,5 +2,9 @@
 User-agent: *
 Allow: /
 
+# Disallow crawling of development files
+Disallow: /_next/
+Disallow: /api/
+
 # Sitemap
 Sitemap: https://afiframadhan.my.id/sitemap.xml
