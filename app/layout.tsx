@@ -24,6 +24,16 @@ export const metadata: Metadata = {
     default: "Afif Ramadhan | Full Stack Developer",
     template: "%s | Afif Ramadhan",
   },
+  
+  // Icons - untuk memastikan Google dan browser mendeteksi favicon
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
   description: "Afif Ramadhan - Full Stack Developer specializing in modern web applications with strong UI/UX sense. Expert in React, Next.js, Laravel, and TypeScript. Building digital experiences that matter.",
   keywords: [
     "Afif Ramadhan",
