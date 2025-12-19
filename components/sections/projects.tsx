@@ -62,13 +62,13 @@ export function Projects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <div className="rounded-[32px]">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
                   
                   {/* Left Column: Info */}
                   <div className="lg:col-span-4 flex flex-col justify-between p-5 md:p-6 lg:py-8 lg:px-8 space-y-6 order-2 lg:order-1 project-card-bg rounded-[24px] transition-colors duration-300 lg:h-[500px] overflow-hidden">
                     <div className="space-y-6">
                       {/* Project Icon/Logo Placeholder */}
-                      <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500" style={{ boxShadow: '4px 6px 12px rgba(0, 0, 0, 0.1)' }}>
+                      <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-white" style={{ boxShadow: '4px 6px 12px rgba(0, 0, 0, 0.1)' }}>
                         {/* Use first letter of title as logo */}
                          <span className="text-xl font-bold font-heading">{project.title.charAt(0)}</span>
                       </div>
