@@ -4,6 +4,9 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/projects"
 
+import Link from "next/link"
+import Image from "next/image"
+
 export function Hero() {
   const scrollToProjects = () => {
     const element = document.querySelector("#projects")
@@ -119,10 +122,12 @@ export function Hero() {
                   key={`${project.id}-${i}`} 
                   className="relative w-[280px] h-[180px] md:w-[380px] md:h-[250px] shrink-0 rounded-2xl overflow-hidden shadow-lg"
                 >
-                  <img 
+                  <Image 
                     src={project.image} 
                     alt={project.title}
-                    className="object-cover w-full h-full"
+                    fill
+                    sizes="(max-width: 768px) 280px, 380px"
+                    className="object-cover"
                   />
                 </div>
               ))}
