@@ -10,6 +10,8 @@ export interface Project {
   liveUrl?: string
   githubUrl?: string
   year: string
+  client?: string
+  date?: string
 }
 
 export const projects: Project[] = [
@@ -17,7 +19,7 @@ export const projects: Project[] = [
     id: "bookumkm",
     title: "BookUMKM",
     subtitle: "UMKM booking platform in Indonesia",
-    description: "A comprehensive booking platform designed specifically for Indonesian SMEs (UMKM). The platform enables small businesses to manage their bookings, customers, and services efficiently with an intuitive dashboard and seamless user experience.",
+    description: "A comprehensive booking platform designed specifically for Indonesian SMEs (UMKM). features seasonal menus, event updates, and warm visual storytelling.",
     image: "/images/bookumkm.webp",
     gallery: [
       "/images/bookumkm.webp",
@@ -33,36 +35,20 @@ export const projects: Project[] = [
     liveUrl: "https://kelompokfwd4-sibm3.karyakreasi.id/",
     githubUrl: "https://github.com/Hasan2302/react-bookumkm.git",
     year: "2025",
+    client: "BookUMKM Group",
+    date: "Jan 12, 2025"
   },
   {
     id: "project-2",
     title: "Project 2",
     subtitle: "project not yet available",
-    description: "This project is currently under development. Check back soon for updates!",
+    description: "A cozy digital home for a neighborhood café, featuring seasonal menus, event updates, and warm visual storytelling",
     image: "/images/project.webp",
     technologies: [],
     features: [],
     year: "Coming Soon",
-  },
-  {
-    id: "project-3",
-    title: "Project 3",
-    subtitle: "project not yet available",
-    description: "This project is currently under development. Check back soon for updates!",
-    image: "/images/project.webp",
-    technologies: [],
-    features: [],
-    year: "Coming Soon",
-  },
-  {
-    id: "project-4",
-    title: "Project 4",
-    subtitle: "project not yet available",
-    description: "This project is currently under development. Check back soon for updates!",
-    image: "/images/project.webp",
-    technologies: [],
-    features: [],
-    year: "Coming Soon",
+    client: "Coming Soon",
+    date: "May 3, 2025"
   },
 ]
 

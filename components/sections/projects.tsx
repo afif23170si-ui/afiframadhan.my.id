@@ -23,64 +23,116 @@ const item = {
 
 export function Projects() {
   return (
-    <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-24">
-      <div className="space-y-12">
-        {/* Section heading for accessibility - visually hidden */}
-        <h2 className="sr-only">Featured Projects</h2>
-        
-        {/* Projects Grid - 2 Column Layout */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
+    <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-32">
+      <div className="space-y-16 md:space-y-24">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-2xl space-y-6">
+            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
+              {/* Gradient Border */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
+                <div className="w-full h-full rounded-full bg-background" />
+              </div>
+              <span className="relative text-sm font-medium text-foreground">Projects</span>
+            </div>
+            
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-heading">
+              A curated collection of <br className="hidden md:block" />
+              websites designed with care
+            </h2>
+          </div>
+
+          <Link 
+            href="/projects" 
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted/50 hover:bg-muted transition-colors text-sm font-medium"
+          >
+            All Projects
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Projects List - Single Column Cards */}
+        <div className="flex flex-col gap-12 md:gap-20">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              variants={item}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Link href={`/projects/${project.id}`} className="group block">
-                {/* Card Container */}
-                <div className="rounded-2xl border border-border/50 hover:border-border transition-all duration-300 overflow-hidden">
-                  {/* Inner Card */}
-                  <div className="bg-background overflow-hidden">
-                    {/* Preview Area */}
-                    <div className="relative aspect-[16/10] bg-muted/30 p-6 md:p-8 flex items-center justify-center overflow-hidden">
-                      {/* Mock Browser/App Frame */}
-                      <div className="relative w-full max-w-[90%] rounded-lg overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          {...(index === 0 && { fetchPriority: "high" })}
-                        />
+              <div className="rounded-[32px]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 items-stretch">
+                  
+                  {/* Left Column: Info */}
+                  <div className="lg:col-span-4 flex flex-col justify-between p-5 md:p-6 lg:py-8 lg:px-8 space-y-6 order-2 lg:order-1 project-card-bg rounded-[24px] transition-colors duration-300 lg:h-[500px] overflow-hidden">
+                    <div className="space-y-6">
+                      {/* Project Icon/Logo Placeholder */}
+                      <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500" style={{ boxShadow: '4px 6px 12px rgba(0, 0, 0, 0.1)' }}>
+                        {/* Use first letter of title as logo */}
+                         <span className="text-xl font-bold font-heading">{project.title.charAt(0)}</span>
                       </div>
-                    </div>
-                    
-                    {/* Project Info */}
-                    <div className="p-5 md:p-6 flex items-center justify-between">
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-cyan-400 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+
+                      <div className="space-y-4">
+                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">
                           {project.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {project.subtitle}
+                        <p className="text-muted-foreground text-base leading-relaxed line-clamp-3">
+                          {project.description}
                         </p>
                       </div>
-                      {/* Hover Arrow Button */}
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                        <ArrowRight className="w-5 h-5 text-white" />
+
+                      {/* Metadata */}
+                      <div className="space-y-3 pt-4">
+                        <div className="flex justify-between items-center text-sm py-2">
+                          <span className="text-muted-foreground">Client</span>
+                          <span className="font-medium">{project.client || "Personal Project"}</span>
+                        </div>
+                        <div className="h-px bg-border/50" />
+                        <div className="flex justify-between items-center text-sm py-2">
+                          <span className="text-muted-foreground">Date</span>
+                          <span className="font-medium">{project.date || project.year}</span>
+                        </div>
                       </div>
                     </div>
+
+                    {/* Button */}
+                    <div className="pt-4">
+                      <Link 
+                        href={`/projects/${project.id}`}
+                        className="inline-flex w-full items-center justify-center bg-foreground text-background hover:bg-foreground/90 transition-colors h-12 rounded-full font-medium text-sm"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
+
+                  {/* Right Column: Image */}
+                  <div className="lg:col-span-8 order-1 lg:order-2 h-[250px] md:h-[350px] lg:h-[500px] relative rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
+        {/* Mobile View All Button */}
+        <div className="md:hidden flex justify-center">
+           <Link 
+            href="/projects" 
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-muted/50 hover:bg-muted transition-colors text-sm font-medium"
+          >
+            All Projects
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </SectionWrapper>
   )

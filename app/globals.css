@@ -91,6 +91,15 @@
   --sticky-nav-border: rgba(255, 255, 255, 0.1);
 }
 
+/* Project Card Background - Light/Dark mode */
+.project-card-bg {
+  background-color: #F7F7F7;
+}
+
+.dark .project-card-bg {
+  background-color: #0a0a0a;
+}
+
 /* ============================================
    TAILWIND THEME EXTENSIONS
    ============================================ */
