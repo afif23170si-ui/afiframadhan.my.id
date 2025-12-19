@@ -64,8 +64,8 @@ export function Navbar() {
   // Updated nav items as requested
   const centerNavItems = [
     { name: "Home", href: "#hero" },
-    { name: "Projects", href: "#projects" },
     { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
     { name: "Work", href: "#experience" },
   ]
 
@@ -95,12 +95,13 @@ export function Navbar() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Image
-                    src="/logo-a.webp"
+                    src="/logo.png"
                     alt="Afif Logo"
                     width={28}
                     height={28}
                     className="object-contain"
                   />
+                  <span className="ml-2 text-lg font-bold tracking-tight text-foreground" style={{ fontFamily: 'var(--font-space-grotesk)' }}>Afif</span>
                 </motion.a>
 
                 {/* Center: Navigation */}
