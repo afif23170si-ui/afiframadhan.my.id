@@ -81,6 +81,42 @@ export function About() {
             />
           </p>
         </motion.div>
+
+        {/* Tech Stack Slider */}
+        <motion.div
+          className="w-full pt-4 md:pt-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          {/* <p className="text-xs text-muted-foreground mb-4 uppercase tracking-widest">Tech Stack</p> */}
+          <div className="relative overflow-hidden w-full max-w-md md:max-w-lg mx-auto md:mx-auto">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10" />
+            
+            {/* Sliding container */}
+            <motion.div
+              className="flex gap-8 items-center"
+              animate={{ x: [0, -600] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-8 items-center shrink-0">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-8 h-8 opacity-50 hover:opacity-100 transition-all duration-300 dark:invert" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" className="w-8 h-8 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Cursor Blink Animation */}
