@@ -17,7 +17,7 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-8 md:pt-40 md:pb-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
