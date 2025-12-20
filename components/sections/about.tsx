@@ -13,7 +13,7 @@ export function About() {
           
           {/* Main Bio Card */}
           <motion.div 
-            className="lg:col-span-5 bg-black dark:bg-[#0a0a0a] rounded-2xl p-4 md:p-6 flex flex-col justify-between min-h-[500px] text-white relative overflow-hidden group shadow-[15px_20px_50px_rgba(0,0,0,0.3)]"
+            className="lg:col-span-5 bg-black dark:bg-[#0a0a0a] rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[500px] text-white relative overflow-hidden group shadow-[15px_20px_50px_rgba(0,0,0,0.3)]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,7 +42,7 @@ export function About() {
             
             {/* Stat 1 */}
             <motion.div 
-              className="bg-card rounded-2xl p-4 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
+              className="bg-card rounded-2xl p-5 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,7 +62,7 @@ export function About() {
 
             {/* Stat 2 */}
             <motion.div 
-              className="bg-card rounded-2xl p-4 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
+              className="bg-card rounded-2xl p-5 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,7 +82,7 @@ export function About() {
 
             {/* Stat 3 */}
             <motion.div 
-              className="bg-card rounded-2xl p-4 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
+              className="bg-card rounded-2xl p-5 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -102,7 +102,7 @@ export function About() {
 
             {/* Stat 4 */}
             <motion.div 
-              className="bg-card rounded-2xl p-4 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
+              className="bg-card rounded-2xl p-5 md:p-6 flex flex-col min-h-[200px] transition-shadow duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
