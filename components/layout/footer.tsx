@@ -1,5 +1,4 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react"
-import { motion } from "framer-motion"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/afif23170si-ui", label: "GitHub" },
@@ -29,10 +28,10 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground flex items-center gap-2">
-            © 2025 Afif Ramadhan. Built with{" "}
-            <Heart className="h-4 w-4 fill-red-500 text-red-500" /> and
-            Next.js
+          <p className="text-sm text-muted-foreground flex items-center gap-1">
+            © 2025 Afif Ramadhan. Built with
+            <Heart className="h-4 w-4 fill-red-500 text-red-500 mx-0.5" />
+            and Next.js
           </p>
         </div>
       </div>

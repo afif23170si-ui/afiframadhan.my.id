@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/projects"
+import { ArrowRight, Download } from "lucide-react"
 
 import Link from "next/link"
 import Image from "next/image"
@@ -16,7 +17,7 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-4 md:pt-40 md:pb-0">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
@@ -79,12 +80,13 @@ export function Hero() {
               onClick={scrollToProjects}
             >
               View Projects
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="group border-white/20 dark:border-white/10 bg-white/10 dark:bg-white/5 backdrop-blur-md hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white transition-all duration-300 rounded-full px-6 md:px-8 h-12"
+              className="group bg-muted hover:bg-muted/80 text-foreground transition-all duration-300 rounded-full px-6 md:px-8 h-12 shadow-none"
             >
+              <Download className="w-4 h-4 mr-2" />
               Download CV
             </Button>
           </motion.div>
