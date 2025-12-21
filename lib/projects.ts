@@ -36,7 +36,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Hasan2302/react-bookumkm.git",
     year: "2025",
     client: "BookUMKM Group",
-    date: "Jan 12, 2025"
+    date: "Nov 12, 2025"
   },
   {
     id: "project-2",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     features: [],
     year: "Coming Soon",
     client: "Coming Soon",
-    date: "May 3, 2025"
+    date: "Dec 21, 2025"
   },
 ]
 

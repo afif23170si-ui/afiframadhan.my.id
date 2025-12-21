@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/projects"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, Mail } from "lucide-react"
 
 import Link from "next/link"
 import Image from "next/image"
@@ -85,9 +85,12 @@ export function Hero() {
             <Button
               size="lg"
               className="group bg-muted hover:bg-muted/80 text-foreground transition-all duration-300 rounded-full px-6 md:px-8 h-12 shadow-none"
+              asChild
             >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
+              <a href="mailto:afifr5092@gmail.com">
+                <Mail className="w-4 h-4 mr-2" />
+                Email Me
+              </a>
             </Button>
           </motion.div>
 

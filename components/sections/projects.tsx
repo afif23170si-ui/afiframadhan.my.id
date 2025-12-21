@@ -108,14 +108,23 @@ export function Projects() {
                   </div>
 
                   {/* Right Column: Image */}
-                  <div className="lg:col-span-8 order-1 lg:order-2 h-[250px] md:h-[350px] lg:h-[500px] relative rounded-[16px] md:rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5">
+                  <Link 
+                    href={`/projects/${project.id}`}
+                    className="lg:col-span-8 order-1 lg:order-2 h-[250px] md:h-[350px] lg:h-[500px] relative rounded-[16px] md:rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5 group/image cursor-pointer"
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
                       loading="lazy"
                     />
-                  </div>
+                    {/* Hover Overlay with Badge */}
+                    <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                      <span className="px-6 py-3 bg-white text-black rounded-full font-medium text-sm opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-300">
+                        View Project
+                      </span>
+                    </div>
+                  </Link>
 
                 </div>
               </div>
