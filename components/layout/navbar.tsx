@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, BadgeCheck } from "lucide-react"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -86,7 +86,7 @@ export function Navbar() {
                 {/* Left: Logo */}
                 <motion.a
                   href="#hero"
-                  className="flex-shrink-0 w-[140px] flex items-center"
+                  className="flex-shrink-0 flex items-center gap-2 p-1.5 pr-4 border border-black/5 dark:border-white/10 rounded-full bg-white/5 backdrop-blur-sm transition-colors hover:bg-white/10"
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection("#hero")
@@ -94,13 +94,22 @@ export function Navbar() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Image
-                    src="/logo-a.png"
+                    <Image
+                    src="/logo-p.jpg"
                     alt="Afif Logo"
-                    width={28}
-                    height={28}
-                    className="object-contain"
+                    width={32}
+                    height={32}
+                    className="object-cover rounded-full"
                   />
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-semibold text-sm tracking-tight">Afif Ramadhan</span>
+                    <svg viewBox="0 0 24 24" aria-label="Verified Account" className="w-4 h-4 text-blue-500 fill-current">
+                      <g fillRule="evenodd">
+                        <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.114-1.335.325C14.686 2.68 13.18 1.5 11.5 1.5c-1.7 0-3.2 1.16-3.937 2.327-.41-.212-.866-.33-1.337-.33-2.097 0-3.8 1.8-3.8 3.997 0 .495.084.965.238 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.58.875 2.95 2.147 3.6-.154.435-.238.9-.238 1.4 0 2.21 1.71 4 3.818 4 .47 0 .92-.114 1.335-.325.737 1.166 2.242 2.33 3.922 2.33 1.7 0 3.18-1.16 3.937-2.327.41.21.866.328 1.337.328 2.097 0 3.8-1.79 3.8-3.997 0-.495-.084-.965-.238-1.4 1.272-.65 2.147-2.018 2.147-3.6z" />
+                        <path d="M10 16.5l-3.5-3.5 1.414-1.414L10 13.672l6.086-6.086 1.414 1.414z" fill="white" />
+                      </g>
+                    </svg>
+                  </div>
                 </motion.a>
 
                 {/* Center: Navigation */}
