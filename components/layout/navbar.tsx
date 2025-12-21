@@ -159,7 +159,7 @@ export function Navbar() {
                   
                   <Button 
                     size="lg" 
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-6 h-12 shadow-lg shadow-blue-500/25 transition-all duration-300"
+                    className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 h-12 transition-all duration-300"
                     onClick={() => scrollToSection("#contact")}
                   >
                     Get In Touch
@@ -216,7 +216,7 @@ export function Navbar() {
                           className="mt-8"
                         >
                           <Button 
-                            className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full px-8 h-12 text-base shadow-lg shadow-blue-500/25"
+                            className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 h-12 text-base transition-all duration-300"
                             onClick={() => {
                               scrollToSection("#contact")
                             }}

@@ -31,7 +31,7 @@ export function About() {
              </div>
 
              <div className="relative z-10 pt-10">
-               <Button className="w-full bg-white text-black hover:bg-white/90 rounded-full h-14 text-base font-semibold transition-transform active:scale-95 shadow-none border-none">
+               <Button className="w-full bg-white text-black hover:bg-white/90 rounded-full h-12 text-base font-semibold transition-transform active:scale-95 shadow-none border-none">
                  About me
                </Button>
              </div>
