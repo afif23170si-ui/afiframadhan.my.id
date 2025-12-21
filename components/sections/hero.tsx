@@ -17,7 +17,7 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-8 md:pt-40 md:pb-32">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-32 pb-8 md:pt-40 md:pb-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
@@ -117,8 +117,8 @@ export function Hero() {
             <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
               <motion.div
-                className="flex gap-6 md:gap-8 items-center"
-                animate={{ x: [0, -1000] }}
+                className="flex gap-6 md:gap-8 items-center w-max"
+                animate={{ x: ["0%", "-33.333333%"] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
               {/* Triple the list for smoother infinite loop */}
@@ -151,7 +151,8 @@ export function Hero() {
               {/* Card Container */}
               <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[520px] rounded-[20px] md:rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black">
                   <video 
-                    src="/videos/mockup-album.webm" 
+                    src="/videos/mockup-album.webm"
+                    poster="/images/curved-poster.jpg"
                     autoPlay
                     muted
                     loop

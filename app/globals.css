@@ -411,6 +411,22 @@ body::before {
   }
 }
 
+@keyframes gradient-fast {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-fast {
+  animation: gradient-fast 3s ease infinite;
+}
+
 /* ============================================
    SECTION SPACING
    ============================================ */
@@ -488,6 +504,11 @@ body::before {
   animation-play-state: paused;
 }
 
+/* Mask Gradient Utility for Tech Ticker */
+.mask-gradient-x {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
 
 
 ::selection {
@@ -521,4 +542,3 @@ body::before {
 .rotate-x-6 {
   transform: rotateX(6deg);
 }
-
