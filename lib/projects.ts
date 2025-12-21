@@ -20,9 +20,9 @@ export const projects: Project[] = [
     title: "BookUMKM",
     subtitle: "UMKM booking platform in Indonesia",
     description: "A comprehensive booking platform designed specifically for Indonesian SMEs (UMKM). features seasonal menus, event updates, and warm visual storytelling.",
-    image: "/images/bookumkm.webp",
+    image: "/images/bookumkm.png",
     gallery: [
-      "/images/bookumkm.webp",
+      "/images/bookumkm.png",
     ],
     technologies: ["Laravel", "React", "MySQL", "Tailwind CSS", "Inertia.js"],
     features: [
