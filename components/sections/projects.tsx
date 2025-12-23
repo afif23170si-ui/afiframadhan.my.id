@@ -121,7 +121,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 export function Projects() {
   return (
     <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-32">
-      <div className="space-y-16 md:space-y-24">
+      <div className="space-y-8 md:space-y-24">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl space-y-6">
@@ -142,6 +142,23 @@ export function Projects() {
               A curated collection of <br className="hidden md:block" />
               websites designed with care.
             </motion.h2>
+
+            {/* Mobile View All Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="md:hidden pt-2"
+            >
+               <Link 
+                href="/projects" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm transition-all text-sm font-medium text-zinc-200"
+              >
+                All Projects
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
 
           <motion.div
@@ -167,16 +184,7 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Mobile View All Button */}
-        <div className="md:hidden flex justify-center">
-           <Link 
-            href="/projects" 
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-muted/50 hover:bg-muted transition-colors text-sm font-medium"
-          >
-            All Projects
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+
       </div>
     </SectionWrapper>
   )
