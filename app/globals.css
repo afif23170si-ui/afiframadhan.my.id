@@ -171,9 +171,17 @@ body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
   background-image: url('/images/hero-background.png');
   background-attachment: fixed;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  /* Mobile: Fit width, don't zoom in (crop) */
+  background-size: 100% auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 html {
