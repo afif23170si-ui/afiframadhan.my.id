@@ -93,7 +93,7 @@ export function Projects() {
 
                         {/* Key Features Row */}
                         {project.features && project.features.length > 0 && (
-                          <div className="border-t border-white/5 pt-6">
+                          <div className="hidden md:block border-t border-white/5 pt-6">
                               <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">Key Highlights</h4>
                               <div className="flex flex-wrap gap-x-8 gap-y-3">
                                 {project.features.map((feature, i) => (
