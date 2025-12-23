@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/projects"
-import { ArrowRight, Mail, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu } from "lucide-react"
+import { ArrowRight, Mail, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu, Layers } from "lucide-react"
 
 import Link from "next/link"
 import Image from "next/image"
@@ -17,6 +17,7 @@ const techStack = [
   { name: "Database", icon: Database },
   { name: "Cloud", icon: Globe },
   { name: "AI/ML", icon: Cpu },
+  { name: "Laravel", icon: Layers },
 ]
 
 export function Hero() {
