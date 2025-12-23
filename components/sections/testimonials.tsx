@@ -78,11 +78,7 @@ export function Testimonials() {
         </motion.div>
 
         {/* Infinite Slider */}
-        <div className="relative overflow-hidden">
-          {/* Left Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          {/* Right Fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="relative overflow-hidden mask-gradient-x">
 
           {/* Sliding Track */}
           <motion.div
