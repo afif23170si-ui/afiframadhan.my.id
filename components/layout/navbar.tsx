@@ -78,7 +78,7 @@ export function Navbar() {
 
                 {/* Center: Navigation */}
                 <div className="hidden md:flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="flex items-center gap-2 lg:gap-4 p-1.5 border border-white/[0.03] rounded-full bg-white/5 backdrop-blur-md">
+                  <div className="flex items-center gap-1 p-1 border border-white/[0.03] rounded-full bg-white/5 backdrop-blur-md">
                     {centerNavItems.map((item) => {
                       const isActive = isLinkActive(item.href)
                       return (
@@ -87,15 +87,15 @@ export function Navbar() {
                           href={item.href}
                           onMouseEnter={() => setHoveredPath(item.href)}
                           onMouseLeave={() => setHoveredPath(null)}
-                          className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-                            isActive ? "text-foreground" : "text-foreground/70 hover:text-foreground"
+                          className={`relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
+                            isActive ? "text-white" : "text-zinc-400 hover:text-white"
                           }`}
                         >
                           {/* Background Indicator */}
                           {hoveredPath === item.href ? (
                             <motion.span
                               layoutId="navbar-indicator-top"
-                              className="absolute inset-0 bg-secondary/80 border border-white/[0.03] rounded-full -z-10"
+                              className="absolute inset-0 bg-zinc-800 rounded-full -z-10"
                               transition={{
                                 type: "spring",
                                 stiffness: 300,
@@ -105,7 +105,7 @@ export function Navbar() {
                           ) : isActive && hoveredPath === null ? (
                             <motion.span
                               layoutId="navbar-indicator-top"
-                              className="absolute inset-0 bg-secondary/80 border border-white/[0.03] rounded-full -z-10"
+                              className="absolute inset-0 bg-zinc-800 rounded-full -z-10 shadow-sm"
                               transition={{
                                 type: "spring",
                                 stiffness: 300,
@@ -125,8 +125,8 @@ export function Navbar() {
                 <div className="hidden md:flex items-center justify-end gap-4 min-w-fit">
                   <Button 
                     asChild
-                    size="lg" 
-                    className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/25 rounded-full px-6 h-12 transition-all duration-300 border-0"
+                    size="sm" 
+                    className="bg-foreground text-background hover:bg-foreground/90 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 rounded-full px-6 h-10 font-medium"
                   >
                     <Link href="/contact">Get In Touch</Link>
                   </Button>
@@ -150,7 +150,7 @@ export function Navbar() {
         ) : (
           <motion.nav
             key="sticky-pill"
-            className="fixed top-4 left-4 right-4 md:left-0 md:right-0 md:mx-auto md:w-fit z-50 rounded-full bg-white/50 backdrop-blur-xl border border-white/20 p-2 shadow-sm ring-1 ring-black/[0.03]"
+            className="fixed top-4 left-4 right-4 md:left-0 md:right-0 md:mx-auto md:w-fit z-50 rounded-full bg-black/50 backdrop-blur-2xl border border-white/[0.1] p-2 shadow-2xl ring-1 ring-white/[0.05]"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -179,7 +179,7 @@ export function Navbar() {
               </Link>
 
               {/* Sticky Nav Items (Desktop) */}
-              <div className="hidden md:flex items-center gap-1 bg-black/[0.03] rounded-full p-1 border border-black/[0.03]">
+              <div className="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/[0.03]">
                 {centerNavItems.map((item) => {
                   const isActive = isLinkActive(item.href)
                   return (
@@ -188,15 +188,15 @@ export function Navbar() {
                       href={item.href}
                       onMouseEnter={() => setHoveredPath(item.href)}
                       onMouseLeave={() => setHoveredPath(null)}
-                      className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-300 ${
-                        isActive ? "text-foreground" : "text-foreground/70 hover:text-foreground"
+                      className={`relative px-5 py-1.5 rounded-full text-sm font-medium transition-colors duration-300 ${
+                        isActive ? "text-white" : "text-zinc-400 hover:text-white"
                       }`}
                     >
                       {/* Background Indicator */}
                       {hoveredPath === item.href ? (
                         <motion.span
                           layoutId="navbar-indicator-pill"
-                          className="absolute inset-0 bg-white border border-black/[0.03] rounded-full shadow-sm -z-10"
+                          className="absolute inset-0 bg-zinc-800 rounded-full shadow-sm -z-10"
                           transition={{
                             type: "spring",
                             stiffness: 300,
@@ -206,7 +206,7 @@ export function Navbar() {
                       ) : isActive && hoveredPath === null ? (
                         <motion.span
                           layoutId="navbar-indicator-pill"
-                          className="absolute inset-0 bg-white border border-black/[0.03] rounded-full shadow-sm -z-10"
+                          className="absolute inset-0 bg-zinc-800 rounded-full shadow-sm -z-10"
                           transition={{
                             type: "spring",
                             stiffness: 300,
@@ -226,7 +226,7 @@ export function Navbar() {
                 <Button 
                   asChild
                   size="sm" 
-                  className="hidden md:inline-flex bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/25 rounded-full px-4 h-9 shadow-md border-0 transition-all duration-300"
+                  className="hidden md:inline-flex bg-foreground text-background hover:bg-foreground/90 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 rounded-full px-5 h-9 font-medium shadow-sm"
                 >
                   <Link href="/contact">Get In Touch</Link>
                 </Button>

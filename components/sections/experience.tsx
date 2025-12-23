@@ -48,12 +48,11 @@ export function Experience() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex justify-center">
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
-              {/* Gradient Border */}
+            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-background" />
+                <div className="w-full h-full rounded-full bg-black/80" />
               </div>
-              <span className="relative text-sm font-medium text-foreground">Work Experience</span>
+              <span className="relative text-sm font-medium text-white">Work Experience</span>
             </div>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-heading">
@@ -86,7 +85,7 @@ export function Experience() {
               </div>
 
               {/* Content Card */}
-              <div className="rounded-xl border border-border/50 bg-background p-5 md:p-6 hover:border-border hover:shadow-lg transition-all duration-300">
+              <div className="rounded-xl border border-white/5 bg-zinc-900/20 backdrop-blur-md p-5 md:p-6 hover:bg-zinc-900/30 hover:border-white/10 hover:shadow-lg transition-all duration-300">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                   <div>
@@ -97,7 +96,7 @@ export function Experience() {
                       {exp.company}
                     </p>
                   </div>
-                  <span className="text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="text-sm text-muted-foreground bg-white/5 border border-white/5 px-3 py-1 rounded-full whitespace-nowrap">
                     {exp.duration}
                   </span>
                 </div>
@@ -112,7 +111,7 @@ export function Experience() {
                   {exp.technologies.map((tech) => (
                     <span 
                       key={tech} 
-                      className="text-xs px-2.5 py-1 rounded-md bg-muted/50 text-muted-foreground border border-border/50 hover:border-blue-500/30 hover:bg-blue-500/5 hover:text-blue-500 transition-all duration-300"
+                      className="text-xs px-2.5 py-1 rounded-md bg-white/5 text-zinc-400 border border-white/5 hover:border-blue-500/30 hover:bg-blue-500/5 hover:text-blue-500 transition-all duration-300"
                     >
                       {tech}
                     </span>

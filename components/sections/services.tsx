@@ -54,7 +54,7 @@ export function Services() {
   const [activeService, setActiveService] = useState<number | null>(null)
 
   return (
-    <SectionWrapper id="services" className="py-20 md:py-32 bg-black text-white">
+    <SectionWrapper id="services" className="py-20 md:py-32 bg-transparent text-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start">
           
@@ -100,10 +100,10 @@ export function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative p-6 sm:p-8 rounded-[24px] transition-all duration-300 ${
+                  className={`group relative p-6 sm:p-8 rounded-[24px] transition-all duration-300 border border-white/5 ${
                     isActive 
-                      ? "bg-[#1c1c1c]" 
-                      : "bg-[#1c1c1c] md:bg-transparent md:hover:bg-[#1c1c1c]"
+                      ? "bg-zinc-900/40 backdrop-blur-md shadow-lg border-white/10" 
+                      : "bg-zinc-900/20 backdrop-blur-sm hover:bg-zinc-900/30 hover:border-white/10"
                   }`}
                 >
                   <div className="flex justify-between items-start mb-6">

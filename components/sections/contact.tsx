@@ -45,11 +45,11 @@ export function Contact() {
         >
           {/* Badge */}
           <div className="flex justify-center">
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
+            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-background" />
+                <div className="w-full h-full rounded-full bg-black/80" />
               </div>
-              <span className="relative text-sm font-medium text-foreground">Get In Touch</span>
+              <span className="relative text-sm font-medium text-white">Get In Touch</span>
             </div>
           </div>
 

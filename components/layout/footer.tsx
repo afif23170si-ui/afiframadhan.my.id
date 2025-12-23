@@ -8,7 +8,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 py-12">
+    <footer className="border-t border-white/10 bg-black/20 backdrop-blur-lg py-12">
       <div className="container-custom">
         <div className="flex flex-col items-center gap-6">
           {/* Social Links */}

@@ -34,12 +34,12 @@ export function Hero() {
             className="flex flex-col items-center gap-4"
           >
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
-              <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </div>
-              <span className="text-sm font-medium text-foreground">Available for new projects</span>
+            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-zinc-900/80 backdrop-blur-md border border-white/[0.05] hover:bg-zinc-900 hover:border-white/[0.1] transition-all duration-300 cursor-default">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span className="text-sm font-medium text-white tracking-wide">Available for new projects</span>
             </div>
           </motion.div>
 
@@ -48,13 +48,12 @@ export function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading tracking-tighter leading-[1.1] text-foreground max-w-4xl mx-auto"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            Designing Digital Products
-            <span className="text-muted-foreground/80 font-normal italic ml-3">That Matter</span>
+            Designing Premium Digital <br className="hidden md:block" /> Products That Matter
           </motion.h1>
 
           {/* Subtitle */}
@@ -76,7 +75,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-full px-6 md:px-8 h-12 border-0"
+              className="group bg-foreground text-background hover:bg-foreground/90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg transition-all duration-300 rounded-full px-8 h-12 font-medium"
               onClick={scrollToProjects}
             >
               View Projects
@@ -84,11 +83,11 @@ export function Hero() {
             </Button>
             <Button
               size="lg"
-              className="group bg-muted hover:bg-muted/80 text-foreground transition-all duration-300 rounded-full px-6 md:px-8 h-12 shadow-none"
+              className="group bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.15] text-foreground hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 rounded-full px-8 h-12 backdrop-blur-sm"
               asChild
             >
               <a href="mailto:afifr5092@gmail.com">
-                <Mail className="w-4 h-4 mr-2" />
+                <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
                 Email Me
               </a>
             </Button>
@@ -103,77 +102,7 @@ export function Hero() {
 
         </motion.div>
 
-        {/* Hero Project Slider & Profile Card */}
-        <motion.div 
-          className="w-full relative mt-40 md:mt-52 mb-52 md:mb-56 select-none"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
-          {/* Background Infinite Slider */}
-          <div className="relative flex overflow-hidden w-full mask-gradient">
-            {/* Fade Gradients */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-              <motion.div
-                className="flex gap-6 md:gap-8 items-center w-max"
-                animate={{ x: ["0%", "-33.333333%"] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-              {/* Triple the list for smoother infinite loop */}
-              {[...projects, ...projects, ...projects].map((project, i) => (
-                <div 
-                  key={`${project.id}-${i}`} 
-                  className="relative w-[280px] h-[180px] md:w-[380px] md:h-[250px] shrink-0 rounded-2xl overflow-hidden shadow-lg"
-                >
-                  <Image 
-                    src={project.image} 
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 280px, 380px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Foreground Central Card - Profile/Album */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <motion.div 
-              className="relative group"
-              initial={{ scale: 1.1 }} // Slightly larger initially
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              
-              {/* Card Container */}
-              <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[520px] rounded-[20px] md:rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-black">
-                  <video 
-                    src="/videos/mockup-album.webm"
-                    poster="/images/curved-poster.jpg"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="object-cover w-full h-full"
-                    onTimeUpdate={(e) => {
-                      if (e.currentTarget.currentTime >= 8) {
-                        e.currentTarget.currentTime = 0
-                      }
-                    }}
-                  />
-                  
-                  {/* Optional overlay text/content inside the card */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                    {/* <span className="text-white font-bold text-lg">Afif R.</span> */}
-                    {/* <span className="text-white/70 text-xs">Portfolio 2025</span> */}
-                  </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

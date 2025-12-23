@@ -5,13 +5,7 @@ import { SectionWrapper } from "@/components/shared/section-wrapper"
 
 export function About() {
   return (
-    <SectionWrapper id="about" className="py-16 md:py-32 bg-background relative overflow-hidden">
-      {/* Ambient Background Glow */}
-      <div className="absolute inset-0 pointer-events-none -z-10 flex justify-center items-center">
-        <div className="w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] translate-y-[-50px]" />
-        <div className="w-[200px] h-[200px] bg-cyan-500/10 rounded-full blur-[80px] absolute translate-x-[100px] translate-y-[50px]" />
-      </div>
-
+    <SectionWrapper id="about" className="py-16 md:py-32 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-8 md:space-y-12">
           
@@ -22,12 +16,11 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-background/50 backdrop-blur-md rounded-full shadow-sm overflow-hidden ring-1 ring-border/50">
-              {/* Gradient Border */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px] opacity-50">
-                <div className="w-full h-full rounded-full bg-background" />
+            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
+                <div className="w-full h-full rounded-full bg-black/80" />
               </div>
-              <span className="relative text-sm font-medium text-foreground">Hi, I am Afif Ramadhan</span>
+              <span className="relative text-sm font-medium text-white">Hi, I am Afif Ramadhan</span>
             </div>
           </motion.div>
 

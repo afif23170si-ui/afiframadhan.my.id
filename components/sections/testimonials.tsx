@@ -63,11 +63,11 @@ export function Testimonials() {
         >
           {/* Badge */}
           <div className="flex justify-center">
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
+            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-background" />
+                <div className="w-full h-full rounded-full bg-black/80" />
               </div>
-              <span className="relative text-sm font-medium text-foreground">Testimonial</span>
+              <span className="relative text-sm font-medium text-white">Testimonial</span>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ export function Testimonials() {
                 className="flex-shrink-0 w-[320px] md:w-[380px]"
               >
                 {/* Card */}
-                <div className="h-full rounded-2xl border border-border/50 bg-background p-6 hover:border-border hover:shadow-lg transition-all duration-300">
+                <div className="h-full rounded-2xl border border-white/5 bg-zinc-900/20 backdrop-blur-md p-6 hover:bg-zinc-900/30 hover:border-white/10 hover:shadow-lg transition-all duration-300">
                   {/* Company */}
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-xl">{testimonial.icon}</span>
