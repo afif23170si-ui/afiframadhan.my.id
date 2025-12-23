@@ -34,8 +34,8 @@ export const projects: Project[] = [
     client: "BookUMKM Group",
     date: "Nov 12, 2025",
     stats: [
-      { label: "Bookings", value: "+150%" },
-      { label: "User Growth", value: "3.2x" }
+      { label: "Active Merchants", value: "500+" },
+      { label: "Transactions", value: "15k+" }
     ]
   },
   {

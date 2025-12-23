@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
 import { projects } from "@/lib/projects"
@@ -77,47 +77,52 @@ export function Projects() {
               className="sticky top-24 md:top-32 self-start w-full"
               style={{ minHeight: '600px' }} // Ensure height for scrolling
             >
-              <div className="group relative w-full bg-[#0e0e10]/95 backdrop-blur-xl border border-white/[0.08] rounded-[40px] overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/[0.15]">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 p-8 md:p-12 lg:p-16 h-full items-center">
+              <div className="group relative w-full h-full bg-[#0e0e10]/95 backdrop-blur-xl border border-white/[0.08] rounded-[20px] md:rounded-[32px] overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/[0.15]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 p-6 md:p-8 h-full items-center">
                   
-                  <div className="flex flex-col justify-center space-y-8 order-2 lg:order-1">
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-bold font-heading text-white leading-tight">
-                        {project.subtitle} {/* Using subtitle as main headline per reference */}
-                      </h3>
-                      <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md">
-                        {project.description}
-                      </p>
+                  <div className="flex flex-col justify-center lg:justify-between space-y-8 lg:space-y-0 lg:h-full order-2 lg:order-1">
+                    <div className="space-y-8">
+                        <div className="space-y-4">
+                          <h3 className="text-xl md:text-2xl font-bold font-heading text-white leading-tight">
+                            {project.subtitle}
+                          </h3>
+                          <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        {/* Key Features Row */}
+                        {project.features && project.features.length > 0 && (
+                          <div className="border-t border-white/5 pt-6">
+                              <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">Key Highlights</h4>
+                              <div className="flex flex-wrap gap-x-8 gap-y-3">
+                                {project.features.map((feature, i) => (
+                                  <div key={i} className="flex items-center gap-2">
+                                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+                                      <Check className="w-3 h-3 text-blue-400" />
+                                    </div>
+                                    <span className="text-zinc-300 text-sm font-medium">{feature}</span>
+                                  </div>
+                                ))}
+                            </div>
+                          </div>
+                        )}
                     </div>
 
-                    <div className="flex flex-col gap-8">
-                       {/* Stats Row */}
-                      {project.stats && (
-                        <div className="flex items-center gap-12 border-t border-white/5 pt-8">
-                          {project.stats.map((stat, i) => (
-                            <div key={i} className="space-y-2">
-                              <p className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</p>
-                              <p className="text-4xl md:text-5xl font-medium text-white tracking-tight">{stat.value}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      <div>
-                        <Link 
-                          href={`/projects/${project.id}`}
-                          className="inline-flex items-center justify-center h-12 px-8 rounded-full border border-white/10 bg-white/5 text-white font-medium text-sm transition-all duration-300 hover:bg-white text-zinc-300 hover:text-black hover:border-transparent group/btn"
-                        >
-                          View case study
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform" />
-                        </Link>
-                      </div>
+                    <div>
+                      <Link 
+                        href={`/projects/${project.id}`}
+                        className="inline-flex items-center justify-center h-12 px-8 rounded-full border border-white/10 bg-white/5 text-white font-medium text-sm transition-all duration-300 hover:bg-white text-zinc-300 hover:text-black hover:border-transparent group/btn"
+                      >
+                        View case study
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform" />
+                      </Link>
                     </div>
                   </div>
 
                   {/* Right: Image */}
                   <div className="relative order-1 lg:order-2">
-                    <div className="relative aspect-[4/3] w-full rounded-[24px] overflow-hidden bg-black/50 border border-white/5 group-hover:border-white/10 transition-colors">
+                    <div className="relative aspect-[4/3] w-full rounded-[12px] md:rounded-[24px] overflow-hidden bg-black/50 border border-white/5 group-hover:border-white/10 transition-colors">
                       <img
                         src={project.image}
                         alt={project.title}

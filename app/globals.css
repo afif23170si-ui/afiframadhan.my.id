@@ -187,6 +187,12 @@ body::after {
   background-size: cover; /* Ensures full height coverage */
 }
 
+@media (min-width: 768px) {
+  body::after {
+    background-position: center;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
