@@ -3,10 +3,21 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/lib/projects"
-import { ArrowRight, Mail } from "lucide-react"
+import { ArrowRight, Mail, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu } from "lucide-react"
 
 import Link from "next/link"
 import Image from "next/image"
+
+const techStack = [
+  { name: "Next.js", icon: Zap },
+  { name: "React", icon: Atom },
+  { name: "TypeScript", icon: FileCode },
+  { name: "Tailwind", icon: Palette },
+  { name: "Node.js", icon: Server },
+  { name: "Database", icon: Database },
+  { name: "Cloud", icon: Globe },
+  { name: "AI/ML", icon: Cpu },
+]
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -75,7 +86,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group bg-foreground text-background hover:bg-foreground/90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg transition-all duration-300 rounded-full px-8 h-12 font-medium"
+              className="group bg-gradient-to-r from-blue-600 to-blue-400 text-white hover:from-blue-500 hover:to-blue-300 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-full px-8 h-12 font-medium"
               onClick={scrollToProjects}
             >
               View Projects
@@ -91,6 +102,29 @@ export function Hero() {
                 Email Me
               </a>
             </Button>
+          </motion.div>
+
+          {/* Tech Stack Ticker */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="mt-16 md:mt-20 w-full max-w-5xl mx-auto overflow-hidden"
+          >
+
+             
+             <div className="relative flex overflow-hidden group select-none mask-gradient-x">
+                <div className="flex gap-12 animate-marquee whitespace-nowrap py-4">
+                   {[...techStack, ...techStack].map((tech, i) => (
+                      <div key={i} className="flex items-center gap-3 group/item">
+                         <div className="p-2 rounded-xl bg-white/5 border border-white/5 text-zinc-400 group-hover/item:text-white group-hover/item:bg-white/10 transition-colors">
+                            <tech.icon className="w-5 h-5" />
+                         </div>
+                         <span className="text-sm font-medium text-zinc-400 group-hover/item:text-white transition-colors">{tech.name}</span>
+                      </div>
+                   ))}
+                </div>
+             </div>
           </motion.div>
 
 

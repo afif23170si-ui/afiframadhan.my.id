@@ -33,7 +33,7 @@ export function Projects() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
                 <div className="w-full h-full rounded-full bg-black/80" />
               </div>
-              <span className="relative text-sm font-medium text-white">Selected Projects</span>
+              <span className="relative text-sm font-medium text-white">Project</span>
             </div>
             
             <motion.h2 
