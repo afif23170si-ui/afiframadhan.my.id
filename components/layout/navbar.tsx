@@ -290,7 +290,7 @@ export function Navbar() {
               >
                 <Button 
                   asChild
-                  className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/25 rounded-full px-8 h-12 text-base transition-all duration-300 border-0"
+                  className="bg-gradient-to-r from-blue-600 to-blue-400 text-white hover:from-blue-500 hover:to-blue-300 hover:shadow-lg hover:shadow-blue-500/25 rounded-full px-8 h-12 text-base transition-all duration-300 border-0 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>Get In Touch</Link>
                 </Button>

@@ -10,7 +10,7 @@ import { useState } from "react"
 function ProjectCard({ project, index }: { project: any, index: number }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isLiked, setIsLiked] = useState(false)
-  const [likes, setLikes] = useState(Math.floor(Math.random() * 50) + 120)
+  const [likes, setLikes] = useState(120 + (index * 12) % 50)
 
   const handleLike = () => {
     setIsLiked(!isLiked)
@@ -121,7 +121,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 export function Projects() {
   return (
     <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-32">
-      <div className="space-y-8 md:space-y-24">
+      <div className="space-y-8 md:space-y-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl space-y-6">

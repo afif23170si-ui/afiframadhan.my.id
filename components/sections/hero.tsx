@@ -32,7 +32,7 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
-          className="flex flex-col items-center text-center space-y-4 md:space-y-5 max-w-3xl mx-auto"
+          className="flex flex-col items-center text-center space-y-4 md:space-y-5 max-w-3xl lg:max-w-5xl 2xl:max-w-7xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -50,7 +50,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="text-sm font-medium text-white tracking-wide">Available for new projects</span>
+              <span className="text-sm font-medium text-white tracking-wide">Available for Work</span>
             </div>
           </motion.div>
 
@@ -59,7 +59,7 @@ export function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 max-w-4xl mx-auto"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading tracking-tighter leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 max-w-4xl lg:max-w-6xl 2xl:max-w-none mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
