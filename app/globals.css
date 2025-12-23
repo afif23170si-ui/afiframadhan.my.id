@@ -170,15 +170,15 @@ body {
   @apply bg-background text-foreground font-sans antialiased;
   font-feature-settings: 'rlig' 1, 'calt' 1;
   background-image: url('/images/hero-background.png');
-  background-attachment: fixed;
-  background-position: center;
+  background-attachment: scroll;
+  background-position: top center;
   background-repeat: no-repeat;
-  /* Mobile: Force fit to screen height & width */
-  background-size: 100% 100vh;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
   body {
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
   }
