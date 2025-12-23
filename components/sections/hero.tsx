@@ -76,7 +76,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-full px-6 md:px-8 h-12"
+              className="group bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 text-white hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-full px-6 md:px-8 h-12 border-0"
               onClick={scrollToProjects}
             >
               View Projects
