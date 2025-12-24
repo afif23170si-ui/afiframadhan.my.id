@@ -173,10 +173,10 @@ export function Projects() {
           >
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.12] backdrop-blur-sm transition-all duration-300 text-sm font-medium text-zinc-200 group"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-white hover:bg-zinc-200 transition-all duration-300 text-sm font-medium text-black group"
             >
               All Projects
-              <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="w-4 h-4 text-black/70 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
             </Link>
           </motion.div>
         </div>
