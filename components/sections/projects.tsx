@@ -31,12 +31,14 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
           
           {/* Image Column */}
           <div className="relative order-1 lg:order-2 w-full">
-            <div className="relative aspect-[4/3] w-full rounded-[12px] md:rounded-[24px] overflow-hidden bg-black/50 border border-white/5 group-hover:border-white/10 transition-colors">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+            <div className="relative aspect-[16/10] w-full rounded-[12px] md:rounded-[24px] overflow-hidden bg-black/50 border border-white/5 group-hover:border-white/10 transition-colors">
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              )}
               {/* Inner Highlight */}
               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
 
