@@ -40,33 +40,50 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
               {/* Inner Highlight */}
               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
 
-              {/* Toggle Button (Mobile Only) */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden absolute bottom-3 right-3 z-20 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-black/80 transition-all active:scale-95"
-              >
-                {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-              </button>
+
             </div>
           </div>
           
           {/* Content Column */}
           <div className="order-2 lg:order-1 w-full flex flex-col justify-center lg:justify-between pt-6 md:pt-0 lg:h-full">
-            <motion.div
-              initial={false}
-              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="md:!h-auto md:!opacity-100 overflow-hidden"
-            >
+            <div className="w-full">
                {/* Content Wrapper */}
                <div className="space-y-8 pb-8 md:pb-0">
                   <div className="space-y-4">
-                    <h3 className="text-xl md:text-2xl font-bold font-heading text-white leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold font-heading text-white leading-tight line-clamp-1 md:line-clamp-none">
                       {project.subtitle}
                     </h3>
-                    <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md">
-                      {project.description}
-                    </p>
+                    <div className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md">
+                      {/* Mobile View with Manual Truncation */}
+                      <span className="md:hidden">
+                        {isOpen ? (
+                          <>
+                            {project.description}
+                            <button 
+                                onClick={() => setIsOpen(false)}
+                                className="text-blue-400 hover:text-blue-300 ml-1 font-medium focus:outline-none"
+                            >
+                                show less
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            {project.description.slice(0, 75)}...
+                            <button 
+                                onClick={() => setIsOpen(true)}
+                                className="text-blue-400 hover:text-blue-300 ml-1 font-medium focus:outline-none"
+                            >
+                                read more
+                            </button>
+                          </>
+                        )}
+                      </span>
+                      
+                      {/* Desktop View - Full Text */}
+                      <span className="hidden md:inline">
+                        {project.description}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Key Features */}
@@ -86,7 +103,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
                     </div>
                   )}
               </div>
-            </motion.div>
+            </div>
 
             {/* Button - Always Visible */}
             {/* Action Row */}
