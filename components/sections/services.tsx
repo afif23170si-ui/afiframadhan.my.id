@@ -100,10 +100,10 @@ export function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative p-6 sm:p-8 rounded-[24px] transition-all duration-300 border border-white/5 ${
+                  className={`group relative p-6 sm:p-8 rounded-[24px] transition-all duration-300 border ${
                     isActive 
-                      ? "bg-zinc-900/40 backdrop-blur-md shadow-lg border-white/10" 
-                      : "bg-zinc-900/20 backdrop-blur-sm hover:bg-zinc-900/30 hover:border-white/10"
+                      ? "bg-white/[0.08] backdrop-blur-xl shadow-2xl border-white/[0.5]" 
+                      : "bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.06] border-white/[0.2] hover:border-white/[0.4]"
                   }`}
                 >
                   <div className="flex justify-between items-start mb-6">
