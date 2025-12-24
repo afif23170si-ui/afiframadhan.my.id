@@ -54,7 +54,7 @@ export function Services() {
   const [activeService, setActiveService] = useState<number | null>(null)
 
   return (
-    <section id="services" className="relative py-20 md:py-32">
+    <section id="services" className="relative bg-zinc-950 py-20 md:py-32">
 
       <SectionWrapper className="relative z-20 bg-transparent text-white">
       <div className="max-w-7xl mx-auto">

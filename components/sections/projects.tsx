@@ -139,8 +139,12 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative">
-      <SectionWrapper className="pt-0 pb-16 md:pt-0 md:pb-32">
+    <section 
+      id="projects" 
+      className="relative pt-24 pb-12 md:pt-32 md:pb-16"
+      style={{ background: 'linear-gradient(to bottom, transparent 0%, #09090b 200px)' }}
+    >
+      <SectionWrapper className="relative z-20">
       <div className="space-y-8 md:space-y-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
