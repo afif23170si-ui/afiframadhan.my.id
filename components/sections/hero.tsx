@@ -30,6 +30,8 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-32 pb-8 md:pt-40 md:pb-32">
+      {/* Top Gradient Overlay */}
+      <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none z-1" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Layout - Left on mobile, Center on desktop */}
         <motion.div
