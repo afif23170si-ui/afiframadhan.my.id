@@ -71,7 +71,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 
                   {/* Key Features */}
                   {project.features && project.features.length > 0 && (
-                    <div className="border-t border-white/5 pt-6">
+                    <div className="hidden md:block border-t border-white/5 pt-6">
                         <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">Key Highlights</h4>
                         <div className="flex flex-wrap gap-x-8 gap-y-3">
                           {project.features.map((feature: string, i: number) => (
@@ -143,22 +143,7 @@ export function Projects() {
               websites designed with care.
             </motion.h2>
 
-            {/* Mobile View All Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="md:hidden pt-2"
-            >
-               <Link 
-                href="/projects" 
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm transition-all text-sm font-medium text-zinc-200"
-              >
-                All Projects
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
+
           </div>
 
           <motion.div
@@ -169,9 +154,9 @@ export function Projects() {
           >
             <Link 
               href="/projects" 
-              className="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.12] backdrop-blur-sm transition-all duration-300 text-sm font-medium text-zinc-200 group"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.12] backdrop-blur-sm transition-all duration-300 text-sm font-medium text-zinc-200 group"
             >
-              View Archive
+              All Projects
               <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
             </Link>
           </motion.div>
