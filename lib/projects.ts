@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "KasPOS",
     subtitle: "Web-Based F&B Point of Sale System",
     description: "A comprehensive POS application designed for restaurants and cafes, featuring fast transaction processing, kitchen display integration, and real-time inventory management.",
-    image: "/images/kaspos.png",
+    image: "/images/kaspos.png?v=2",
     technologies: ["Web Platform", "Real-time POS", "F&B Management"],
     features: ["Kitchen Display System", "Inventory Tracking"],
     liveUrl: "https://tokoelektronikmurah.com/",
