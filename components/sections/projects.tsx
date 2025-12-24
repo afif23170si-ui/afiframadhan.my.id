@@ -139,7 +139,8 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 
 export function Projects() {
   return (
-    <SectionWrapper id="projects" className="pt-0 pb-16 md:pt-0 md:pb-32">
+    <section id="projects" className="relative">
+      <SectionWrapper className="pt-0 pb-16 md:pt-0 md:pb-32">
       <div className="space-y-8 md:space-y-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -190,7 +191,9 @@ export function Projects() {
 
 
       </div>
-    </SectionWrapper>
+      </SectionWrapper>
+      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
+    </section>
   )
 }
 

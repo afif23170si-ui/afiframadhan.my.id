@@ -54,7 +54,9 @@ export function Services() {
   const [activeService, setActiveService] = useState<number | null>(null)
 
   return (
-    <SectionWrapper id="services" className="py-20 md:py-32 bg-transparent text-white">
+    <section id="services" className="relative py-20 md:py-32">
+
+      <SectionWrapper className="relative z-20 bg-transparent text-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start">
           
@@ -177,6 +179,8 @@ export function Services() {
 
         </div>
       </div>
-    </SectionWrapper>
+      </SectionWrapper>
+
+    </section>
   )
 }

@@ -5,7 +5,8 @@ import { SectionWrapper } from "@/components/shared/section-wrapper"
 
 export function About() {
   return (
-    <SectionWrapper id="about" className="py-16 md:py-32 bg-transparent relative overflow-hidden">
+    <section id="about" className="bg-zinc-950 py-16 md:py-32 relative overflow-hidden">
+      <SectionWrapper className="relative z-10 bg-transparent">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-8 md:space-y-12">
           
@@ -56,6 +57,7 @@ export function About() {
 
         </div>
       </div>
-    </SectionWrapper>
+      </SectionWrapper>
+    </section>
   )
 }
