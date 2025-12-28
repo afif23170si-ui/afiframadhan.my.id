@@ -68,6 +68,8 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
                             <button 
                                 onClick={() => setIsOpen(false)}
                                 className="text-blue-400 hover:text-blue-300 ml-1 font-medium focus:outline-none"
+                                aria-label="Show less description"
+                                aria-expanded="true"
                             >
                                 show less
                             </button>
@@ -78,6 +80,8 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
                             <button 
                                 onClick={() => setIsOpen(true)}
                                 className="text-blue-400 hover:text-blue-300 ml-1 font-medium focus:outline-none"
+                                aria-label="Read more description"
+                                aria-expanded="false"
                             >
                                 read more
                             </button>

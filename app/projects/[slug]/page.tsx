@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft, ExternalLink, Github, Calendar } from "lucide-react"
 import { getProjectById, getAllProjectIds } from "@/lib/projects"
 import { Badge } from "@/components/ui/badge"
@@ -84,11 +85,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/30 p-4 md:p-8">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full rounded-lg shadow-2xl"
-              />
+              <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-2xl">
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1280px) 100vw, 1280px"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -141,11 +147,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <h2 className="text-2xl font-bold font-heading">Gallery</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.gallery.slice(1).map((img, index) => (
-                    <div key={index} className="rounded-xl overflow-hidden border border-border/50">
-                      <img
+                    <div key={index} className="relative aspect-video rounded-xl overflow-hidden border border-border/50">
+                      <Image
                         src={img}
                         alt={`${project.title} screenshot ${index + 2}`}
-                        className="w-full"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
                   ))}

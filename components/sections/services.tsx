@@ -5,6 +5,7 @@ import { SectionWrapper } from "@/components/shared/section-wrapper"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { Globe, Smartphone, LayoutTemplate, Plus, Phone } from "lucide-react"
 
 const services = [
@@ -15,9 +16,9 @@ const services = [
     description: "Building scalable, end-to-end web solutions. I handle the entire stack—from robust backend architecture to dynamic, responsive frontend interfaces.",
     tags: ["React / Next.js", "Laravel", "MySQL", "API Development", "+more"],
     images: [
-      "/images/bookumkm.webp?v=3",
-      "/images/project.webp",
-      "/images/bookumkm.webp?v=3"
+      "/images/bookumkm.webp",
+      "/images/kaspos.webp",
+      "/images/bookumkm.webp"
     ]
   },
   {
@@ -27,9 +28,9 @@ const services = [
     description: "Creating fast, interactive, and SEO-friendly web applications. I focus on performance, accessibility, and writing clean, maintainable code.",
     tags: ["Tailwind CSS", "TypeScript", "Performance", "PWA", "+more"],
     images: [
-      "/images/project.webp",
-      "/images/bookumkm.webp?v=3",
-      "/images/project.webp"
+      "/images/kaspos.webp",
+      "/images/bookumkm.webp",
+      "/images/kaspos.webp"
     ]
   },
   {
@@ -39,9 +40,9 @@ const services = [
     description: "Designing intuitive and accessible user interfaces. I turn complex requirements into clean, user-centric designs that look great on any device.",
     tags: ["Figma", "Prototyping", "Design System", "User Flow", "+more"],
     images: [
-      "/images/bookumkm.webp?v=3",
-      "/images/project.webp",
-      "/images/bookumkm.webp?v=3"
+      "/images/bookumkm.webp",
+      "/images/kaspos.webp",
+      "/images/bookumkm.webp"
     ]
   }
 ]
@@ -118,6 +119,8 @@ export function Services() {
                     <button 
                       onClick={() => setActiveService(isActive ? null : index)}
                       className="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all duration-300"
+                      aria-label={isActive ? "Close details" : "Show details"}
+                      aria-expanded={isActive}
                     >
                        {isActive ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                     </button>
@@ -159,10 +162,12 @@ export function Services() {
                           <div className="pt-6 grid grid-cols-3 gap-3">
                             {service.images.map((img, imgIndex) => (
                               <div key={imgIndex} className="aspect-square rounded-lg overflow-hidden bg-zinc-800">
-                                <img 
+                                <Image
                                   src={img} 
-                                  alt={`${service.title} example ${imgIndex + 1}`} 
-                                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                                  alt={`${service.title} example ${imgIndex + 1}`}
+                                  fill
+                                  className="object-cover hover:scale-110 transition-transform duration-500"
+                                  sizes="(max-width: 768px) 33vw, 150px"
                                 />
                               </div>
                             ))}
