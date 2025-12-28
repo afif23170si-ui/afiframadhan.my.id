@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import Image from "next/image";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -159,12 +160,21 @@ export default function RootLayout({
         className={`${inter.variable} ${jakarta.variable} ${spaceGrotesk.variable} font-sans antialiased`}
       >
         <ThemeProvider
-          attribute="class"
           defaultTheme="dark"
           forcedTheme="dark"
           disableTransitionOnChange
         >
-
+          <div className="fixed inset-0 z-[-2] w-full h-full">
+            <Image
+              src="/images/hero-background.webp"
+              alt="Background"
+              fill
+              priority
+              quality={85}
+              className="object-cover object-top md:object-center opacity-100"
+              sizes="100vw"
+            />
+          </div>
           {children}
           <Toaster />
         </ThemeProvider>
