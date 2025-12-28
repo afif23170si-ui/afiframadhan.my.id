@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Check, Plus, Minus, Heart } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
 import { projects } from "@/lib/projects"
 import { useState } from "react"
@@ -33,10 +34,13 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
           <div className="relative order-1 lg:order-2 w-full">
             <div className="relative aspect-[16/10] w-full rounded-[12px] md:rounded-[24px] overflow-hidden bg-black/50 border border-white/5 group-hover:border-white/10 transition-colors">
               {project.image && (
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority={index < 2} // Prioritize specifically the first 2 images for LCP
                 />
               )}
               {/* Inner Highlight */}

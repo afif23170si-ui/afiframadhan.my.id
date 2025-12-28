@@ -181,7 +181,7 @@ body::after {
   height: 100%; /* iOS safe area handling might be needed but 100% works for general fixed */
   z-index: -2;
   pointer-events: none;
-  background-image: url('/images/hero-background.png');
+  background-image: url('/images/hero-background.webp');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover; /* Ensures full height coverage */
