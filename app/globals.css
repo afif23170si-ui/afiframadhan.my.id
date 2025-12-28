@@ -172,27 +172,8 @@ body {
 }
 
 /* Fixed Background Image Implementation */
-/* Fixed Background Image Implementation */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* iOS safe area handling might be needed but 100% works for general fixed */
-  z-index: -2;
-  pointer-events: none;
-  background-image: url('/images/hero-background.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures full height coverage */
-}
-
-@media (min-width: 768px) {
-  body::after {
-    background-position: center;
-  }
-}
+/* Fixed Background Image Implementation moved to layout.tsx */
+/* body::after removed */
 
 html {
   scroll-behavior: smooth;
