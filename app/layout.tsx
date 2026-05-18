@@ -3,6 +3,8 @@ import { Inter, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { MatchaCursor } from "@/components/shared/matcha-cursor";
+import { ScrollUtils } from "@/components/shared/scroll-utils";
 import Image from "next/image";
 
 const inter = Inter({
@@ -32,14 +34,19 @@ export const metadata: Metadata = {
     template: "%s | Afif Ramadhan",
   },
   
-  // Icons - untuk memastikan Google dan browser mendeteksi favicon
+  // Icons — from favicon.io generator
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico",        sizes: "any" },
+      { url: "/favicon-16x16.png",  sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png",  sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-icon.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+      { rel: "manifest", url: "/site.webmanifest" },
+    ],
   },
   description: "Afif Ramadhan - Full Stack Developer specializing in modern web applications with strong UI/UX sense. Expert in React, Next.js, Laravel, and TypeScript. Building digital experiences that matter.",
   keywords: [
@@ -166,18 +173,34 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
-             <Image
-              src="/images/hero-background.webp"
+            {/* Mobile background */}
+            <Image
+              src="/images/background-hero-m.png"
               alt=""
               fill
               priority
-              quality={90}
-              className="object-cover object-top md:object-center opacity-100"
+              quality={85}
+              className="object-cover object-top opacity-80 md:hidden"
               sizes="100vw"
               aria-hidden="true"
             />
+            {/* Desktop background */}
+            <Image
+              src="/images/background-hero-d.png"
+              alt=""
+              fill
+              priority
+              quality={85}
+              className="object-cover object-center opacity-80 hidden md:block"
+              sizes="100vw"
+              aria-hidden="true"
+            />
+            {/* Fade out background image after hero — only hero benefits from it */}
+            <div className="absolute inset-x-0 bottom-0 h-[55vh] bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-transparent" />
           </div>
           {children}
+          <MatchaCursor />
+          <ScrollUtils />
           <Toaster />
         </ThemeProvider>
       </body>

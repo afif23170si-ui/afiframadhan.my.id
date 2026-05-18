@@ -51,7 +51,7 @@ export function ThemeToggle() {
             opacity: isDark ? 1 : 0,
           }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="absolute inset-0 flex items-center justify-center text-blue-400"
+          className="absolute inset-0 flex items-center justify-center text-[#8ba888]"
         >
           <Moon className="h-[1.2rem] w-[1.2rem] fill-current" />
         </motion.div>

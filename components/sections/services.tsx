@@ -1,191 +1,118 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SectionWrapper } from "@/components/shared/section-wrapper"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import Image from "next/image"
-import { Globe, Smartphone, LayoutTemplate, Plus, Phone } from "lucide-react"
+import { SectionBadge } from "@/components/shared/section-badge"
+import {
+  Globe,
+  Layers,
+  Server,
+  Plug,
+  Database,
+  Smartphone,
+  Palette,
+  Gauge,
+  Cloud,
+  GitBranch,
+  ShieldCheck,
+  LayoutDashboard,
+} from "lucide-react"
 
-const services = [
-  {
-    icon: <Globe className="w-7 h-7" />,
-    iconBg: "bg-yellow-500",
-    title: "Full Stack Development",
-    description: "Building scalable, end-to-end web solutions. I handle the entire stack—from robust backend architecture to dynamic, responsive frontend interfaces.",
-    tags: ["React / Next.js", "Laravel", "MySQL", "API Development", "+more"],
-    images: [
-      "/images/bookumkm.webp",
-      "/images/kaspos.webp",
-      "/images/bookumkm.webp"
-    ]
-  },
-  {
-    icon: <LayoutTemplate className="w-7 h-7" />,
-    iconBg: "bg-blue-600",
-    title: "Modern Web Apps",
-    description: "Creating fast, interactive, and SEO-friendly web applications. I focus on performance, accessibility, and writing clean, maintainable code.",
-    tags: ["Tailwind CSS", "TypeScript", "Performance", "PWA", "+more"],
-    images: [
-      "/images/kaspos.webp",
-      "/images/bookumkm.webp",
-      "/images/kaspos.webp"
-    ]
-  },
-  {
-    icon: <Smartphone className="w-7 h-7" />,
-    iconBg: "bg-green-500",
-    title: "UI/UX Design",
-    description: "Designing intuitive and accessible user interfaces. I turn complex requirements into clean, user-centric designs that look great on any device.",
-    tags: ["Figma", "Prototyping", "Design System", "User Flow", "+more"],
-    images: [
-      "/images/bookumkm.webp",
-      "/images/kaspos.webp",
-      "/images/bookumkm.webp"
-    ]
-  }
+const row1 = [
+  { icon: Globe,           label: "Full Stack Dev" },
+  { icon: Layers,          label: "Frontend Dev" },
+  { icon: Server,          label: "Backend Dev" },
+  { icon: Plug,            label: "REST API" },
+  { icon: Database,        label: "Database Design" },
+  { icon: LayoutDashboard, label: "Web Apps" },
 ]
 
-import { useState } from "react"
-import { AnimatePresence } from "framer-motion"
-import { X } from "lucide-react"
+const row2 = [
+  { icon: Smartphone,   label: "Responsive Design" },
+  { icon: Palette,      label: "UI / UX Design" },
+  { icon: Gauge,        label: "Performance" },
+  { icon: Cloud,        label: "Deployment" },
+  { icon: GitBranch,    label: "Version Control" },
+  { icon: ShieldCheck,  label: "Clean Code" },
+]
 
-export function Services() {
-  const [activeService, setActiveService] = useState<number | null>(null)
+function ServiceTag({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
+  return (
+    <div className="group flex items-center gap-2 md:gap-2.5 px-3 py-2 md:px-4 md:py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-[#44624a]/10 hover:border-[#44624a]/40 hover:shadow-md hover:shadow-[#44624a]/10 transition-all duration-300 cursor-default select-none flex-shrink-0">
+      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#8ba888] flex-shrink-0" />
+      <span className="text-xs md:text-sm font-medium text-zinc-300 group-hover:text-white whitespace-nowrap transition-colors duration-300">
+        {label}
+      </span>
+    </div>
+  )
+}
+
+function MarqueeRow({
+  items,
+  direction = "left",
+  duration = 30,
+}: {
+  items: { icon: React.ElementType; label: string }[]
+  direction?: "left" | "right"
+  duration?: number
+}) {
+  // Duplicate for seamless loop
+  const doubled = [...items, ...items, ...items]
 
   return (
-    <section id="services" className="relative bg-zinc-950 py-20 md:py-32">
+    <div
+      className="flex overflow-hidden w-full"
+      style={{
+        maskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+      }}
+    >
+      <motion.div
+        className="flex gap-3 w-max"
+        animate={{
+          x: direction === "left" ? ["0%", "-33.33%"] : ["-33.33%", "0%"],
+        }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        {doubled.map((item, i) => (
+          <ServiceTag key={`${item.label}-${i}`} icon={item.icon} label={item.label} />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
 
-      <SectionWrapper className="relative z-20 bg-transparent text-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start">
-          
-          {/* Left Column: Header */}
-          <div className="lg:sticky lg:top-32 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden mb-6">
-                {/* Gradient Border */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                  <div className="w-full h-full rounded-full bg-black/80" />
-                </div>
-                <span className="relative text-sm font-medium text-white">What I Do</span>
-              </div>
-              
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-heading tracking-tight mb-8">
-                Design solutions crafted <br />
-                to match your vision
-              </h2>
+export function Services() {
+  return (
+    <section id="services" className="bg-zinc-950 py-16 md:py-28 lg:py-36 overflow-hidden">
+      <div className="container-custom">
 
-              <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 rounded-full h-12 px-8 text-base font-medium group">
-                <Link href="/contact" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <span>Let's Talk</span>
-                </Link>
-              </Button>
-            </motion.div>
+        {/* Header — centered */}
+        <motion.div
+          className="text-center space-y-5 mb-14 md:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex justify-center">
+            <SectionBadge>What I Do</SectionBadge>
           </div>
+          <h2 className="heading-lg text-white mx-auto max-w-2xl">
+            Everything you need,<br />built right.
+          </h2>
+        </motion.div>
 
-          {/* Right Column: Services List */}
-          <div className="space-y-4">
-            {services.map((service, index) => {
-              const isActive = activeService === index
-
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative p-6 sm:p-8 rounded-[24px] transition-all duration-300 border ${
-                    isActive 
-                      ? "bg-white/[0.08] backdrop-blur-xl shadow-2xl border-white/[0.5]" 
-                      : "bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.06] border-white/[0.2] hover:border-white/[0.4]"
-                  }`}
-                >
-                  <div className="flex justify-between items-start mb-6">
-                    {/* Icon */}
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${service.iconBg.replace('bg-', 'bg-').replace('/10', '')} text-white shadow-lg`}>
-                      {service.icon}
-                    </div>
-                    
-                    {/* Toggle Button */}
-                    <button 
-                      onClick={() => setActiveService(isActive ? null : index)}
-                      className="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all duration-300"
-                      aria-label={isActive ? "Close details" : "Show details"}
-                      aria-expanded={isActive}
-                    >
-                       {isActive ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                    </button>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold font-heading mb-3 text-white">{service.title}</h3>
-                      <p className="text-zinc-400 leading-relaxed text-sm max-w-lg">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {service.tags.slice(0, 3).map((tag) => (
-                        <span 
-                          key={tag} 
-                          className="px-3 py-1.5 rounded-full border border-zinc-800 bg-transparent text-[11px] sm:text-xs text-zinc-400 whitespace-nowrap"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      <span className="px-3 py-1.5 rounded-full border border-zinc-800 bg-transparent text-[11px] sm:text-xs text-zinc-400 whitespace-nowrap">
-                        +more
-                      </span>
-                    </div>
-
-                    {/* Expanded Content: 3 Relevant Images */}
-                    <AnimatePresence>
-                      {isActive && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden"
-                        >
-                          <div className="pt-6 grid grid-cols-3 gap-3">
-                            {service.images.map((img, imgIndex) => (
-                              <div key={imgIndex} className="aspect-square rounded-lg overflow-hidden bg-zinc-800">
-                                <Image
-                                  src={img} 
-                                  alt={`${service.title} example ${imgIndex + 1}`}
-                                  fill
-                                  className="object-cover hover:scale-110 transition-transform duration-500"
-                                  sizes="(max-width: 768px) 33vw, 150px"
-                                />
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-
+        {/* Marquee rows — constrained to container */}
+        <div className="space-y-3">
+          <MarqueeRow items={row1} direction="left" duration={28} />
+          <MarqueeRow items={row2} direction="right" duration={32} />
         </div>
-      </div>
-      </SectionWrapper>
 
+      </div>
     </section>
   )
 }

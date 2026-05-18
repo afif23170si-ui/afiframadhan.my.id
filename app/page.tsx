@@ -5,8 +5,8 @@ import { About } from "@/components/sections/about"
 import { Services } from "@/components/sections/services"
 import { Projects } from "@/components/sections/projects"
 import { Experience } from "@/components/sections/experience"
-import { Testimonials } from "@/components/sections/testimonials"
 import { Contact } from "@/components/sections/contact"
+import { ImageStrip } from "@/components/sections/image-strip"
 
 export default function Home() {
   return (
@@ -14,11 +14,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Projects />
+        <ImageStrip />
         <About />
         <Services />
+        <Projects />
         <Experience />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

@@ -2,125 +2,106 @@
 
 import { motion } from "framer-motion"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
+import { SectionBadge } from "@/components/shared/section-badge"
 
 const testimonials = [
   {
     company: "BookUMKM",
-    icon: "📚",
     name: "Sarah Johnson",
     role: "Product Manager",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    content: "We didn't realize how much our old site was holding us back. After the redesign, our message finally clicked with users. Signups went up and the team felt proud to share the site again.",
+    initials: "SJ",
+    content:
+      "We didn't realize how much our old site was holding us back. After the redesign, our message finally clicked with users. Signups went up and the team felt proud to share the site again.",
   },
   {
     company: "TechCorp",
-    icon: "💻",
     name: "Michael Chen",
     role: "CEO",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    content: "Working with Afif was a game-changer for our product. He brought both technical expertise and creative problem-solving to every challenge we faced.",
+    initials: "MC",
+    content:
+      "Working with Afif was a game-changer for our product. He brought both technical expertise and creative problem-solving to every challenge we faced.",
   },
   {
     company: "StartupLab",
-    icon: "🚀",
     name: "Emily Rodriguez",
     role: "Design Lead",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-    content: "Afif has an exceptional eye for design and user experience. He consistently delivers pixel-perfect implementations that exceed expectations.",
+    initials: "ER",
+    content:
+      "Afif has an exceptional eye for design and user experience. He consistently delivers pixel-perfect implementations that exceed expectations.",
   },
   {
-    company: "Digital Inc",
-    icon: "⚡",
+    company: "Digital Inc.",
     name: "David Kim",
     role: "Founder",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
-    content: "The new homepage made a huge difference. It's clear, focused, and actually shows how our product works. Demo requests doubled in just two weeks.",
+    initials: "DK",
+    content:
+      "The new homepage made a huge difference. It's clear, focused, and actually shows how our product works. Demo requests doubled in just two weeks.",
   },
   {
     company: "CloudTech",
-    icon: "☁️",
     name: "Lisa Wang",
     role: "CTO",
-    avatar: "https://randomuser.me/api/portraits/women/90.jpg",
-    content: "We struggled to explain what our product does. This new site fixed that. It feels modern, makes sense instantly, and got us early signups from real teams.",
+    initials: "LW",
+    content:
+      "We struggled to explain what our product does. This new site fixed that. It feels modern, makes sense instantly, and got us early signups from real teams.",
   },
 ]
 
-// Double the array for infinite scroll effect
-const duplicatedTestimonials = [...testimonials, ...testimonials]
+const duplicated = [...testimonials, ...testimonials]
 
 export function Testimonials() {
   return (
     <SectionWrapper id="testimonials">
-      <div className="space-y-12">
-        {/* Section Header */}
+      <div className="space-y-12 md:space-y-16">
+
+        {/* Header */}
         <motion.div
-          className="text-center space-y-6"
+          className="flex flex-col items-center text-center space-y-5"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Badge */}
-          <div className="flex justify-center">
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-black/80" />
-              </div>
-              <span className="relative text-sm font-medium text-white">Testimonial</span>
-            </div>
-          </div>
-
-          {/* Main Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-heading">
-            Feedback that speaks<br />for itself
+          <SectionBadge>Testimonials</SectionBadge>
+          <h2 className="heading-lg text-white">
+            Feedback that speaks<br />for itself.
           </h2>
         </motion.div>
 
-        {/* Infinite Slider */}
+        {/* Infinite scroll slider */}
         <div className="relative overflow-hidden mask-gradient-x">
-
-          {/* Sliding Track */}
           <motion.div
-            className="flex gap-6"
-            animate={{ x: [0, -50 * testimonials.length + "%"] }}
+            className="flex gap-4 md:gap-5"
+            animate={{ x: [`0%`, `-${50}%`] }}
             transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
+              x: { repeat: Infinity, repeatType: "loop", duration: 32, ease: "linear" },
             }}
           >
-            {duplicatedTestimonials.map((testimonial, index) => (
+            {duplicated.map((t, i) => (
               <div
-                key={`${testimonial.name}-${index}`}
-                className="flex-shrink-0 w-[320px] md:w-[380px]"
+                key={`${t.name}-${i}`}
+                className="flex-shrink-0 w-[300px] md:w-[360px]"
               >
-                {/* Card */}
-                <div className="h-full rounded-2xl border border-white/5 bg-zinc-900/20 backdrop-blur-md p-6 hover:bg-zinc-900/30 hover:border-white/10 hover:shadow-lg transition-all duration-300">
+                <div className="h-full rounded-2xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300">
                   {/* Company */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xl">{testimonial.icon}</span>
-                    <span className="font-semibold text-foreground">{testimonial.company}</span>
-                  </div>
+                  <p className="text-[10px] font-semibold text-zinc-600 uppercase tracking-widest mb-4">
+                    {t.company}
+                  </p>
 
-                  {/* Content */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {testimonial.content}
+                  {/* Quote */}
+                  <p className="text-sm text-zinc-300 leading-relaxed mb-6 line-clamp-4">
+                    &ldquo;{t.content}&rdquo;
                   </p>
 
                   {/* Author */}
                   <div className="flex items-center gap-3">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-10 h-10 rounded-full"
-                    />
+                    {/* Initials avatar */}
+                    <div className="w-9 h-9 rounded-full bg-[#44624a]/20 border border-[#44624a]/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[11px] font-bold text-[#8ba888]">{t.initials}</span>
+                    </div>
                     <div>
-                      <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-muted-foreground">{testimonial.role} at {testimonial.company}</p>
+                      <p className="text-sm font-medium text-white">{t.name}</p>
+                      <p className="text-xs text-zinc-500">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -128,8 +109,8 @@ export function Testimonials() {
             ))}
           </motion.div>
         </div>
+
       </div>
     </SectionWrapper>
   )
 }
-

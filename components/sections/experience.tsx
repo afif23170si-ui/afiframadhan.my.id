@@ -2,127 +2,128 @@
 
 import { motion } from "framer-motion"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
+import { SectionBadge } from "@/components/shared/section-badge"
 
 const experiences = [
   {
     role: "Full Stack Developer",
-    company: "Freelance",
-    duration: "2023 - Present",
-    description: "Building modern web applications for various clients using the latest technologies.",
-    technologies: ["Next.js", "Laravel", "TypeScript", "MySQL"],
+    company: "Freelance - Self-employed",
+    duration: "2023 – Present",
+    type: "Contract",
+    isActive: true,
+    description:
+      "Delivering end-to-end web solutions for clients across F&B, retail, and education sectors. Handle everything from system architecture and API design to UI implementation and cloud deployment. Projects consistently shipped on time with measurable performance improvements.",
+    technologies: ["Next.js", "TypeScript", "Laravel", "MySQL", "Tailwind CSS", "Vercel"],
   },
   {
     role: "Junior Web Developer",
-    company: "PT. Tech Indonesia",
-    duration: "2023 - 2024",
-    description: "Developed and maintained company websites and internal applications.",
-    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    company: "PT. Solusi Digital Nusantara",
+    duration: "2022 – 2023",
+    type: "Full-time",
+    isActive: false,
+    description:
+      "Built and maintained internal dashboard systems and client-facing web apps within an agile team. Contributed to a 30% reduction in page load time through code splitting and query optimization. Mentored two intern developers during the last quarter.",
+    technologies: ["React", "Node.js", "PostgreSQL", "REST API", "Git"],
+  },
+  {
+    role: "UI / UX & Frontend Lead",
+    company: "Campus Project - BookUMKM",
+    duration: "2024",
+    type: "Project",
+    isActive: false,
+    description:
+      "Led a 4-person team to design and build a booking platform connecting Indonesian UMKM businesses with local customers. Owned the full design system in Figma and translated it into a responsive React frontend, shipping the complete product in under 3 months.",
+    technologies: ["Figma", "React", "Laravel", "MySQL", "Tailwind CSS"],
   },
 ]
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-}
-
 export function Experience() {
   return (
-    <SectionWrapper id="experience" className="pt-20 md:pt-28 lg:pt-36">
-      <div className="space-y-12">
-        {/* Section Header */}
+    <SectionWrapper id="experience">
+      <div className="space-y-12 md:space-y-16">
+
+        {/* Header */}
         <motion.div
-          className="text-center space-y-4"
+          className="flex flex-col items-center text-center space-y-5"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center">
-            <div className="relative inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full shadow-sm overflow-hidden">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-black/80" />
-              </div>
-              <span className="relative text-sm font-medium text-white">Work Experience</span>
-            </div>
-          </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-heading">
-            My professional journey<br />and key accomplishments
+          <SectionBadge>Experience</SectionBadge>
+          <h2 className="heading-lg text-white">
+            My professional journey<br />and key accomplishments.
           </h2>
         </motion.div>
 
-        {/* Experience Timeline */}
-        <motion.div
-          className="max-w-3xl mx-auto"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
+        {/* Cards */}
+        <div className="flex flex-col gap-4 md:gap-5">
           {experiences.map((exp, index) => (
-            <motion.div 
-              key={index} 
-              variants={item}
-              className="relative pl-8 pb-12 last:pb-0 group"
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Timeline Line */}
-              {index !== experiences.length - 1 && (
-                <div className="absolute left-[11px] top-6 bottom-0 w-[2px] bg-border group-hover:bg-gradient-to-b group-hover:from-blue-500 group-hover:to-cyan-400 transition-all duration-500" />
-              )}
-              
-              {/* Timeline Dot */}
-              <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 border-border bg-background flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/10 transition-all duration-300">
-                <div className="w-2 h-2 rounded-full bg-muted-foreground group-hover:bg-blue-500 transition-colors duration-300" />
-              </div>
+              <div className="group relative rounded-2xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300 overflow-hidden">
 
-              {/* Content Card */}
-              <div className="rounded-xl border border-white/5 bg-zinc-900/20 backdrop-blur-md p-5 md:p-6 hover:bg-zinc-900/30 hover:border-white/10 hover:shadow-lg transition-all duration-300">
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-blue-500 transition-colors duration-300">
+                {/* Active matcha top accent */}
+                {exp.isActive && (
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#44624a]/60 to-transparent" />
+                )}
+
+                {/* Top row — role + badges */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                  <div className="space-y-0.5">
+                    <h3 className="text-base font-semibold font-heading text-white leading-snug">
                       {exp.role}
                     </h3>
-                    <p className="text-muted-foreground font-medium">
+                    <p className="text-sm text-zinc-500 font-medium">
                       {exp.company}
                     </p>
                   </div>
-                  <span className="text-sm text-muted-foreground bg-white/5 border border-white/5 px-3 py-1 rounded-full whitespace-nowrap">
-                    {exp.duration}
-                  </span>
+
+                  {/* Meta badges */}
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 bg-white/[0.04] border border-white/[0.06] px-2.5 py-1 rounded-full">
+                      {exp.type}
+                    </span>
+                    <span className="text-xs text-zinc-500 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full whitespace-nowrap flex items-center gap-1.5">
+                      {exp.duration}
+                      {exp.isActive && (
+                        <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                        </span>
+                      )}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4">
                   {exp.description}
                 </p>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1.5">
                   {exp.technologies.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="text-xs px-2.5 py-1 rounded-md bg-white/5 text-zinc-400 border border-white/5 hover:border-blue-500/30 hover:bg-blue-500/5 hover:text-blue-500 transition-all duration-300"
+                    <span
+                      key={tech}
+                      className="text-[11px] px-2.5 py-1 rounded-lg bg-white/[0.04] text-zinc-500 border border-white/[0.06] hover:border-[#44624a]/40 hover:text-[#8ba888] transition-all duration-200"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
+
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
       </div>
     </SectionWrapper>
   )
 }
-

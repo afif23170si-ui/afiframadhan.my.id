@@ -1,111 +1,46 @@
 @import "tailwindcss";
 
 /* ============================================
-   CSS VARIABLES - THEME CONFIGURATION
+   CSS VARIABLES — DESIGN SYSTEM TOKENS
    ============================================ */
 
 :root {
-  /* Base Colors - Light Mode */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 10%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 10%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  
-  /* Primary - Light Gray */
-  --primary: 0 0% 20%;
-  --primary-foreground: 0 0% 100%;
-  
-  /* Secondary */
-  --secondary: 0 0% 96%;
-  --secondary-foreground: 0 0% 10%;
-  
-  /* Accent - Medium Gray */
-  --accent: 0 0% 40%;
-  --accent-foreground: 0 0% 100%;
-  
-  /* Muted */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 45%;
-  
-  /* Borders */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 20%;
-  
-  /* Destructive */
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
-  
-  /* Chart Colors - Grayscale */
-  --chart-1: 0 0% 20%;
-  --chart-2: 0 0% 40%;
-  --chart-3: 0 0% 60%;
-  --chart-4: 0 0% 30%;
-  --chart-5: 0 0% 50%;
-  
-  /* Radius */
-  --radius: 0.5rem;
-  
-  /* Custom Halo Color */
-  --hero-halo: white;
+  /* Base — Dark-only, forced */
+  --background: 130 18% 6%;         /* #0b0f0b — dark matcha tint */
+  --foreground: 0 0% 98%;          /* #fafafa */
 
-  /* Sticky Navbar Colors */
-  --sticky-nav-bg: rgba(255, 255, 255, 0.4);
-  --sticky-nav-border: rgba(0, 0, 0, 0.05);
-}
-
-.dark {
-  /* Comfortable Dark Theme - Zinc Semantic Palette */
-  --background: 240 10% 3.9%;   /* #09090b - Soft nearly black */
-  --foreground: 0 0% 98%;       /* #fafafa */
-  
-  --card: 240 10% 6%;           /* Slightly lighter than bg */
+  --card: 240 10% 5.5%;
   --card-foreground: 0 0% 98%;
-  
+
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  
+
   --primary: 0 0% 98%;
   --primary-foreground: 240 5.9% 10%;
-  
-  --secondary: 240 3.7% 15.9%;  /* #27272a */
+
+  --secondary: 240 3.7% 15.9%;    /* #27272a */
   --secondary-foreground: 0 0% 98%;
-  
+
   --accent: 240 3.7% 15.9%;
   --accent-foreground: 0 0% 98%;
-  
+
   --muted: 240 3.7% 15.9%;
   --muted-foreground: 240 5% 64.9%; /* #a1a1aa */
-  
+
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
-  
+
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --chart-1: 0 0% 95%;
-  --chart-2: 0 0% 70%;
-  --chart-3: 0 0% 50%;
-  --chart-4: 0 0% 80%;
-  --chart-5: 0 0% 60%;
-  
-  /* Custom Halo Color - Dark Mode */
-  --hero-halo: hsl(var(--secondary));
 
-  /* Sticky Navbar Colors - Dark Mode */
-  --sticky-nav-bg: rgba(0, 0, 0, 0.4);
-  --sticky-nav-border: rgba(255, 255, 255, 0.1);
-}
+  /* Matcha Accent */
+  --blue: 132 18% 33%;             /* matcha dark  #44624a */
+  --blue-hover: 114 16% 60%;      /* matcha mid   #8ba888 */
+  --blue-muted: 132 18% 33% / 0.1;
 
-/* Project Card Background - Light/Dark mode */
-.project-card-bg {
-  background-color: #F8F8F8;
-}
-
-.dark .project-card-bg {
-  background-color: #0a0a0a;
+  /* Radius */
+  --radius: 0.5rem;
 }
 
 /* ============================================
@@ -113,7 +48,6 @@
    ============================================ */
 
 @theme inline {
-  /* Colors */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -133,28 +67,22 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
-  
+
   /* Fonts */
   --font-sans: var(--font-inter);
   --font-heading: var(--font-jakarta);
   --font-brand: var(--font-space-grotesk);
-  
+
   /* Border Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 4px);
   --radius-xl: calc(var(--radius) + 8px);
   --radius-2xl: calc(var(--radius) + 12px);
-  
+
   /* Animations */
   --animate-fade-up: fade-up 0.5s ease-out;
   --animate-fade-in: fade-in 0.3s ease-out;
-  --animate-slide-in: slide-in 0.3s ease-out;
   --animate-float: float 6s ease-in-out infinite;
 }
 
@@ -166,17 +94,31 @@
   @apply border-border;
 }
 
-body {
-  @apply bg-background text-foreground font-sans antialiased;
-  font-feature-settings: 'rlig' 1, 'calt' 1;
-}
 
-/* Fixed Background Image Implementation */
-/* Fixed Background Image Implementation moved to layout.tsx */
-/* body::after removed */
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+  background-color: #0b0f0b;
+  overflow-x: hidden;
+}
+
+/* Grain / noise overlay — premium texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }
 
 /* ============================================
@@ -184,352 +126,199 @@ html {
    ============================================ */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+  background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/30 rounded-lg;
+  background: #44624a;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/50;
+  background: #8ba888;
+}
+
+
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+
+/* Standard section vertical padding */
+.section-padding {
+  @apply py-20 md:py-28 lg:py-36;
+}
+
+/* Standard container */
+.container-custom {
+  @apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8;
 }
 
 /* ============================================
-   BACKGROUND TEXTURE / GRAIN EFFECT
+   TYPOGRAPHY UTILITIES
    ============================================ */
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.03;
-  z-index: -1;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+/* Primary section heading */
+.heading-xl {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.1];
+}
+
+/* Secondary section heading */
+.heading-lg {
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold font-heading tracking-tight;
+}
+
+/* Section subtext */
+.subtext {
+  @apply text-base md:text-lg text-zinc-400 leading-relaxed;
 }
 
 /* ============================================
-   GRADIENT TEXT UTILITY
+   GLASS MORPHISM UTILITIES
    ============================================ */
 
-.gradient-text {
-  @apply bg-gradient-to-r from-foreground via-muted-foreground to-foreground bg-clip-text text-transparent;
-  background-size: 200% auto;
-  animation: gradient-shift 3s ease infinite;
-}
-
-/* Light mode: blue gradient */
-.gradient-text {
-  background-image: linear-gradient(
-    to right,
-    hsl(220, 70%, 50%),
-    hsl(200, 80%, 60%),
-    hsl(220, 70%, 50%)
-  );
-}
-
-/* Dark mode: lighter blue gradient */
-.dark .gradient-text {
-  background-image: linear-gradient(
-    to right,
-    hsl(210, 100%, 70%),
-    hsl(190, 90%, 55%),
-    hsl(210, 100%, 70%)
-  );
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-/* ============================================
-   LIQUID GLASS DESIGN - iOS 26 Inspired
-   ============================================ */
-
-/* Primary Glass - Navbar and floating elements */
-/* Light mode: darker glass with more opacity */
+/* Standard glass card */
 .glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.5) 100%
-  );
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-/* Navbar Glass - More transparent */
+/* Navbar glass */
 .glass-nav {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+  background: rgba(9,9,11,0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Stronger Glass - Cards and content sections */
-/* Light mode: more visible glass effect */
+/* Stronger glass for cards */
 .glass-strong {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.6) 100%
-  );
-  backdrop-filter: blur(30px) saturate(200%);
-  -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.03) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-
-
-/* Subtle Glass - Backgrounds and overlays */
-/* Light mode: subtle but visible */
+/* Subtle glass */
 .glass-subtle {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.4) 100%
-  );
-  backdrop-filter: blur(15px) saturate(150%);
-  -webkit-backdrop-filter: blur(15px) saturate(150%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Dark Mode Glass Variants */
-.dark .glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.dark .glass-nav {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(255, 255, 255, 0.01) 100%
-  );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-}
-
-.dark .glass-strong {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-}
-
-.dark .glass-subtle {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.04) 0%,
-    rgba(255, 255, 255, 0.01) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Liquid Glass Hover Effect */
+/* Hover transition */
 .glass-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-hover:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 100%);
+  border-color: rgba(255,255,255,0.15);
   transform: translateY(-2px);
-  box-shadow: 
-    0 12px 40px 0 rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
 }
 
 /* ============================================
-   CUSTOM ANIMATIONS
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-blue {
+  box-shadow:
+    0 0 40px rgba(59,130,246,0.15),
+    0 0 80px rgba(59,130,246,0.06);
+}
+
+/* ============================================
+   ANIMATIONS
    ============================================ */
 
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  33% {
-    transform: translateY(-20px) translateX(10px);
-  }
-  66% {
-    transform: translateY(10px) translateX(-10px);
-  }
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%       { transform: translateY(-18px) translateX(8px); }
+  66%       { transform: translateY(9px) translateX(-8px); }
 }
 
-@keyframes gradient-fast {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient-fast {
-  animation: gradient-fast 3s ease infinite;
-}
-
-/* ============================================
-   SECTION SPACING
-   ============================================ */
-
-.section-padding {
-  @apply py-12 sm:py-16 md:py-20 lg:py-32;
-}
-
-.container-custom {
-  @apply max-w-7xl mx-auto px-5 sm:px-6 lg:px-8;
-}
-
-/* ============================================
-   GLOW EFFECTS - Liquid Glass Enhanced
-   ============================================ */
-
-.glow-primary {
-  box-shadow: 
-    0 0 40px rgba(255, 255, 255, 0.15),
-    0 0 80px rgba(255, 255, 255, 0.08);
-}
-
-.glow-accent {
-  box-shadow: 
-    0 0 40px rgba(255, 255, 255, 0.1),
-    0 0 60px rgba(255, 255, 255, 0.05);
-}
-
-/* Liquid Glass Shimmer Effect */
-.glass-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.glass-shimmer::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 70%
-  );
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50%       { background-position: 100% center; }
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
 }
 
-
-
-/* Mask Gradient Utility for Tech Ticker */
-.mask-gradient-x {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+@keyframes strip-scroll {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-
-::selection {
-  @apply bg-primary/20 text-foreground;
-}
-
-::-moz-selection {
-  @apply bg-primary/20 text-foreground;
+.animate-strip-scroll {
+  animation: strip-scroll 35s linear infinite;
 }
 
 /* ============================================
-   3D TRANSFORMS
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background-image: linear-gradient(to right, hsl(210,100%,75%), hsl(190,90%,60%), hsl(210,100%,75%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ============================================
+   MASK UTILITY
+   ============================================ */
+
+.mask-gradient-x {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+/* Hide cursor on project cards — replaced by custom badge */
+[data-project-card],
+[data-project-card] * {
+  cursor: none !important;
+}
+
+::selection {
+  background: rgba(59,130,246,0.25);
+  color: #fafafa;
+}
+
+/* ============================================
+   3D TRANSFORM UTILITIES
    ============================================ */
 
 .perspective-1000 {
@@ -540,14 +329,25 @@ body::before {
   transform-style: preserve-3d;
 }
 
-.translate-z-10 {
-  transform: translateZ(20px);
+/* ============================================
+   TEXT GLOW
+   ============================================ */
+
+/**
+ * Soft white luminous glow on text — same color as
+ * surrounding text but with a shadow halo effect.
+ * Used on hero heading accent words for premium feel
+ * without color change or gradient animation.
+ */
+.text-glow {
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.55),
+    0 0 60px rgba(255, 255, 255, 0.20),
+    0 0 100px rgba(255, 255, 255, 0.08);
 }
 
-.rotate-y-12 {
-  transform: rotateY(12deg);
-}
 
-.rotate-x-6 {
-  transform: rotateX(6deg);
+/* Directional bottom-only shadow — depth without glow */
+.text-shadow-b {
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
 }

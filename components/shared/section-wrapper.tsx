@@ -11,15 +11,23 @@ interface SectionWrapperProps {
 
 export function SectionWrapper({ children, id, className = "" }: SectionWrapperProps) {
   return (
-    <motion.section
+    // Section element is always fully visible — no opacity animation here.
+    // This prevents the background image from bleeding through while the
+    // section is in its initial invisible state before the scroll animation fires.
+    <section
       id={id}
-      className={`section-padding ${className}`}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`section-padding bg-zinc-950 ${className}`}
     >
-      <div className="container-custom">{children}</div>
-    </motion.section>
+      {/* Only the content inside animates — the background stays solid */}
+      <motion.div
+        className="container-custom"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+    </section>
   )
 }
