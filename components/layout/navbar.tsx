@@ -9,11 +9,12 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const navItems = [
-  { name: "Home",       href: "/" },
-  { name: "About",      href: "/#about" },
-  { name: "Projects",   href: "/#projects" },
-  { name: "Experience", href: "/#experience" },
-  { name: "Contact",    href: "/#contact" },
+  { name: "Home",        href: "/" },
+  { name: "About",       href: "/#about" },
+  { name: "Projects",    href: "/#projects" },
+  { name: "Experience",  href: "/#experience" },
+  { name: "Certifications",  href: "/#certifications" },
+  { name: "Contact",     href: "/#contact" },
 ]
 
 export function Navbar() {
@@ -32,7 +33,7 @@ export function Navbar() {
   // Intersection Observer — track active section
   useEffect(() => {
     if (pathname !== "/") return
-    const sectionIds = ["about", "projects", "experience", "contact"]
+    const sectionIds = ["about", "projects", "experience", "certifications", "contact"]
     const observers: IntersectionObserver[] = []
 
     sectionIds.forEach((id) => {
@@ -59,6 +60,15 @@ export function Navbar() {
       window.removeEventListener("scroll", onScroll)
     }
   }, [pathname])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.setAttribute("data-menu-open", "true")
+    } else {
+      document.body.removeAttribute("data-menu-open")
+    }
+    return () => document.body.removeAttribute("data-menu-open")
+  }, [isOpen])
 
   // Close mobile menu on route change
   useEffect(() => { setIsOpen(false) }, [pathname])
@@ -138,7 +148,7 @@ export function Navbar() {
           /* ── Sticky Pill Navbar ── */
           <motion.nav
             key="pill"
-            className="fixed top-4 inset-x-4 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-fit z-50 rounded-full bg-zinc-900/80 backdrop-blur-2xl border border-white/[0.1] shadow-2xl shadow-black/50"
+            className="fixed top-4 inset-x-4 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-full z-50 rounded-full bg-zinc-900/80 backdrop-blur-2xl border border-white/[0.1] shadow-2xl shadow-black/50"
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -80, opacity: 0 }}
@@ -195,70 +205,105 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* ── Mobile Fullscreen Menu ── */}
+      {/* ── Mobile Menu — Bottom Sheet ── */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            className="fixed inset-0 z-[60] md:hidden bg-zinc-950/95 backdrop-blur-xl flex flex-col items-center justify-center"
-            initial={{ opacity: 0, y: "100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "100%" }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <button
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 z-[59] md:hidden bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 h-10 w-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            />
+
+            {/* Sheet */}
+            <motion.div
+              className="fixed inset-x-0 bottom-0 z-[60] md:hidden bg-zinc-950 border-t border-white/[0.08] rounded-t-3xl overflow-hidden"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <X className="w-5 h-5" />
-            </button>
+              {/* Ambient glow */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-[#44624a]/10 rounded-full blur-[80px]" />
+              </div>
 
-            <nav className="flex flex-col items-center gap-6">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 + i * 0.07, duration: 0.3 }}
+              {/* Drag handle */}
+              <div className="flex justify-center pt-3 pb-1">
+                <div className="w-10 h-1 rounded-full bg-white/20" />
+              </div>
+
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 pt-3 pb-4 border-b border-white/[0.06]">
+                <div className="flex items-center gap-2.5">
+                  <Image src="/android-chrome-192x192.png" alt="Afif" width={28} height={28} className="rounded-full" />
+                  <span className="text-sm font-semibold text-white">Afif Ramadhan</span>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-zinc-400 hover:text-white transition-colors"
                 >
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-2xl font-semibold tracking-tight transition-colors ${
-                      isActive(item.href) ? "text-white" : "text-zinc-500 hover:text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
 
+              {/* Nav items */}
+              <nav className="px-6 py-2 relative z-10">
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 + i * 0.05, duration: 0.25 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center justify-between py-4 border-b border-white/[0.05] group transition-colors duration-200 ${
+                        isActive(item.href) ? "text-white" : "text-zinc-500 hover:text-white"
+                      }`}
+                    >
+                      <span className="text-base font-semibold font-heading">{item.name}</span>
+                      <div className="flex items-center gap-2">
+                        {isActive(item.href) && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#8ba888]" />
+                        )}
+                        <span className="text-[10px] font-medium text-zinc-700 tabular-nums">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Footer — CTA */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.3 }}
-                className="mt-4"
+                className="px-6 pt-4 pb-8 relative z-10"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.3 }}
               >
                 <a
                   href="https://wa.me/6285121597870"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center gap-2 bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-8 h-12 text-base font-medium transition-all duration-200"
+                  className="flex items-center justify-center gap-2 w-full bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-12 text-sm font-semibold transition-all duration-200"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                   </svg>
                   Let&apos;s chat
                 </a>
               </motion.div>
-            </nav>
 
-            {/* Decorative glows */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-[#44624a]/15 rounded-full blur-[100px]" />
-              <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-[#8ba888]/10 rounded-full blur-[120px]" />
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

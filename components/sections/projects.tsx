@@ -65,17 +65,6 @@ function ProjectCard({
             />
           )}
 
-          {/* Bottom gradient */}
-          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/80 to-transparent" />
-
-          {/* Text overlay */}
-          <div className="absolute inset-x-0 bottom-0 p-5 z-10">
-            <h3 className="text-base sm:text-lg font-semibold text-white leading-snug mb-0.5">
-              {project.title}
-            </h3>
-            <p className="text-sm text-zinc-300/80">{project.subtitle}</p>
-          </div>
-
           {/* Custom cursor badge */}
           <AnimatePresence>
             {hovered && (
@@ -96,6 +85,33 @@ function ProjectCard({
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        {/* Title & subtitle — outside card */}
+        <div className="pt-3 px-1 flex items-center gap-2.5">
+          {/* Logo */}
+          <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden border border-white/[0.08] bg-white/[0.05]">
+            {project.logo ? (
+              <Image
+                src={project.logo}
+                alt={project.title}
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-[#44624a]/20">
+                <span className="text-[10px] font-bold text-[#8ba888]">{project.logoInitial}</span>
+              </div>
+            )}
+          </div>
+          {/* Text */}
+          <div className="min-w-0">
+            <h3 className="text-sm font-semibold font-heading text-white group-hover:text-[#8ba888] transition-colors duration-300 leading-snug truncate">
+              {project.title}
+            </h3>
+            <p className="text-xs text-zinc-500 mt-0.5 truncate">{project.subtitle}</p>
+          </div>
         </div>
       </button>
     </motion.div>
@@ -142,7 +158,7 @@ export function Projects() {
         </div>
 
         {/* 2-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}

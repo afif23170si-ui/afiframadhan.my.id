@@ -15,10 +15,10 @@ import Image from "next/image"
 // Use all available project screenshots, some variants included
 // for visual variety so the strip looks full and continuous.
 const images = [
-  { src: "/images/projectlinipos.webp",   alt: "LiniPOS - Point of Sale System"          },
-  { src: "/images/project-masjid.webp",   alt: "Nurul Jannah - Mosque Management"        },
-  { src: "/images/project-kaspos.webp",   alt: "KasPOS - F&B Point of Sale"              },
-  { src: "/images/project-bookumkm.webp", alt: "BookUMKM - UMKM Booking Platform"        },
+  { src: "/images/project-linipos.webp",   alt: "LiniPOS - Point of Sale System",   priority: true  },
+  { src: "/images/project-masjid.webp",   alt: "Nurul Jannah - Mosque Management",  priority: false },
+  { src: "/images/project-kaspos.webp",   alt: "KasPOS - F&B Point of Sale",        priority: false },
+  { src: "/images/project-bookumkm.webp", alt: "BookUMKM - UMKM Booking Platform",  priority: false },
 ]
 
 export function ImageStrip() {
@@ -26,7 +26,7 @@ export function ImageStrip() {
   const strip = [...images, ...images]
 
   return (
-    <div className="relative w-full bg-zinc-950 pt-8 md:pt-0 pb-6 md:pb-10 overflow-hidden">
+    <div className="relative w-full bg-zinc-950 pt-4 md:pt-0 pb-6 md:pb-10 overflow-hidden">
 
       {/* Left + right fade masks */}
       <div
@@ -50,7 +50,9 @@ export function ImageStrip() {
               alt={img.alt}
               fill
               className="object-cover object-top transition-transform duration-500 hover:scale-[1.03]"
-              sizes="440px"
+              sizes="(max-width: 640px) 340px, (max-width: 768px) 360px, 440px"
+              priority={i === 0}
+              loading={i === 0 ? "eager" : "lazy"}
             />
           </div>
         ))}

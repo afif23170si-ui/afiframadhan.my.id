@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { Instagram, Twitter, Linkedin, Dribbble } from "lucide-react"
+import { Instagram, Linkedin, Github } from "lucide-react"
 
 const skills = [
   { name: "Next.js",      category: "Frontend" },
@@ -26,10 +26,9 @@ const skills = [
 ]
 
 const socialLinks = [
-  { icon: Instagram, href: "https://instagram.com/afiframdhn",       label: "Instagram"  },
-  { icon: Twitter,   href: "https://twitter.com/afifr",               label: "X / Twitter"},
-  { icon: Dribbble,  href: "https://dribbble.com/afifr",              label: "Dribbble"   },
-  { icon: Linkedin,  href: "https://www.linkedin.com/in/afifrmdhn/",  label: "LinkedIn"   },
+  { icon: Instagram, href: "https://www.instagram.com/aafif.r/",          label: "Instagram" },
+  { icon: Linkedin,  href: "https://www.linkedin.com/in/afifrmdhn/",       label: "LinkedIn"  },
+  { icon: Github,    href: "http://github.com/afif23170si-ui",             label: "GitHub"    },
 ]
 
 export function About() {
@@ -57,11 +56,11 @@ export function About() {
           </motion.div>
 
           {/* ── Asymmetric 2-column: content (wider) | photo ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_360px] gap-10 md:gap-14 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_360px] gap-10 md:gap-12 lg:gap-20 items-start">
 
             {/* ── LEFT: Content ── */}
             <motion.div
-              className="order-2 lg:order-1 flex flex-col gap-10"
+              className="order-2 md:order-1 flex flex-col gap-10 items-center text-center md:items-start md:text-left"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -75,7 +74,7 @@ export function About() {
                 </h2>
 
                 {/* Social icons row */}
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center justify-center md:justify-start gap-2.5">
                   {socialLinks.map((s) => {
                     const Icon = s.icon
                     return (
@@ -96,16 +95,15 @@ export function About() {
 
               {/* Bio */}
               <p className="text-zinc-400 leading-relaxed text-[15px]">
-                I craft digital products where{" "}
+                I&apos;m a Full Stack Developer from Indonesia who loves turning complex problems into clean, fast web experiences. From{" "}
                 <span className="font-semibold" style={{ color: "#8ba888" }}>
-                  engineering precision
+                  POS systems
                 </span>{" "}
-                meets{" "}
+                to{" "}
                 <span className="font-semibold" style={{ color: "#8ba888" }}>
-                  design sensibility.
+                  booking platforms,
                 </span>{" "}
-                Over 3+ years I&apos;ve built everything from F&B POS systems to UMKM booking platforms -
-                always pushing for clean architecture, great UX, and code that actually scales.
+                I build products end-to-end - from database schema to pixel-perfect UI.
               </p>
 
               {/* Matcha gradient divider */}
@@ -115,7 +113,7 @@ export function About() {
               />
 
               {/* Skills */}
-              <div className="space-y-4">
+              <div className="space-y-4 w-full">
                 <h3
                   className="text-[10px] font-bold font-heading uppercase tracking-[0.2em]"
                   style={{
@@ -126,7 +124,7 @@ export function About() {
                 >
                   Tools &amp; Technologies
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {skills.map((skill, i) => (
                     <motion.div
                       key={skill.name}
@@ -149,19 +147,31 @@ export function About() {
               </div>
             </motion.div>
 
-            {/* ── RIGHT: Photo — fixed aspect, sticky ── */}
+            {/* ── RIGHT: Photo ── */}
             <motion.div
-              className="order-1 lg:order-2 lg:sticky lg:top-28"
+              className="order-1 md:order-2 lg:sticky lg:top-28"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="relative aspect-[3/4] w-full max-w-[420px] mx-auto lg:mx-0">
-                {/* Matcha glow behind photo */}
+              {/* Mobile — bulat kecil centered */}
+              <div className="flex justify-center md:hidden mb-2">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[#44624a]/50 shadow-xl shadow-black/40 ring-4 ring-[#44624a]/10">
+                  <Image
+                    src="/images/profil1.webp"
+                    alt="Afif Ramadhan - Full Stack Developer"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    quality={90}
+                    sizes="128px"
+                  />
+                </div>
+              </div>
 
-
-                {/* Photo */}
+              {/* Tablet/Desktop — portrait penuh */}
+              <div className="relative aspect-[3/4] w-full max-w-full mx-auto hidden md:block">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#44624a]/40 shadow-2xl shadow-black/50">
                   <Image
                     src="/images/profil1.webp"
@@ -170,11 +180,9 @@ export function About() {
                     className="object-cover object-center"
                     priority
                     quality={90}
-                    sizes="(max-width: 1024px) 100vw, 420px"
+                    sizes="(max-width: 1024px) 240px, 360px"
                   />
-                  {/* Matcha inner ring */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-[#8ba888]/10 rounded-2xl pointer-events-none" />
-                  {/* Subtle bottom gradient on photo */}
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
                 </div>
               </div>

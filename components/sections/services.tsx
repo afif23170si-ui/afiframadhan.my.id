@@ -55,8 +55,9 @@ function MarqueeRow({
   direction?: "left" | "right"
   duration?: number
 }) {
-  // Duplicate for seamless loop
-  const doubled = [...items, ...items, ...items]
+  // Triple for seamless loop
+  const tripled = [...items, ...items, ...items]
+  const animClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
 
   return (
     <div
@@ -66,21 +67,14 @@ function MarqueeRow({
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
       }}
     >
-      <motion.div
-        className="flex gap-3 w-max"
-        animate={{
-          x: direction === "left" ? ["0%", "-33.33%"] : ["-33.33%", "0%"],
-        }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+      <div
+        className={`flex gap-3 w-max ${animClass}`}
+        style={{ animationDuration: `${duration}s` }}
       >
-        {doubled.map((item, i) => (
+        {tripled.map((item, i) => (
           <ServiceTag key={`${item.label}-${i}`} icon={item.icon} label={item.label} />
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -106,7 +100,7 @@ export function Services() {
           </h2>
         </motion.div>
 
-        {/* Marquee rows — constrained to container */}
+        {/* Marquee rows — pure CSS, no JS animation loop */}
         <div className="space-y-3">
           <MarqueeRow items={row1} direction="left" duration={28} />
           <MarqueeRow items={row2} direction="right" duration={32} />

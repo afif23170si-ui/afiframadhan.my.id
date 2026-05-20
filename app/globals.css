@@ -71,7 +71,6 @@
   /* Fonts */
   --font-sans: var(--font-inter);
   --font-heading: var(--font-jakarta);
-  --font-brand: var(--font-space-grotesk);
 
   /* Border Radius */
   --radius-sm: calc(var(--radius) - 4px);
@@ -150,7 +149,7 @@ body::after {
 
 /* Standard section vertical padding */
 .section-padding {
-  @apply py-20 md:py-28 lg:py-36;
+  @apply py-20 md:py-24 lg:py-32;
 }
 
 /* Standard container */
@@ -264,11 +263,30 @@ body::after {
 
 @keyframes marquee {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.33%); }
 }
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+/* Services marquee — CSS-driven, no JS */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+@keyframes marquee-right {
+  0%   { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right linear infinite;
 }
 
 @keyframes strip-scroll {
@@ -306,7 +324,17 @@ body::after {
    SELECTION
    ============================================ */
 
-/* Hide cursor on project cards — replaced by custom badge */
+/* Hide back-to-top button when mobile menu is open */
+body[data-menu-open] .scroll-to-top {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide back-to-top button when project modal is open */
+body[data-modal-open] .scroll-to-top {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 [data-project-card],
 [data-project-card] * {
   cursor: none !important;

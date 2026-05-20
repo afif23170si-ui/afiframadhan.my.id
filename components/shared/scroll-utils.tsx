@@ -37,7 +37,7 @@ export function ScrollUtils() {
             exit={{ opacity: 0, scale: 0.8, y: 8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-6 z-[99997] w-11 h-11 rounded-full flex items-center justify-center border border-[#44624a]/40 bg-[#0b0f0b]/80 backdrop-blur-md text-[#8ba888] hover:bg-[#44624a]/20 hover:border-[#8ba888]/60 hover:text-white transition-all duration-200 shadow-lg shadow-black/30"
+            className="scroll-to-top fixed bottom-8 right-6 z-[99997] w-11 h-11 rounded-full flex items-center justify-center border border-[#44624a]/40 bg-[#0b0f0b]/80 backdrop-blur-md text-[#8ba888] hover:bg-[#44624a]/20 hover:border-[#8ba888]/60 hover:text-white transition-all duration-200 shadow-lg shadow-black/30"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />

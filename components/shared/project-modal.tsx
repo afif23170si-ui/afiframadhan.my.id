@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { X, ExternalLink, Github, ArrowUpRight } from "lucide-react"
+import { X, ExternalLink, ArrowUpRight } from "lucide-react"
 import type { Project } from "@/lib/projects"
 
 interface ProjectModalProps {
@@ -21,8 +21,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   // Lock body scroll when open
   useEffect(() => {
-    document.body.style.overflow = project ? "hidden" : ""
-    return () => { document.body.style.overflow = "" }
+    if (project) {
+      document.body.style.overflow = "hidden"
+      document.body.setAttribute("data-modal-open", "true")
+    } else {
+      document.body.style.overflow = ""
+      document.body.removeAttribute("data-modal-open")
+    }
+    return () => {
+      document.body.style.overflow = ""
+      document.body.removeAttribute("data-modal-open")
+    }
   }, [project])
 
   return (
@@ -198,18 +207,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     <ExternalLink className="w-3.5 h-3.5" />
                     No Live Demo
                   </div>
-                )}
-
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full bg-white/[0.06] border border-white/[0.10] hover:bg-white/[0.12] text-zinc-300 text-sm font-medium transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    GitHub
-                  </a>
                 )}
 
                 <button

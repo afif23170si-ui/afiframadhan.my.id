@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -15,12 +15,6 @@ const inter = Inter({
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
@@ -54,8 +48,12 @@ export const metadata: Metadata = {
     "Afif Framadhan",
     "Full Stack Developer",
     "Full Stack Developer Indonesia",
-    "Web Developer",
-    "UI/UX Designer",
+    "Full Stack Developer Yogyakarta",
+    "Web Developer Indonesia",
+    "Web Developer Freelance",
+    "Jasa Pembuatan Website",
+    "Jasa Web Developer",
+    "UI/UX Designer Indonesia",
     "React Developer",
     "Next.js Developer",
     "Laravel Developer",
@@ -63,7 +61,9 @@ export const metadata: Metadata = {
     "JavaScript",
     "Frontend Developer",
     "Backend Developer",
-    "Portfolio",
+    "Portfolio Developer Indonesia",
+    "Programmer Indonesia",
+    "AI Automation Developer",
   ],
   authors: [{ name: "Afif Ramadhan", url: siteUrl }],
   creator: "Afif Ramadhan",
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     description: "Full Stack Developer specializing in modern web applications. Building digital experiences that matter.",
     images: [
       {
-        url: `${siteUrl}/logo-a-original.png`,
+        url: `${siteUrl}/logo-a.png`,
         width: 1200,
         height: 630,
         alt: "Afif Ramadhan - Full Stack Developer",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Afif Ramadhan | Full Stack Developer",
     description: "Full Stack Developer specializing in modern web applications. Building digital experiences that matter.",
-    images: [`${siteUrl}/logo-a-original.png`],
+    images: [`${siteUrl}/logo-a.png`],
     creator: "@afiframadhan",
   },
 
@@ -126,22 +126,33 @@ const jsonLd = {
   name: "Afif Ramadhan",
   alternateName: ["Afif Framadhan", "Afif"],
   url: siteUrl,
-  image: `${siteUrl}/logo-a-original.png`,
+  image: `${siteUrl}/images/profil1.webp`,
   jobTitle: "Full Stack Developer",
-  description: "Full Stack Developer specializing in modern web applications with strong UI/UX sense.",
+  description: "Full Stack Developer from Indonesia specializing in modern web applications with strong UI/UX sense.",
+  email: "afifr5092@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ID",
+    addressRegion: "Indonesia",
+  },
   sameAs: [
     "https://github.com/afif23170si-ui",
     "https://www.linkedin.com/in/afifrmdhn/",
+    "https://www.instagram.com/aafif.r/",
   ],
   knowsAbout: [
     "Web Development",
+    "Full Stack Development",
     "React",
     "Next.js",
     "Laravel",
     "TypeScript",
     "JavaScript",
+    "PHP",
     "UI/UX Design",
-    "Full Stack Development",
+    "AI Automation",
+    "n8n",
+    "REST API",
   ],
   worksFor: {
     "@type": "Organization",
@@ -164,7 +175,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${jakarta.variable} ${spaceGrotesk.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jakarta.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -173,24 +184,24 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
-            {/* Mobile background */}
+            {/* Mobile background — priority karena di atas fold */}
             <Image
-              src="/images/background-hero-m.png"
+              src="/images/background-hero-m.webp"
               alt=""
               fill
               priority
-              quality={85}
+              quality={80}
               className="object-cover object-top opacity-80 md:hidden"
               sizes="100vw"
               aria-hidden="true"
             />
-            {/* Desktop background */}
+            {/* Desktop background — only visible md+, still priority for LCP */}
             <Image
-              src="/images/background-hero-d.png"
+              src="/images/background-hero-d.webp"
               alt=""
               fill
               priority
-              quality={85}
+              quality={80}
               className="object-cover object-center opacity-80 hidden md:block"
               sizes="100vw"
               aria-hidden="true"

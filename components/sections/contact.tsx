@@ -15,7 +15,7 @@ export function Contact() {
         style={{
           backgroundImage: "url('/images/background-geometri.svg')",
           backgroundSize: "cover",
-          backgroundPosition: "center -300px",
+          backgroundPosition: "center -150px",
           backgroundRepeat: "no-repeat",
         }}
       />

@@ -68,40 +68,6 @@ function ProjectCard({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
 
-          {/* Bottom gradient */}
-          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/80 to-transparent" />
-
-          {/* Year badge */}
-          <div className="absolute top-3 left-3 z-10">
-            <span className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 bg-black/50 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full">
-              {project.year}
-            </span>
-          </div>
-
-          {/* Text overlay */}
-          <div className="absolute inset-x-0 bottom-0 p-4 z-10">
-            <h3 className="text-base font-semibold font-heading text-white leading-snug mb-0.5">
-              {project.title}
-            </h3>
-            <p className="text-xs text-zinc-400">{project.subtitle}</p>
-            {/* Tech pills — 3 max */}
-            <div className="flex flex-wrap gap-1 mt-2">
-              {project.technologies.slice(0, 3).map((tech) => (
-                <span
-                  key={tech}
-                  className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.07] border border-white/[0.08] text-zinc-400"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.technologies.length > 3 && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.07] border border-white/[0.08] text-zinc-500">
-                  +{project.technologies.length - 3}
-                </span>
-              )}
-            </div>
-          </div>
-
           {/* Custom cursor badge */}
           <AnimatePresence>
             {hovered && (
@@ -122,6 +88,34 @@ function ProjectCard({
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        {/* Title, subtitle & tech — outside card */}
+        <div className="pt-3 px-1">
+          <div className="flex items-center gap-2 mb-1">
+            <h3 className="text-sm font-semibold font-heading text-white group-hover:text-[#8ba888] transition-colors duration-300 leading-snug">
+              {project.title}
+            </h3>
+            <span className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 rounded-full">
+              {project.year}
+            </span>
+          </div>
+          <p className="text-xs text-zinc-500 mb-2">{project.subtitle}</p>
+          <div className="flex flex-wrap gap-1">
+            {project.technologies.slice(0, 3).map((tech) => (
+              <span
+                key={tech}
+                className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-zinc-500"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 3 && (
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-zinc-600">
+                +{project.technologies.length - 3}
+              </span>
+            )}
+          </div>
         </div>
       </button>
     </motion.div>

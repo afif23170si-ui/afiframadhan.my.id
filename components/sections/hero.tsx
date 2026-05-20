@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu, Layers } from "lucide-react"
+import { ArrowRight, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu, Layers, Code2, FileJson, GitBranch, Figma, Terminal, LayoutTemplate, Boxes } from "lucide-react"
 
 function GmailIcon({ className }: { className?: string }) {
   return (
@@ -17,15 +17,24 @@ function GmailIcon({ className }: { className?: string }) {
 }
 
 const techStack = [
-  { name: "Next.js",    icon: Zap },
-  { name: "React",      icon: Atom },
-  { name: "TypeScript", icon: FileCode },
-  { name: "Tailwind",   icon: Palette },
-  { name: "Node.js",    icon: Server },
-  { name: "MySQL",      icon: Database },
-  { name: "Laravel",    icon: Layers },
-  { name: "Cloud",      icon: Globe },
-  { name: "AI / ML",    icon: Cpu },
+  { name: "Next.js",      icon: Zap },
+  { name: "React",        icon: Atom },
+  { name: "TypeScript",   icon: FileCode },
+  { name: "JavaScript",   icon: FileJson },
+  { name: "PHP",          icon: Code2 },
+  { name: "Tailwind",     icon: Palette },
+  { name: "Bootstrap",    icon: LayoutTemplate },
+  { name: "HTML",         icon: Boxes },
+  { name: "CSS",          icon: Palette },
+  { name: "Node.js",      icon: Server },
+  { name: "Laravel",      icon: Layers },
+  { name: "MySQL",        icon: Database },
+  { name: "PostgreSQL",   icon: Database },
+  { name: "REST API",     icon: Globe },
+  { name: "Figma",        icon: Figma },
+  { name: "Git",          icon: GitBranch },
+  { name: "Cloud",        icon: Terminal },
+  { name: "AI / ML",      icon: Cpu },
 ]
 
 export function Hero() {
@@ -36,7 +45,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center overflow-x-hidden overflow-y-hidden pt-52 pb-10 md:pt-35 md:pb-16"
+      className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden pt-52 pb-8 sm:pt-40 sm:pb-10 md:pt-44 md:pb-12"
     >
       {/* Top vignette */}
       <div className="absolute inset-x-0 top-0 h-[280px] bg-gradient-to-b from-zinc-950/70 via-zinc-950/20 to-transparent pointer-events-none z-[2]" />
@@ -54,7 +63,7 @@ export function Hero() {
         >
 
           {/* ─── MOBILE LAYOUT (< sm) ─────────────────────── */}
-          <div className="flex flex-col items-start text-left sm:hidden space-y-5">
+          <div className="flex flex-col items-center text-center sm:hidden space-y-5">
 
             {/* Badge */}
             <motion.div
@@ -71,7 +80,7 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Heading — large, left-aligned, natural wrap */}
+            {/* Heading */}
             <motion.h1
               className="text-[2.6rem] leading-[1.08] font-bold font-heading tracking-tight text-white"
               initial={{ opacity: 0, y: 20 }}
