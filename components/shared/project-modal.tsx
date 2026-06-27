@@ -65,77 +65,118 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               onClick={(e) => e.stopPropagation()}
             >
 
-              {/* Drag handle — mobile only */}
-              <div className="sm:hidden flex justify-center pt-3 pb-1 flex-shrink-0">
-                <div className="w-10 h-1 rounded-full bg-zinc-950/20" />
-              </div>
-
-              {/* Sticky header */}
-              <div className="flex items-start justify-between gap-4 px-5 sm:px-7 pt-4 sm:pt-6 pb-4 flex-shrink-0 border-b border-zinc-950/[0.06]">
-                <div className="flex-1 min-w-0">
-                  {/* Meta */}
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8ba888]">
-                      {project.year}
-                    </span>
-                    {project.client && (
-                      <>
-                        <span className="text-zinc-700">·</span>
-                        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-zinc-600">
-                          {project.client}
-                        </span>
-                      </>
-                    )}
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold font-heading text-zinc-950 leading-tight truncate">
-                    {project.title}
-                  </h2>
-                  <p className="text-[15px] text-zinc-500 mt-0.5 truncate">{project.subtitle}</p>
-                </div>
-
-                {/* Close */}
-                <button
-                  onClick={onClose}
-                  className="flex-shrink-0 w-9 h-9 rounded-full bg-zinc-950/[0.06] border border-zinc-950/[0.08] flex items-center justify-center text-zinc-500 hover:text-zinc-950 hover:bg-zinc-950/[0.12] transition-all duration-200"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
+              {/* Absolute Close Button */}
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 z-50 flex-shrink-0 w-9 h-9 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
               {/* Scrollable body */}
-              <div className="overflow-y-auto flex-1 overscroll-contain">
-
-                {/* Hero image */}
-                {project.image && (
-                  <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] flex-shrink-0">
+              <div className="overflow-y-auto flex-1 overscroll-contain bg-white [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                
+                {/* Immersive Cover */}
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] flex-shrink-0 bg-zinc-950">
+                  {project.image && (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top opacity-90"
                       quality={90}
                       sizes="(max-width: 768px) 100vw, 768px"
+                      priority
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent" />
+                  )}
+                  
+                  {/* Gradients */}
+                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 via-black/10 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent pointer-events-none" />
+
+                  {/* Drag handle (over image on mobile) */}
+                  <div className="absolute top-3 inset-x-0 sm:hidden flex justify-center z-50 pointer-events-none">
+                    <div className="w-10 h-1.5 rounded-full bg-white/30 backdrop-blur-sm" />
                   </div>
-                )}
+
+                  {/* Floating Content */}
+                  <div className="absolute inset-x-0 bottom-0 px-5 sm:px-8 pb-6 sm:pb-8 flex items-end justify-between gap-4 sm:gap-5">
+                    
+                    {/* Left: Project Logo & Text */}
+                    <div className="flex flex-1 min-w-0 items-end gap-4 sm:gap-5">
+                      {/* Project Logo */}
+                      {project.logo ? (
+                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
+                          <Image
+                            src={project.logo}
+                            alt={`${project.title} logo`}
+                            fill
+                            className="object-contain rounded-2xl drop-shadow-xl"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-800 flex items-center justify-center flex-shrink-0 shadow-2xl border border-white/10">
+                          <span className="text-xl sm:text-2xl font-bold font-heading text-white">
+                            {project.logoInitial || project.title.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="flex-1 min-w-0 pt-1">
+                        <h2 className="text-2xl sm:text-[28px] font-bold font-heading text-white tracking-tight leading-snug truncate">
+                          {project.title}
+                        </h2>
+                        <p className="text-[14px] sm:text-[15px] text-zinc-300 mt-1 sm:mt-1.5 leading-relaxed truncate">
+                          {project.subtitle}
+                        </p>
+                        
+                        {/* Meta Tags */}
+                        <div className="flex items-center gap-2 mt-3">
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                            {project.year}
+                          </span>
+                          {project.client && (
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[11px] font-medium tracking-wide truncate">
+                              {project.client}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: Desktop CTA */}
+                    <div className="hidden sm:block flex-shrink-0 mb-1">
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full bg-white text-zinc-950 hover:bg-zinc-100 text-[14px] font-bold transition-all shadow-xl"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Live Demo
+                        </a>
+                      ) : (
+                        <div className="inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full bg-white/10 border border-white/10 text-white/50 text-[14px] font-medium cursor-not-allowed select-none backdrop-blur-md">
+                          No Demo
+                        </div>
+                      )}
+                    </div>
+
+                  </div>
+                </div>
 
                 {/* Content */}
-                <div className="px-5 sm:px-7 pb-6 sm:pb-8 space-y-6">
+                <div className="px-5 sm:px-8 py-8 sm:py-10 space-y-6">
 
                   {/* Stats row */}
                   {project.stats && project.stats.length > 0 && (
-                    <div className="grid grid-cols-2 gap-px bg-zinc-950/[0.05] rounded-xl overflow-hidden border border-zinc-950/[0.06]">
+                    <div className="grid grid-cols-2 gap-px bg-zinc-950/[0.04] rounded-xl overflow-hidden border border-zinc-950/[0.05]">
                       {project.stats.map((stat) => (
                         <div key={stat.label} className="flex flex-col items-center justify-center py-4 px-3 bg-white">
                           <span
-                            className="text-2xl font-bold font-heading"
-                            style={{
-                              background: "linear-gradient(135deg, #09090b 0%, #8ba888 100%)",
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent",
-                            }}
+                            className="text-2xl font-bold font-heading text-[#44624a]"
                           >
                             {stat.value}
                           </span>
@@ -161,7 +202,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-[#8ba888]/80 bg-[#44624a]/10 border border-[#44624a]/25"
+                          className="px-3 py-1.5 rounded-full text-[13px] font-medium text-[#44624a] bg-[#44624a]/10 border border-[#44624a]/25"
                         >
                           {tech}
                         </span>
@@ -186,35 +227,30 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </div>
                   )}
 
+
+
                 </div>
               </div>
 
-              {/* Sticky footer CTA */}
-              <div className="flex-shrink-0 px-5 sm:px-7 py-4 sm:py-5 border-t border-zinc-950/[0.06] bg-white flex items-center gap-3">
+              {/* Sticky footer CTA (Mobile only) */}
+              <div className="sm:hidden flex-shrink-0 px-5 py-4 border-t border-zinc-950/[0.06] bg-white flex items-center justify-center">
                 {project.liveUrl ? (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full bg-[#44624a] hover:bg-[#8ba888] text-white text-[15px] font-medium transition-all duration-200 shadow-none"
+                    className="group w-full inline-flex items-center justify-center gap-2 h-12 rounded-full bg-[#44624a] hover:bg-[#8ba888] text-white text-[15px] font-medium transition-all duration-200 shadow-none"
                   >
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-4 h-4" />
                     Live Demo
-                    <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 ) : (
-                  <div className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full bg-zinc-950/[0.04] border border-zinc-950/[0.06] text-zinc-600 text-[15px] font-medium cursor-not-allowed select-none">
-                    <ExternalLink className="w-3.5 h-3.5" />
+                  <div className="w-full inline-flex items-center justify-center gap-2 h-12 rounded-full bg-zinc-950/[0.04] border border-zinc-950/[0.06] text-zinc-600 text-[15px] font-medium cursor-not-allowed select-none">
+                    <ExternalLink className="w-4 h-4" />
                     No Live Demo
                   </div>
                 )}
-
-                <button
-                  onClick={onClose}
-                  className="sm:hidden ml-auto w-11 h-11 rounded-full bg-zinc-950/[0.06] border border-zinc-950/[0.08] flex items-center justify-center text-zinc-500 hover:text-zinc-950 transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
               </div>
 
             </motion.div>
