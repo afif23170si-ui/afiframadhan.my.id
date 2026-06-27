@@ -10,7 +10,7 @@ export function Contact() {
     <section id="contact" className="relative bg-white section-padding overflow-hidden">
       <div className="container-custom relative z-10">
         <div
-          className="w-full rounded-3xl overflow-hidden py-16 md:py-20 px-6 sm:px-12 relative shadow-none"
+          className="w-full rounded-xl md:rounded-2xl overflow-hidden py-16 md:py-20 px-6 sm:px-12 relative shadow-none"
           style={{ border: "none" }}
         >
           {/* Blurred background image container */}
