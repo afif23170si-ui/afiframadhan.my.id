@@ -52,8 +52,7 @@ export function Certifications() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div 
-                className="group relative rounded-xl bg-zinc-100/50 p-5 md:p-6 hover:bg-zinc-100/80 transition-all duration-300 overflow-hidden shadow-none"
-                style={{ border: "none" }}
+                className="group relative rounded-xl bg-white border border-zinc-200 p-5 md:p-6 hover:border-zinc-300 hover:shadow-sm transition-all duration-300 overflow-hidden"
               >
 
                 <div className="flex gap-4">
@@ -86,30 +85,30 @@ export function Certifications() {
                       </div>
 
                       {/* Badges */}
-                      <div className="flex items-center gap-2 flex-shrink-0">
-                        <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-600 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-2.5 py-1 rounded-full">
+                      <div className="flex items-center gap-2.5 flex-shrink-0">
+                        <span className="text-[11px] font-semibold uppercase tracking-widest text-blue-600 bg-blue-500/10 px-2.5 py-1 rounded-full">
                           Valid {cert.validFor}
                         </span>
-                        <span className="text-xs md:text-[13px] text-zinc-500 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-3 py-1 rounded-full whitespace-nowrap">
+                        <span className="text-[13px] text-zinc-500 font-medium whitespace-nowrap flex items-center">
                           {cert.issuedDate}
                         </span>
                       </div>
                     </div>
 
                     {/* Field */}
-                    <p className="text-[15px] md:text-base text-zinc-700 leading-relaxed mb-4">
+                    <p className="text-[15px] md:text-base text-zinc-700 leading-relaxed mb-4 max-w-3xl">
                       Telah kompeten pada bidang <span className="text-zinc-900 font-medium">{cert.field}</span> dengan kualifikasi <span className="text-zinc-900 font-medium">{cert.subtitle}</span>.
                     </p>
 
                     {/* Cert details */}
                     <div className="flex flex-wrap items-center justify-between gap-3 mt-4">
-                      <div className="flex flex-wrap gap-x-6 gap-y-1.5">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] uppercase tracking-widest text-zinc-600">No. Sertifikat</span>
+                      <div className="flex flex-wrap gap-x-6 gap-y-3">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-1.5">
+                          <span className="text-[11px] uppercase tracking-widest text-zinc-600 whitespace-nowrap">No. Sertifikat</span>
                           <span className="text-xs md:text-[13px] font-mono text-zinc-500">{cert.certNumber}</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] uppercase tracking-widest text-zinc-600">No. Reg.</span>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-1.5">
+                          <span className="text-[11px] uppercase tracking-widest text-zinc-600 whitespace-nowrap">No. Reg.</span>
                           <span className="text-xs md:text-[13px] font-mono text-zinc-500">{cert.regNumber}</span>
                         </div>
                       </div>

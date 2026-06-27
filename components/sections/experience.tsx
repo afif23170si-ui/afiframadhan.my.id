@@ -76,8 +76,7 @@ export function Experience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div 
-                className="group relative rounded-xl bg-zinc-100/50 p-5 md:p-6 hover:bg-zinc-100/80 transition-all duration-300 overflow-hidden shadow-none"
-                style={{ border: "none" }}
+                className="group relative rounded-xl bg-white border border-zinc-200 p-5 md:p-6 hover:border-zinc-300 hover:shadow-sm transition-all duration-300 overflow-hidden"
               >
 
                 {/* Main row: logo + content */}
@@ -122,11 +121,11 @@ export function Experience() {
                       </div>
 
                       {/* Meta badges */}
-                      <div className="flex items-center gap-2 flex-shrink-0">
-                        <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-600 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-2.5 py-1 rounded-full">
+                      <div className="flex items-center gap-2.5 flex-shrink-0">
+                        <span className="text-[11px] font-semibold uppercase tracking-widest text-[#44624a] bg-[#44624a]/10 px-2.5 py-1 rounded-full">
                           {exp.type}
                         </span>
-                        <span className="text-xs md:text-[13px] text-zinc-500 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-3 py-1 rounded-full whitespace-nowrap flex items-center gap-1.5">
+                        <span className="text-[13px] text-zinc-500 font-medium whitespace-nowrap flex items-center gap-1.5">
                           {exp.duration}
                           {exp.isActive && (
                             <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
@@ -139,20 +138,13 @@ export function Experience() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-[15px] md:text-base text-zinc-700 leading-relaxed mb-4">
+                    <p className="text-[15px] md:text-base text-zinc-700 leading-relaxed mb-4 max-w-3xl">
                       {exp.description}
                     </p>
 
                     {/* Tech tags */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs px-2.5 py-1 rounded-lg bg-zinc-950/[0.04] text-zinc-500 border border-zinc-950/[0.06] hover:border-[#44624a]/40 hover:text-[#8ba888] transition-all duration-200"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="text-[13px] text-zinc-500 leading-relaxed font-medium">
+                      {exp.technologies.join(" • ")}
                     </div>
 
                     {/* View Certificate */}
