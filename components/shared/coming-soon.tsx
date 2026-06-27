@@ -11,7 +11,7 @@ interface ComingSoonProps {
 
 export function ComingSoon({ title, description }: ComingSoonProps) {
   return (
-    <main className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-5 relative overflow-hidden">
+    <main className="min-h-screen bg-white flex flex-col items-center justify-center px-5 relative overflow-hidden">
 
       {/* Ambient glow — centered */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -27,12 +27,12 @@ export function ComingSoon({ title, description }: ComingSoonProps) {
 
         {/* Icon */}
         <motion.div
-          className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.08]"
+          className="flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-950/[0.05] border border-zinc-950/[0.08]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Wrench className="w-5 h-5 text-zinc-400" />
+          <Wrench className="w-5 h-5 text-zinc-500" />
         </motion.div>
 
         {/* Badge */}
@@ -46,7 +46,7 @@ export function ComingSoon({ title, description }: ComingSoonProps) {
 
         {/* Title */}
         <div className="space-y-3">
-          <h1 className="text-3xl md:text-[2.5rem] font-bold font-heading text-white tracking-tight leading-tight">
+          <h1 className="text-3xl md:text-[2.5rem] font-bold font-heading text-zinc-950 tracking-tight leading-tight">
             {title}
           </h1>
           <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
@@ -69,7 +69,7 @@ export function ComingSoon({ title, description }: ComingSoonProps) {
         {/* Back button */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.1] bg-white/[0.04] text-sm font-medium text-zinc-300 hover:bg-white/[0.08] hover:text-white hover:border-white/[0.15] transition-all duration-200 group"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-950/[0.1] bg-zinc-950/[0.04] text-sm font-medium text-zinc-600 hover:bg-zinc-950/[0.08] hover:text-zinc-950 hover:border-zinc-950/[0.15] transition-all duration-200 group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform duration-200" />
           Kembali ke Beranda

@@ -44,7 +44,7 @@ function ProjectCard({
         style={{ cursor: "none" }}
       >
         <div
-          className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
+          className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-zinc-50 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
           style={{ boxShadow: "0 0 0 1px rgba(68,98,74,0.2)" }}
         >
           {/* Hover glow ring */}
@@ -77,11 +77,10 @@ function ProjectCard({
                 transition={{ duration: 0.18, ease: "easeOut" }}
               >
                 <div
-                  className="-translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-[90px] h-[90px] rounded-full text-white text-[10px] font-bold uppercase tracking-widest shadow-2xl backdrop-blur-sm leading-tight"
-                  style={{ backgroundColor: "rgba(68,98,74,0.9)" }}
+                  className="-translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-[90px] h-[90px] rounded-full text-white text-[13px] font-semibold tracking-wide shadow-2xl backdrop-blur-sm leading-tight bg-zinc-950/90"
                 >
                   <span>View</span>
-                  <span>Project</span>
+                  <span>project</span>
                 </div>
               </motion.div>
             )}
@@ -91,7 +90,7 @@ function ProjectCard({
         {/* Title & subtitle — outside card */}
         <div className="pt-3 px-1 flex items-center gap-2.5">
           {/* Logo */}
-          <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden border border-white/[0.08] bg-white/[0.05]">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden border border-zinc-950/[0.08] bg-zinc-950/[0.05]">
             {project.logo ? (
               <Image
                 src={project.logo}
@@ -108,10 +107,10 @@ function ProjectCard({
           </div>
           {/* Text */}
           <div className="min-w-0">
-            <h3 className="text-sm font-semibold font-heading text-white group-hover:text-[#8ba888] transition-colors duration-300 leading-snug truncate">
+            <h3 className="text-[15px] md:text-base font-semibold font-heading text-zinc-950 group-hover:text-[#8ba888] transition-colors duration-300 leading-snug truncate">
               {project.title}
             </h3>
-            <p className="text-xs text-zinc-500 mt-0.5 truncate">{project.subtitle}</p>
+            <p className="text-xs md:text-sm text-zinc-700 mt-0.5 truncate">{project.subtitle}</p>
           </div>
         </div>
       </button>
@@ -123,7 +122,7 @@ export function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
 
   return (
-    <section id="projects" className="relative bg-zinc-950 py-16 md:py-24 lg:py-32">
+    <section id="projects" className="relative bg-white py-16 md:py-24 lg:py-32">
       <div className="container-custom">
 
         {/* Header */}
@@ -135,7 +134,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="heading-lg text-white"
+              className="heading-lg text-zinc-950"
             >
               Selected Work
             </motion.h2>

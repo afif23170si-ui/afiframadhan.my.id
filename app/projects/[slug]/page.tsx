@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {/* Action Buttons */}
             <div className="flex justify-center gap-4 pt-4">
               {project.liveUrl && (
-                <Button asChild className="gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 hover:shadow-xl hover:shadow-blue-500/25 rounded-full">
+                <Button asChild className="gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-zinc-950 hover:from-blue-600 hover:to-cyan-600 hover:shadow-xl hover:shadow-blue-500/25 rounded-full">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4" />
                     View Live

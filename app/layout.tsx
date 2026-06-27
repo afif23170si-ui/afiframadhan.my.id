@@ -179,35 +179,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
-            {/* Mobile background — priority karena di atas fold */}
-            <Image
-              src="/images/background-hero-m.webp"
-              alt=""
-              fill
-              priority
-              quality={80}
-              className="object-cover object-top opacity-80 md:hidden"
-              sizes="100vw"
-              aria-hidden="true"
-            />
-            {/* Desktop background — only visible md+, still priority for LCP */}
-            <Image
-              src="/images/background-hero-d.webp"
-              alt=""
-              fill
-              priority
-              quality={80}
-              className="object-cover object-center opacity-80 hidden md:block"
-              sizes="100vw"
-              aria-hidden="true"
-            />
-            {/* Fade out background image after hero — only hero benefits from it */}
-            <div className="absolute inset-x-0 bottom-0 h-[55vh] bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-transparent" />
+
           </div>
           {children}
           <MatchaCursor />

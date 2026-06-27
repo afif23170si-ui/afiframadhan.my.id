@@ -16,7 +16,7 @@ export function SectionWrapper({ children, id, className = "" }: SectionWrapperP
     // section is in its initial invisible state before the scroll animation fires.
     <section
       id={id}
-      className={`section-padding bg-zinc-950 ${className}`}
+      className={`section-padding bg-white ${className}`}
     >
       {/* Only the content inside animates — the background stays solid */}
       <motion.div

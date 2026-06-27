@@ -50,7 +50,7 @@ function ProjectCard({
         style={{ cursor: "none" }}
       >
         <div
-          className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-900 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
+          className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-50 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
           style={{ boxShadow: "0 0 0 1px rgba(68,98,74,0.2)" }}
         >
           {/* Hover glow */}
@@ -80,10 +80,9 @@ function ProjectCard({
                 transition={{ duration: 0.18, ease: "easeOut" }}
               >
                 <div
-                  className="-translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 px-4 py-2 rounded-full text-white text-xs font-semibold whitespace-nowrap shadow-lg"
-                  style={{ backgroundColor: "#44624a" }}
+                  className="-translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 px-4 py-2 rounded-full text-white text-sm font-semibold whitespace-nowrap shadow-lg bg-zinc-950/90"
                 >
-                  View Project
+                  View project
                 </div>
               </motion.div>
             )}
@@ -93,25 +92,25 @@ function ProjectCard({
         {/* Title, subtitle & tech — outside card */}
         <div className="pt-3 px-1">
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="text-sm font-semibold font-heading text-white group-hover:text-[#8ba888] transition-colors duration-300 leading-snug">
+            <h3 className="text-[15px] md:text-base font-semibold font-heading text-zinc-950 group-hover:text-[#8ba888] transition-colors duration-300 leading-snug">
               {project.title}
             </h3>
-            <span className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-600 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-2 py-0.5 rounded-full">
               {project.year}
             </span>
           </div>
-          <p className="text-xs text-zinc-500 mb-2">{project.subtitle}</p>
+          <p className="text-xs md:text-sm text-zinc-700 mb-2">{project.subtitle}</p>
           <div className="flex flex-wrap gap-1">
             {project.technologies.slice(0, 3).map((tech) => (
               <span
                 key={tech}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-zinc-500"
+                className="text-[11px] px-2 py-0.5 rounded-full bg-zinc-950/[0.04] border border-zinc-950/[0.06] text-zinc-500"
               >
                 {tech}
               </span>
             ))}
             {project.technologies.length > 3 && (
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-zinc-600">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-zinc-950/[0.04] border border-zinc-950/[0.06] text-zinc-600">
                 +{project.technologies.length - 3}
               </span>
             )}
@@ -131,7 +130,7 @@ export default function ProjectsPage() {
     : projects.filter((p) => p.technologies.includes(activeTag))
 
   return (
-    <div className="relative min-h-screen bg-zinc-950">
+    <div className="relative min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-28 md:pt-36 pb-20">
@@ -146,7 +145,7 @@ export default function ProjectsPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+              className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-950 transition-colors duration-200 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
               Back to home
@@ -161,7 +160,7 @@ export default function ProjectsPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <SectionBadge>All Projects</SectionBadge>
-            <h1 className="heading-xl text-white">
+            <h1 className="heading-xl text-zinc-950">
               Everything I&apos;ve built.
             </h1>
             <p className="subtext max-w-lg mx-auto">
@@ -183,7 +182,7 @@ export default function ProjectsPage() {
                 className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
                   activeTag === tag
                     ? "bg-[#44624a] border-[#44624a] text-white"
-                    : "bg-white/[0.04] border-white/[0.08] text-zinc-500 hover:text-white hover:border-white/20"
+                    : "bg-zinc-950/[0.04] border-zinc-950/[0.08] text-zinc-500 hover:text-zinc-950 hover:border-zinc-950/20"
                 }`}
               >
                 {tag}

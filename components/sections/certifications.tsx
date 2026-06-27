@@ -36,7 +36,7 @@ export function Certifications() {
           transition={{ duration: 0.5 }}
         >
           <SectionBadge>Certifications</SectionBadge>
-          <h2 className="heading-lg text-white">
+          <h2 className="heading-lg text-zinc-950">
             Professional credentials<br />and qualifications.
           </h2>
         </motion.div>
@@ -51,15 +51,15 @@ export function Certifications() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="group relative rounded-xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300 overflow-hidden">
-
-                {/* Matcha top accent */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#44624a]/60 to-transparent" />
+              <div 
+                className="group relative rounded-xl bg-zinc-100/50 p-5 md:p-6 hover:bg-zinc-100/80 transition-all duration-300 overflow-hidden shadow-none"
+                style={{ border: "none" }}
+              >
 
                 <div className="flex gap-4">
 
                   {/* Logo */}
-                  <div className="flex-shrink-0 w-11 h-11 rounded-full overflow-hidden border border-white/[0.08] bg-white">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-full overflow-hidden border border-zinc-950/[0.08] bg-white">
                     <Image
                       src="/images/logo-bnsp.png"
                       alt="BNSP"
@@ -77,40 +77,40 @@ export function Certifications() {
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-base font-semibold font-heading text-white leading-snug">
+                          <h3 className="text-[17px] md:text-lg font-semibold font-heading text-zinc-950 leading-snug">
                             {cert.title}
                           </h3>
                           <BadgeCheck className="w-4 h-4 text-blue-400 flex-shrink-0" />
                         </div>
-                        <p className="text-sm text-zinc-500 font-medium">{cert.issuer}</p>
+                        <p className="text-sm md:text-[15px] text-zinc-500 font-medium">{cert.issuer}</p>
                       </div>
 
                       {/* Badges */}
                       <div className="flex items-center gap-2 flex-shrink-0">
-                        <span className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 bg-white/[0.04] border border-white/[0.06] px-2.5 py-1 rounded-full">
+                        <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-600 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-2.5 py-1 rounded-full">
                           Valid {cert.validFor}
                         </span>
-                        <span className="text-xs text-zinc-500 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full whitespace-nowrap">
+                        <span className="text-xs md:text-[13px] text-zinc-500 bg-zinc-950/[0.04] border border-zinc-950/[0.06] px-3 py-1 rounded-full whitespace-nowrap">
                           {cert.issuedDate}
                         </span>
                       </div>
                     </div>
 
                     {/* Field */}
-                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
-                      Telah kompeten pada bidang <span className="text-zinc-300 font-medium">{cert.field}</span> dengan kualifikasi <span className="text-zinc-300 font-medium">{cert.subtitle}</span>.
+                    <p className="text-[15px] md:text-base text-zinc-700 leading-relaxed mb-4">
+                      Telah kompeten pada bidang <span className="text-zinc-900 font-medium">{cert.field}</span> dengan kualifikasi <span className="text-zinc-900 font-medium">{cert.subtitle}</span>.
                     </p>
 
                     {/* Cert details */}
                     <div className="flex flex-wrap items-center justify-between gap-3 mt-4">
                       <div className="flex flex-wrap gap-x-6 gap-y-1.5">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[10px] uppercase tracking-widest text-zinc-600">No. Sertifikat</span>
-                          <span className="text-[11px] font-mono text-zinc-400">{cert.certNumber}</span>
+                          <span className="text-[11px] uppercase tracking-widest text-zinc-600">No. Sertifikat</span>
+                          <span className="text-xs md:text-[13px] font-mono text-zinc-500">{cert.certNumber}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[10px] uppercase tracking-widest text-zinc-600">No. Reg.</span>
-                          <span className="text-[11px] font-mono text-zinc-400">{cert.regNumber}</span>
+                          <span className="text-[11px] uppercase tracking-widest text-zinc-600">No. Reg.</span>
+                          <span className="text-xs md:text-[13px] font-mono text-zinc-500">{cert.regNumber}</span>
                         </div>
                       </div>
                       {cert.viewUrl && (

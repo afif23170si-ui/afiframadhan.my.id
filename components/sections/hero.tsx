@@ -5,17 +5,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
-function GmailIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
-      <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
-      <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
-      <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/>
-      <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0C43.076,8,45,9.924,45,12.298z"/>
-    </svg>
-  )
-}
 
 const brandLogos = [
   "/images/brand-logo/FDpxDa03ClBEByKBKP6iTL6llM.svg",
@@ -37,7 +26,7 @@ export function Hero() {
       className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden pt-52 pb-8 sm:pt-40 sm:pb-10 md:pt-44 md:pb-12"
     >
       {/* Bottom fade */}
-      <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-white to-transparent pointer-events-none z-[2]" />
 
 
 
@@ -58,18 +47,18 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.4 }}
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-zinc-100 shadow-none border-0">
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                <span className="text-sm font-medium text-zinc-300">Available for work</span>
+                <span className="text-sm font-medium text-zinc-800">Available for freelance project</span>
               </div>
             </motion.div>
 
             {/* Heading */}
             <motion.h1
-              className="text-[2.6rem] leading-[1.08] font-bold font-heading tracking-tight text-white"
+              className="text-[2.6rem] leading-[1.08] font-bold font-heading tracking-tight text-zinc-950"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -81,7 +70,7 @@ export function Hero() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-base text-zinc-300 leading-relaxed max-w-sm"
+              className="text-base text-zinc-600 leading-relaxed max-w-sm"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6 }}
@@ -98,23 +87,23 @@ export function Hero() {
             >
               <button
                 onClick={scrollToProjects}
-                className="group w-full bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-12 text-[13px] font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#44624a]/25"
+                className="group w-full bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-12 text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-none"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
               <a
                 href="mailto:afifr5092@gmail.com"
-                className="group w-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full h-12 text-[13px] font-semibold transition-all duration-200 flex items-center justify-center gap-1.5"
+                className="group w-full bg-zinc-100 hover:bg-zinc-200 text-zinc-900 rounded-full h-12 text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-1.5"
               >
-                <GmailIcon className="w-4 h-4" />
+                <Image src="/images/medsos/gmail.webp" alt="Gmail" width={16} height={16} className="w-4 h-4 object-contain" />
                 Email Me
               </a>
             </motion.div>
 
             {/* Tech Ticker */}
             <motion.div
-              className="w-full overflow-hidden mask-gradient-x mt-2"
+              className="w-full overflow-hidden mask-gradient-x relative -top-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -122,8 +111,8 @@ export function Hero() {
               <div className="flex overflow-hidden select-none">
                 <div className="flex gap-8 animate-marquee whitespace-nowrap py-4 items-center">
                   {marqueeItems.map((src, i) => (
-                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-all duration-300">
-                      <Image src={src} alt="Brand Logo" width={100} height={24} className="h-6 w-auto object-contain" />
+                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 hover:opacity-100 transition-all duration-300">
+                      <Image src={src} alt="Brand Logo" width={80} height={20} className="h-5 w-auto object-contain" />
                     </div>
                   ))}
                 </div>
@@ -141,18 +130,18 @@ export function Hero() {
               transition={{ delay: 0.1, duration: 0.4 }}
               className="mb-6"
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-zinc-100 shadow-none border-0">
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                <span className="text-sm font-medium text-zinc-300">Available for work</span>
+                <span className="text-sm font-medium text-zinc-800">Fullstack Developer &middot; Available for projects</span>
               </div>
             </motion.div>
 
             {/* Heading */}
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading tracking-tighter leading-[1.05] text-white mb-5"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading tracking-tighter leading-[1.05] text-zinc-950 mb-5"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -164,7 +153,7 @@ export function Hero() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl mb-8"
+              className="text-base md:text-lg text-zinc-600 leading-relaxed max-w-xl mb-8"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
@@ -183,7 +172,7 @@ export function Hero() {
               <Button
                 size="sm"
                 onClick={scrollToProjects}
-                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25 gap-1.5"
+                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-[15px] font-medium transition-all duration-200 shadow-none gap-1.5"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -191,10 +180,10 @@ export function Hero() {
               <Button
                 size="sm"
                 asChild
-                className="group bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200"
+                className="group bg-zinc-100 hover:bg-zinc-200 text-zinc-900 rounded-full px-6 h-11 text-[15px] font-medium transition-all duration-200 shadow-none border-0"
               >
-                <a href="mailto:afifr5092@gmail.com">
-                  <GmailIcon className="w-4 h-4 mr-2" />
+                <a href="mailto:afifr5092@gmail.com" className="flex items-center gap-1.5">
+                  <Image src="/images/medsos/gmail.webp" alt="Gmail" width={16} height={16} className="w-4 h-4 object-contain" />
                   Email Me
                 </a>
               </Button>
@@ -202,7 +191,7 @@ export function Hero() {
 
             {/* Tech Stack Ticker */}
             <motion.div
-              className="w-full max-w-2xl mx-auto overflow-hidden mask-gradient-x"
+              className="w-full max-w-2xl mx-auto overflow-hidden mask-gradient-x relative -top-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.65, duration: 0.8 }}
@@ -210,8 +199,8 @@ export function Hero() {
               <div className="flex overflow-hidden select-none">
                 <div className="flex gap-12 animate-marquee whitespace-nowrap py-6 items-center">
                   {marqueeItems.map((src, i) => (
-                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-all duration-300">
-                      <Image src={src} alt="Brand Logo" width={120} height={28} className="h-7 w-auto object-contain" />
+                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 hover:opacity-100 transition-all duration-300">
+                      <Image src={src} alt="Brand Logo" width={100} height={24} className="h-6 w-auto object-contain" />
                     </div>
                   ))}
                 </div>

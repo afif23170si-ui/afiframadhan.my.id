@@ -15,9 +15,7 @@ const socialLinks = [
 
 export function About() {
   return (
-    <section id="about" className="relative bg-zinc-950 py-10 md:py-16 overflow-hidden">
-      <div className="px-4 md:px-8 w-full max-w-[1440px] mx-auto relative z-10">
-        <div className="rounded-xl py-12 md:py-20 lg:py-24 relative overflow-hidden" style={{ backgroundColor: "#44624a" }}>
+    <section id="about" className="relative py-16 md:py-24 lg:py-28 overflow-hidden" style={{ backgroundColor: "#44624a" }}>
           
           <AnimatedGridPattern
             numSquares={40}
@@ -83,7 +81,7 @@ export function About() {
               </div>
 
               {/* Bio */}
-              <p className="text-white/80 leading-relaxed text-[15px]">
+              <p className="text-white/80 leading-relaxed text-base md:text-lg">
                 I&apos;m a Full Stack Developer from Indonesia who loves turning complex problems into clean, fast web experiences. From POS systems to booking platforms, I build products end-to-end - from database schema to pixel-perfect UI.
               </p>
 
@@ -97,11 +95,11 @@ export function About() {
               >
                 <div className="bg-white/[0.06] backdrop-blur-md ring-1 ring-white/[0.12] rounded-lg p-4 md:p-5 flex flex-col justify-center gap-2 md:gap-3 hover:bg-white/[0.1] hover:ring-white/30 transition-all duration-300 overflow-hidden">
                   <h3 className="text-xl md:text-2xl font-bold font-heading text-white tracking-tight leading-none">3+ years</h3>
-                  <p className="text-xs md:text-sm text-white/70 font-medium truncate" title="Development experience">Development experience</p>
+                  <p className="text-sm md:text-base text-white/70 font-medium truncate" title="Development experience">Development experience</p>
                 </div>
                 <div className="bg-white/[0.06] backdrop-blur-md ring-1 ring-white/[0.12] rounded-lg p-4 md:p-5 flex flex-col justify-center gap-2 md:gap-3 hover:bg-white/[0.1] hover:ring-white/30 transition-all duration-300 overflow-hidden">
                   <h3 className="text-xl md:text-2xl font-bold font-heading text-white tracking-tight leading-none">5+</h3>
-                  <p className="text-xs md:text-sm text-white/70 font-medium truncate" title="Projects delivered">Projects delivered</p>
+                  <p className="text-sm md:text-base text-white/70 font-medium truncate" title="Projects delivered">Projects delivered</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -132,8 +130,6 @@ export function About() {
 
           </div>
         </div>
-      </div>
-      </div>
     </section>
   )
 }

@@ -16,7 +16,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="h-10 w-10 rounded-full border border-black/5 dark:border-white/10 bg-white/5 backdrop-blur-sm" />
+      <div className="h-10 w-10 rounded-full border border-black/5 dark:border-zinc-950/10 bg-zinc-950/5 backdrop-blur-sm" />
     )
   }
 
@@ -27,7 +27,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative h-10 w-10 rounded-full border border-black/5 dark:border-white/10 bg-white/5 backdrop-blur-sm hover:bg-black/5 dark:hover:bg-white/10 overflow-hidden"
+      className="relative h-10 w-10 rounded-full border border-black/5 dark:border-zinc-950/10 bg-zinc-950/5 backdrop-blur-sm hover:bg-black/5 dark:hover:bg-zinc-950/10 overflow-hidden"
     >
       <div className="relative h-5 w-5">
         <motion.div

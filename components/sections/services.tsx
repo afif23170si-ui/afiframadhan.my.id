@@ -37,9 +37,9 @@ const row2 = [
 
 function ServiceTag({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
   return (
-    <div className="group flex items-center gap-2 md:gap-2.5 px-3 py-2 md:px-4 md:py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:bg-[#44624a]/10 hover:border-[#44624a]/40 hover:shadow-md hover:shadow-[#44624a]/10 transition-all duration-300 cursor-default select-none flex-shrink-0">
-      <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#8ba888] flex-shrink-0" />
-      <span className="text-xs md:text-sm font-medium text-zinc-300 group-hover:text-white whitespace-nowrap transition-colors duration-300">
+    <div className="group flex items-center gap-2 md:gap-2.5 px-3.5 py-2 md:px-5 md:py-2.5 rounded-full bg-zinc-950/[0.03] hover:bg-[#44624a]/10 transition-all duration-300 cursor-default select-none flex-shrink-0 border-0 shadow-none">
+      <Icon className="w-4 h-4 md:w-[18px] md:h-[18px] text-[#8ba888] flex-shrink-0" />
+      <span className="text-sm md:text-[15px] font-medium text-zinc-800 group-hover:text-zinc-950 whitespace-nowrap transition-colors duration-300">
         {label}
       </span>
     </div>
@@ -81,21 +81,21 @@ function MarqueeRow({
 
 export function Services() {
   return (
-    <section id="services" className="bg-zinc-950 py-16 md:py-28 lg:py-36 overflow-hidden">
+    <section id="services" className="bg-white py-16 md:py-28 lg:py-36 overflow-hidden">
       <div className="container-custom">
 
         {/* Header — centered */}
         <motion.div
-          className="text-center space-y-5 mb-14 md:mb-20"
+          className="text-left md:text-center space-y-5 mb-14 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center">
+          <div className="flex justify-start md:justify-center">
             <SectionBadge>What I Do</SectionBadge>
           </div>
-          <h2 className="heading-lg text-white mx-auto max-w-2xl">
+          <h2 className="heading-lg text-zinc-950 md:mx-auto max-w-2xl">
             Everything you need,<br />built right.
           </h2>
         </motion.div>

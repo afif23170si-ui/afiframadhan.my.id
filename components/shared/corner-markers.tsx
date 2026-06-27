@@ -49,7 +49,7 @@ export function GridCard({
   className?: string
 }) {
   return (
-    <div className={cn("relative border border-white/[0.07] rounded-xl bg-grid overflow-hidden", className)}>
+    <div className={cn("relative border border-zinc-950/[0.07] rounded-xl bg-grid overflow-hidden", className)}>
       <CornerMarkers />
       {children}
     </div>
