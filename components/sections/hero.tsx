@@ -89,27 +89,25 @@ export function Hero() {
               Full Stack Developer focused on building fast, clean, and user-friendly web solutions.
             </motion.p>
 
-            {/* CTA Buttons — 1 row on mobile */}
+            {/* CTA Buttons — Stacked on mobile */}
             <motion.div
-              className="flex flex-row gap-2 w-full pt-1"
+              className="flex flex-col gap-3 w-full pt-2"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
             >
               <button
                 onClick={scrollToProjects}
-                className="group flex-1 bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-11 text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#44624a]/25"
+                className="group w-full bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-12 text-[13px] font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#44624a]/25"
               >
                 View Projects
-                <span className="flex items-center justify-center w-5 h-5 bg-white rounded-full group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight className="w-3 h-3 text-[#44624a]" />
-                </span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
               <a
                 href="mailto:afifr5092@gmail.com"
-                className="group flex-1 bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full h-11 text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5"
+                className="group w-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full h-12 text-[13px] font-semibold transition-all duration-200 flex items-center justify-center gap-1.5"
               >
-                <GmailIcon className="w-3.5 h-3.5" />
+                <GmailIcon className="w-4 h-4" />
                 Email Me
               </a>
             </motion.div>
@@ -185,12 +183,10 @@ export function Hero() {
               <Button
                 size="sm"
                 onClick={scrollToProjects}
-                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25"
+                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25 gap-1.5"
               >
                 View Projects
-                <span className="flex items-center justify-center w-6 h-6 ml-1.5 bg-white rounded-full group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight className="w-3.5 h-3.5 text-[#44624a]" />
-                </span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Button>
               <Button
                 size="sm"
