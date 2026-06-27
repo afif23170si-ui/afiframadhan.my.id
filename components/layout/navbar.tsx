@@ -93,7 +93,7 @@ export function Navbar() {
             {/* Left: Avatar + Name + Subtitle */}
             <Link href="/" className="flex items-center gap-3 group">
               <Image 
-                src="/android-chrome-192x192.png" 
+                src="/images/profil.webp" 
                 alt="Afif" 
                 width={40} 
                 height={40} 

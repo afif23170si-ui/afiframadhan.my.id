@@ -115,7 +115,7 @@ export function About() {
               <div className="relative aspect-square w-full max-w-sm md:max-w-full mx-auto">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/profil1.webp"
+                    src="/images/profil.webp"
                     alt="Afif Ramadhan - Full Stack Developer"
                     fill
                     className="object-cover object-center"
