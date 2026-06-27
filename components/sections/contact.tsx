@@ -11,7 +11,7 @@ export function Contact() {
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto">
           <motion.div
-            className="flex flex-col items-center text-center space-y-10"
+            className="flex flex-col items-start md:items-center text-left md:text-center space-y-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -25,7 +25,7 @@ export function Contact() {
               <h2 className="heading-xl text-zinc-950">
                 Let&apos;s work together.
               </h2>
-              <p className="text-base md:text-lg text-zinc-800 leading-relaxed max-w-lg mx-auto">
+              <p className="text-base md:text-lg text-zinc-800 leading-relaxed max-w-lg md:mx-auto">
                 Currently open to freelance and full-time opportunities.
                 Have a project in mind or just want to chat? I&apos;d love to hear from you.
               </p>
