@@ -27,7 +27,7 @@ export function ComingSoon({ title, description }: ComingSoonProps) {
 
         {/* Icon */}
         <motion.div
-          className="flex items-center justify-center w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.08]"
+          className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.08]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}

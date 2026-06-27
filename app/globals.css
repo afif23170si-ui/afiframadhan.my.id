@@ -267,7 +267,7 @@ body::after {
 }
 
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 15s linear infinite;
 }
 
 /* Services marquee — CSS-driven, no JS */

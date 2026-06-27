@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Atom, Zap, Palette, FileCode, Server, Database, Globe, Cpu, Layers, Code2, FileJson, GitBranch, Figma, Terminal, LayoutTemplate, Boxes } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 function GmailIcon({ className }: { className?: string }) {
   return (
@@ -16,26 +17,14 @@ function GmailIcon({ className }: { className?: string }) {
   )
 }
 
-const techStack = [
-  { name: "Next.js",      icon: Zap },
-  { name: "React",        icon: Atom },
-  { name: "TypeScript",   icon: FileCode },
-  { name: "JavaScript",   icon: FileJson },
-  { name: "PHP",          icon: Code2 },
-  { name: "Tailwind",     icon: Palette },
-  { name: "Bootstrap",    icon: LayoutTemplate },
-  { name: "HTML",         icon: Boxes },
-  { name: "CSS",          icon: Palette },
-  { name: "Node.js",      icon: Server },
-  { name: "Laravel",      icon: Layers },
-  { name: "MySQL",        icon: Database },
-  { name: "PostgreSQL",   icon: Database },
-  { name: "REST API",     icon: Globe },
-  { name: "Figma",        icon: Figma },
-  { name: "Git",          icon: GitBranch },
-  { name: "Cloud",        icon: Terminal },
-  { name: "AI / ML",      icon: Cpu },
+const brandLogos = [
+  "/images/brand-logo/FDpxDa03ClBEByKBKP6iTL6llM.svg",
+  "/images/brand-logo/UFPYtPkXrPSRPWO9O347rVFAc08.svg",
+  "/images/brand-logo/g6mxoyC4FApR4PIFw8uo1NfZdA.svg",
+  "/images/brand-logo/yDkZOVum39QSY48ocf7Wpsw.svg",
 ]
+
+const marqueeItems = [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos]
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -47,8 +36,6 @@ export function Hero() {
       id="hero"
       className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden pt-52 pb-8 sm:pt-40 sm:pb-10 md:pt-44 md:pb-12"
     >
-      {/* Top vignette */}
-      <div className="absolute inset-x-0 top-0 h-[280px] bg-gradient-to-b from-zinc-950/70 via-zinc-950/20 to-transparent pointer-events-none z-[2]" />
       {/* Bottom fade */}
       <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none z-[2]" />
 
@@ -63,7 +50,7 @@ export function Hero() {
         >
 
           {/* ─── MOBILE LAYOUT (< sm) ─────────────────────── */}
-          <div className="flex flex-col items-center text-center sm:hidden space-y-5">
+          <div className="flex flex-col items-start text-left sm:hidden space-y-5">
 
             {/* Badge */}
             <motion.div
@@ -71,7 +58,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.4 }}
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-zinc-900/80 border border-white/[0.08] backdrop-blur-md">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200">
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -88,13 +75,13 @@ export function Hero() {
               transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               Designing<br />
-              <span className="bg-gradient-to-r from-[#8ba888] to-[#c0cfb2] bg-clip-text text-transparent">Premium</span><br />
+              Premium<br />
               Digital Products
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
-              className="text-base text-zinc-400 leading-relaxed max-w-sm"
+              className="text-base text-zinc-300 leading-relaxed max-w-sm"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6 }}
@@ -111,16 +98,16 @@ export function Hero() {
             >
               <button
                 onClick={scrollToProjects}
-                className="group flex-1 text-white rounded-full text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-[0.98]"
-                style={{ backgroundColor: '#44624a', height: '44px' }}
+                className="group flex-1 bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full h-11 text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 hover:shadow-lg hover:shadow-[#44624a]/25"
               >
                 View Projects
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                <span className="flex items-center justify-center w-5 h-5 bg-white rounded-full group-hover:translate-x-0.5 transition-transform">
+                  <ArrowRight className="w-3 h-3 text-[#44624a]" />
+                </span>
               </button>
               <a
                 href="mailto:afifr5092@gmail.com"
-                className="group flex-1 bg-white/[0.07] border border-white/[0.10] hover:bg-white/[0.12] text-zinc-300 rounded-full text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-[0.98]"
-                style={{ height: "44px" }}
+                className="group flex-1 bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full h-11 text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5"
               >
                 <GmailIcon className="w-3.5 h-3.5" />
                 Email Me
@@ -135,13 +122,10 @@ export function Hero() {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               <div className="flex overflow-hidden select-none">
-                <div className="flex gap-6 animate-marquee whitespace-nowrap py-2">
-                  {[...techStack, ...techStack].map((tech, i) => (
-                    <div key={i} className="flex items-center gap-2 group/item">
-                      <div className="p-1.5 rounded-lg bg-white/[0.05] border border-white/[0.06] text-zinc-500">
-                        <tech.icon className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-xs font-medium text-zinc-500">{tech.name}</span>
+                <div className="flex gap-8 animate-marquee whitespace-nowrap py-4 items-center">
+                  {marqueeItems.map((src, i) => (
+                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-all duration-300">
+                      <Image src={src} alt="Brand Logo" width={100} height={24} className="h-6 w-auto object-contain" />
                     </div>
                   ))}
                 </div>
@@ -159,7 +143,7 @@ export function Hero() {
               transition={{ delay: 0.1, duration: 0.4 }}
               className="mb-6"
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-zinc-900/80 border border-white/[0.08] backdrop-blur-md">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200">
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -175,14 +159,14 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              Designing <span className="bg-gradient-to-r from-[#8ba888] to-[#c0cfb2] bg-clip-text text-transparent">Premium</span>
+              Designing Premium
               <br />
               Digital Products
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
-              className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-xl mb-8"
+              className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl mb-8"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
@@ -201,15 +185,17 @@ export function Hero() {
               <Button
                 size="sm"
                 onClick={scrollToProjects}
-                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/30 hover:scale-[1.02] active:scale-[0.98]"
+                className="group bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25"
               >
                 View Projects
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
+                <span className="flex items-center justify-center w-6 h-6 ml-1.5 bg-white rounded-full group-hover:translate-x-0.5 transition-transform">
+                  <ArrowRight className="w-3.5 h-3.5 text-[#44624a]" />
+                </span>
               </Button>
               <Button
                 size="sm"
                 asChild
-                className="group bg-white/[0.05] border border-white/[0.1] hover:bg-white/[0.09] text-zinc-300 hover:text-white rounded-full px-6 h-11 text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="group bg-white/5 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 text-zinc-300 hover:text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200"
               >
                 <a href="mailto:afifr5092@gmail.com">
                   <GmailIcon className="w-4 h-4 mr-2" />
@@ -226,15 +212,10 @@ export function Hero() {
               transition={{ delay: 0.65, duration: 0.8 }}
             >
               <div className="flex overflow-hidden select-none">
-                <div className="flex gap-8 animate-marquee whitespace-nowrap py-2">
-                  {[...techStack, ...techStack].map((tech, i) => (
-                    <div key={i} className="flex items-center gap-2.5 group/item">
-                      <div className="p-1.5 rounded-lg bg-white/[0.05] border border-white/[0.06] text-zinc-500 group-hover/item:text-zinc-300 group-hover/item:bg-white/[0.09] transition-colors">
-                        <tech.icon className="w-4 h-4" />
-                      </div>
-                      <span className="text-sm font-medium text-zinc-500 group-hover/item:text-zinc-300 transition-colors">
-                        {tech.name}
-                      </span>
+                <div className="flex gap-12 animate-marquee whitespace-nowrap py-6 items-center">
+                  {marqueeItems.map((src, i) => (
+                    <div key={i} className="flex-shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-all duration-300">
+                      <Image src={src} alt="Brand Logo" width={120} height={28} className="h-7 w-auto object-contain" />
                     </div>
                   ))}
                 </div>

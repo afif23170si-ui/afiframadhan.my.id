@@ -82,7 +82,7 @@ export function Testimonials() {
                 key={`${t.name}-${i}`}
                 className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[360px]"
               >
-                <div className="h-full rounded-2xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300">
+                <div className="h-full rounded-xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300">
                   {/* Company */}
                   <p className="text-[10px] font-semibold text-zinc-600 uppercase tracking-widest mb-4">
                     {t.company}

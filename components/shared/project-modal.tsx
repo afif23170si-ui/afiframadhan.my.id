@@ -56,7 +56,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="relative w-full sm:max-w-2xl md:max-w-3xl bg-[#0c100d] border border-white/[0.08] rounded-t-3xl sm:rounded-3xl shadow-2xl shadow-black/70 flex flex-col overflow-hidden"
+              className="relative w-full sm:max-w-2xl md:max-w-3xl bg-[#0c100d] border border-white/[0.08] rounded-t-2xl sm:rounded-2xl shadow-2xl shadow-black/70 flex flex-col overflow-hidden"
               style={{ maxHeight: "92dvh" }}
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -126,7 +126,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                   {/* Stats row */}
                   {project.stats && project.stats.length > 0 && (
-                    <div className="grid grid-cols-2 gap-px bg-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.06]">
+                    <div className="grid grid-cols-2 gap-px bg-white/[0.05] rounded-xl overflow-hidden border border-white/[0.06]">
                       {project.stats.map((stat) => (
                         <div key={stat.label} className="flex flex-col items-center justify-center py-4 px-3 bg-[#0c100d]">
                           <span

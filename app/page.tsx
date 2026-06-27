@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <ImageStrip />
+        <Projects />
         <About />
         <Services />
-        <Projects />
         <Experience />
         <Certifications />
         <Contact />

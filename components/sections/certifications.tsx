@@ -51,7 +51,7 @@ export function Certifications() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="group relative rounded-2xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300 overflow-hidden">
+              <div className="group relative rounded-xl border border-white/[0.07] bg-zinc-900/40 p-5 md:p-6 hover:bg-zinc-900/60 hover:border-white/[0.11] transition-all duration-300 overflow-hidden">
 
                 {/* Matcha top accent */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#44624a]/60 to-transparent" />

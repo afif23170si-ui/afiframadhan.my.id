@@ -22,15 +22,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "linipos",
-    title: "LiniPOS",
-    logo: "/images/logo-linipos.webp",
+    id: "mahapos",
+    title: "MahaPOS",
+    logo: "/images/logo-mahapos.png",
     subtitle: "Modern Point of Sale for Retail & F&B",
     description: "A lightweight yet powerful POS system built for small to medium retail and F&B businesses. Features fast transaction processing, multi-payment support, shift management, and real-time sales reporting - all in a clean, intuitive interface.",
     image: "/images/project-linipos.webp",
     technologies: ["Laravel", "MySQL", "Bootstrap", "JavaScript"],
     features: ["Multi-payment Support", "Shift Management", "Sales Reporting", "Product Variants"],
-    liveUrl: "https://kasir.afiframadhan.my.id",
+    liveUrl: "https://mahapos.my.id",
     year: "2026",
     client: "Retail & F&B",
     date: "May 2026",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     image: "/images/project-masjid.webp",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL"],
     features: ["Donation Management", "Prayer Schedule", "Program Announcements", "Admin Dashboard"],
-    liveUrl: "https://nuruljannah.example.com",
+    liveUrl: "https://nuruljannah.web.id",
     year: "2026",
     client: "Masjid Nurul Jannah",
     date: "Mar 2026",

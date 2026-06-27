@@ -10,8 +10,8 @@ import { usePathname } from "next/navigation"
 
 const navItems = [
   { name: "Home",        href: "/" },
-  { name: "About",       href: "/#about" },
   { name: "Projects",    href: "/#projects" },
+  { name: "About",       href: "/#about" },
   { name: "Experience",  href: "/#experience" },
   { name: "Certifications",  href: "/#certifications" },
   { name: "Contact",     href: "/#contact" },
@@ -33,7 +33,7 @@ export function Navbar() {
   // Intersection Observer — track active section
   useEffect(() => {
     if (pathname !== "/") return
-    const sectionIds = ["about", "projects", "experience", "certifications", "contact"]
+    const sectionIds = ["projects", "about", "experience", "certifications", "contact"]
     const observers: IntersectionObserver[] = []
 
     sectionIds.forEach((id) => {
@@ -98,14 +98,14 @@ export function Navbar() {
                 {/* Logo */}
                 <Link
                   href="/"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.04] backdrop-blur-md hover:bg-white/[0.08] transition-colors"
+                  className="flex items-center gap-2.5 h-11 px-4 rounded-full border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] bg-white/5 backdrop-blur-2xl backdrop-saturate-200 hover:bg-white/10 transition-colors"
                 >
-                  <Image src="/android-chrome-192x192.png" alt="Afif" width={28} height={28} className="rounded-full" />
+                  <Image src="/android-chrome-192x192.png" alt="Afif" width={24} height={24} className="rounded-full" />
                   <span className="text-sm font-semibold tracking-tight text-white">Afif Ramadhan</span>
                 </Link>
 
                 {/* Center Nav — truly centered via absolute */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 rounded-full border border-white/[0.06] bg-white/[0.04] backdrop-blur-md">
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 h-11 rounded-full border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] bg-white/5 backdrop-blur-2xl backdrop-saturate-200">
                   {navItems.map((item) => (
                     <NavLink
                       key={item.name}
@@ -123,7 +123,7 @@ export function Navbar() {
                   <Button
                     asChild
                     size="sm"
-                    className="hidden md:inline-flex bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-5 h-9 font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25"
+                    className="hidden md:inline-flex bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-6 h-11 text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-[#44624a]/25"
                   >
                     <a href="https://wa.me/6285121597870" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
@@ -135,7 +135,7 @@ export function Navbar() {
 
                   <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden h-9 w-9 flex items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.04] text-zinc-400 hover:text-white transition-colors"
+                    className="md:hidden h-11 w-11 flex items-center justify-center rounded-full border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] bg-white/5 backdrop-blur-2xl backdrop-saturate-200 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
                     aria-label={isOpen ? "Close menu" : "Open menu"}
                   >
                     {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -148,16 +148,16 @@ export function Navbar() {
           /* ── Sticky Pill Navbar ── */
           <motion.nav
             key="pill"
-            className="fixed top-4 inset-x-4 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-full z-50 rounded-full bg-zinc-900/80 backdrop-blur-2xl border border-white/[0.1] shadow-2xl shadow-black/50"
+            className="fixed top-4 inset-x-4 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-full z-50 rounded-full bg-white/5 backdrop-blur-2xl backdrop-saturate-200 border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_32px_rgba(0,0,0,0.4)]"
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -80, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="flex items-center justify-between w-full gap-2 px-3 py-2">
+            <div className="flex items-center justify-between w-full gap-2 px-2 h-12">
               {/* Logo — short name to save space */}
-              <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-                <Image src="/android-chrome-192x192.png" alt="Afif" width={26} height={26} className="rounded-full" />
+              <Link href="/" className="flex items-center gap-2.5 px-3 h-9 flex-shrink-0">
+                <Image src="/android-chrome-192x192.png" alt="Afif" width={24} height={24} className="rounded-full" />
                 <span className="text-sm font-semibold text-white whitespace-nowrap">Afif</span>
               </Link>
 
@@ -165,7 +165,7 @@ export function Navbar() {
               <div className="hidden md:block w-px h-4 bg-white/10" />
 
               {/* Nav Links (Desktop) */}
-              <div className="hidden md:flex items-center gap-0.5">
+              <div className="hidden md:flex items-center gap-1">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.name}
@@ -182,7 +182,7 @@ export function Navbar() {
               <Button
                 asChild
                 size="sm"
-                className="hidden md:inline-flex ml-1 bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-4 h-8 text-sm font-medium transition-all duration-200"
+                className="hidden md:inline-flex ml-1 bg-[#44624a] hover:bg-[#8ba888] text-white rounded-full px-5 h-9 text-sm font-medium transition-all duration-200"
               >
                 <a href="https://wa.me/6285121597870" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
@@ -195,7 +195,7 @@ export function Navbar() {
               {/* Mobile toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden h-8 w-8 flex items-center justify-center rounded-full text-zinc-400 hover:text-white transition-colors"
+                className="md:hidden h-9 w-9 flex items-center justify-center rounded-full text-zinc-400 hover:text-white transition-colors"
                 aria-label={isOpen ? "Close menu" : "Open menu"}
               >
                 {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -332,14 +332,14 @@ function NavLink({
       href={item.href}
       onMouseEnter={() => setHoveredPath(item.href)}
       onMouseLeave={() => setHoveredPath(null)}
-      className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+      className={`relative flex items-center justify-center px-4 h-9 rounded-full text-sm font-medium transition-colors duration-200 ${
         isActive ? "text-white" : "text-zinc-400 hover:text-white"
       }`}
     >
       {showIndicator && (
         <motion.span
           layoutId={layoutId}
-          className="absolute inset-0 bg-zinc-800 rounded-full -z-10"
+          className="absolute inset-0 bg-white/10 rounded-full -z-10"
           transition={{ type: "spring", stiffness: 350, damping: 30 }}
         />
       )}

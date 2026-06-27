@@ -1,0 +1,157 @@
+{
+  "version": 3,
+  "exportedAt": "2026-06-10T01:11:07.333Z",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Minuman",
+      "color": "#FF6B35",
+      "icon": "🥤",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "storeId": 1,
+      "createdAt": "2026-06-10T01:08:36.041Z"
+    }
+  ],
+  "products": [
+    {
+      "name": "Aqua Botol 600 ml",
+      "sku": "WRM-AB-001",
+      "categoryId": 1,
+      "price": 4000,
+      "hpp": 2500,
+      "stock": 72,
+      "minStock": 24,
+      "unit": "botol",
+      "photo": "https://image.astronauts.cloud/product-images/2026/2/324_25d70935-4663-455a-9ccf-1560c9d0a327_900x900.jpg",
+      "description": null,
+      "unlimitedStock": false,
+      "barcode": null,
+      "sortOrder": 1,
+      "isActive": 1,
+      "createdAt": "2026-06-10T01:10:20.889Z",
+      "updatedAt": "2026-06-10T01:10:55.020Z",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "id": 1
+    }
+  ],
+  "variantGroups": [],
+  "variantOptions": [],
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "PT Jaya Makmur",
+      "phone": "081234567890",
+      "address": "Jl. Ombak",
+      "notes": "",
+      "createdAt": "2026-06-10T01:08:16.051Z",
+      "isDeleted": 0,
+      "deletedAt": null
+    }
+  ],
+  "stockIns": [
+    {
+      "productId": 1,
+      "supplierId": 1,
+      "quantity": 72,
+      "buyPrice": 2500,
+      "totalPrice": 180000,
+      "date": "2026-06-10T01:10:54.903Z",
+      "notes": "",
+      "id": 1
+    }
+  ],
+  "stockOuts": [],
+  "stockAdjustments": [],
+  "hppHistory": [
+    {
+      "productId": 1,
+      "oldHpp": 0,
+      "newHpp": 2500,
+      "source": "stock_in",
+      "date": "2026-06-10T01:10:54.940Z",
+      "id": 1
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": 1,
+      "name": "Kartu Debit",
+      "category": "debit",
+      "isDefault": false,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "Kartu Debit",
+      "icon": "credit-card",
+      "sortOrder": 4
+    },
+    {
+      "id": 2,
+      "name": "E-Wallet",
+      "category": "ewallet",
+      "isDefault": false,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "E-Wallet",
+      "icon": "wallet",
+      "sortOrder": 6
+    },
+    {
+      "id": 3,
+      "name": "Kartu Kredit",
+      "category": "kredit",
+      "isDefault": false,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "Kartu Kredit",
+      "icon": "credit-card",
+      "sortOrder": 5
+    },
+    {
+      "id": 4,
+      "name": "QRIS",
+      "category": "qris",
+      "isDefault": true,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "QRIS",
+      "icon": "smartphone",
+      "sortOrder": 3
+    },
+    {
+      "id": 5,
+      "name": "Transfer Bank",
+      "category": "transfer",
+      "isDefault": true,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "Transfer Bank",
+      "icon": "building",
+      "sortOrder": 2
+    },
+    {
+      "id": 6,
+      "name": "Tunai",
+      "category": "tunai",
+      "isDefault": true,
+      "createdAt": "2026-06-10T01:07:51.305Z",
+      "defaultName": "Tunai",
+      "icon": "banknote",
+      "sortOrder": 1
+    }
+  ],
+  "transactions": [],
+  "transactionItems": [],
+  "shifts": [],
+  "storeSettings": [
+    {
+      "storeName": "Warung MAN",
+      "address": "Jl. Ombak",
+      "phone": "081364485205",
+      "receiptFooter": "Terima kasih atas kunjungan Anda!",
+      "onboardingDone": true,
+      "lastBackupAt": null,
+      "deviceId": "161cf5d7-4f86-4cbe-a8b1-3b848d84b5a2",
+      "id": 1,
+      "serverStoreId": 1,
+      "themeColor": "79",
+      "logo": null
+    }
+  ]
+}

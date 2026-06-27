@@ -43,7 +43,7 @@ export function ImageStrip() {
         {strip.map((img, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-[340px] sm:w-[360px] md:w-[440px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/[0.07] bg-zinc-900"
+            className="relative flex-shrink-0 w-[340px] sm:w-[360px] md:w-[440px] aspect-[4/3] rounded-xl overflow-hidden border border-white/[0.07] bg-zinc-900"
           >
             <Image
               src={img.src}

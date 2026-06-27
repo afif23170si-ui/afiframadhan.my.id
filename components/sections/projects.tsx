@@ -44,12 +44,12 @@ function ProjectCard({
         style={{ cursor: "none" }}
       >
         <div
-          className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-900 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
+          className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 ring-1 ring-[#44624a]/30 group-hover:ring-[#8ba888]/60 transition-all duration-500"
           style={{ boxShadow: "0 0 0 1px rgba(68,98,74,0.2)" }}
         >
           {/* Hover glow ring */}
           <div
-            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
+            className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
             style={{ boxShadow: "inset 0 0 0 1px rgba(139,168,136,0.5), 0 0 24px 4px rgba(68,98,74,0.35)" }}
           />
 
@@ -77,10 +77,11 @@ function ProjectCard({
                 transition={{ duration: 0.18, ease: "easeOut" }}
               >
                 <div
-                  className="-translate-x-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 rounded-full text-white text-xs font-semibold whitespace-nowrap shadow-lg"
-                  style={{ backgroundColor: "#44624a" }}
+                  className="-translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-[90px] h-[90px] rounded-full text-white text-[10px] font-bold uppercase tracking-widest shadow-2xl backdrop-blur-sm leading-tight"
+                  style={{ backgroundColor: "rgba(68,98,74,0.9)" }}
                 >
-                  View Project
+                  <span>View</span>
+                  <span>Project</span>
                 </div>
               </motion.div>
             )}
