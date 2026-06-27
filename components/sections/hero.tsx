@@ -52,7 +52,7 @@ export function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                <span className="text-sm font-medium text-zinc-800">Available for freelance project</span>
+                <span className="text-sm font-medium text-zinc-800">Available for freelance pyroject</span>
               </div>
             </motion.div>
 
