@@ -8,6 +8,7 @@ export interface Project {
   image: string
   gallery?: string[]
   technologies: string[]
+  category: string
   features: string[]
   liveUrl?: string
   githubUrl?: string
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     description: "A lightweight yet powerful POS system built for small to medium retail and F&B businesses. Features fast transaction processing, multi-payment support, shift management, and real-time sales reporting - all in a clean, intuitive interface.",
     image: "/images/project/project-mahapos.avif",
     technologies: ["Laravel", "MySQL", "Bootstrap", "JavaScript"],
+    category: "App",
     features: ["Multi-payment Support", "Shift Management", "Sales Reporting", "Product Variants"],
     liveUrl: "https://mahapos.my.id",
     year: "2026",
@@ -48,6 +50,7 @@ export const projects: Project[] = [
     description: "A full-featured mosque management system covering donation tracking, prayer schedules, Islamic programs, and community announcements. Designed to digitize and modernize mosque administration for a better congregation experience.",
     image: "/images/project/project-nuruljannah.avif",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL"],
+    category: "Web Development",
     features: ["Donation Management", "Prayer Schedule", "Program Announcements", "Admin Dashboard"],
     liveUrl: "https://nuruljannah.web.id",
     year: "2026",
@@ -67,6 +70,7 @@ export const projects: Project[] = [
     description: "A comprehensive POS application designed for restaurants and cafes, featuring fast transaction processing, kitchen display integration, table management, and real-time inventory tracking.",
     image: "/images/project/project-kaspos.webp",
     technologies: ["Laravel", "React", "MySQL", "REST API"],
+    category: "App",
     features: ["Kitchen Display System", "Table Management", "Inventory Tracking", "Split Bill"],
     liveUrl: "https://tokoelektronikmurah.com/",
     githubUrl: "https://github.com/afif23170si-ui",
@@ -87,6 +91,7 @@ export const projects: Project[] = [
     description: "A comprehensive booking solution designed for Indonesian UMKM, streamlining appointment management and increasing operational efficiency by 150%. Built with automated scheduling and integrated payment gateway.",
     image: "/images/project/project-bookumkm.webp",
     technologies: ["Laravel", "React", "MySQL", "Midtrans"],
+    category: "Fullstack Development",
     features: ["Automated Scheduling", "Payment Gateway", "Merchant Dashboard", "Customer Notifications"],
     liveUrl: "https://kelompokfwd4-sibm3.karyakreasi.id/",
     githubUrl: "https://github.com/Hasan2302/react-bookumkm.git",
